@@ -8,9 +8,21 @@ package passagensaereas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -71,9 +83,38 @@ public class AppInicio extends javax.swing.JFrame {
         PainelConta = new javax.swing.JPanel();
         btnExit1 = new javax.swing.JPanel();
         jlblExit1 = new javax.swing.JLabel();
+        painelLogin = new javax.swing.JPanel();
+        pImagemLogin = new javax.swing.JPanel();
+        lblIconLogin = new javax.swing.JLabel();
+        lblImagemLogin = new javax.swing.JLabel();
+        pMenuConta = new javax.swing.JPanel();
+        pLogin = new javax.swing.JPanel();
+        lblSenha = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblLogin = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        txtSenha = new javax.swing.JPasswordField();
+        btnEntrarLogin = new javax.swing.JButton();
+        pMenu = new javax.swing.JPanel();
+        btnGeraPdf = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btn2via = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         PainelCheckIn = new javax.swing.JPanel();
         btnExit2 = new javax.swing.JPanel();
         jlblExit2 = new javax.swing.JLabel();
+        painelLogin1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jPasswordField3 = new javax.swing.JPasswordField();
+        jButton3 = new javax.swing.JButton();
         PainelVenderPassagem = new javax.swing.JPanel();
         btnExit3 = new javax.swing.JPanel();
         jlblExit3 = new javax.swing.JLabel();
@@ -287,6 +328,119 @@ public class AppInicio extends javax.swing.JFrame {
 
         PainelConta.add(btnExit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
 
+        painelLogin.setBackground(new java.awt.Color(0, 77, 128));
+        painelLogin.setLayout(new java.awt.GridLayout());
+
+        pImagemLogin.setBackground(new java.awt.Color(254, 254, 254));
+        pImagemLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconLogin.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/icons8-Usuário homem com círculo-100.png")); // NOI18N
+        pImagemLogin.add(lblIconLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+
+        lblImagemLogin.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/Load3.gif")); // NOI18N
+        lblImagemLogin.setText("jLabel5");
+        pImagemLogin.add(lblImagemLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -10, 650, -1));
+
+        painelLogin.add(pImagemLogin);
+
+        pMenuConta.setLayout(new java.awt.CardLayout());
+
+        pLogin.setBackground(new java.awt.Color(27, 62, 111));
+        pLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblSenha.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(254, 254, 254));
+        lblSenha.setText("SENHA");
+        pLogin.add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 30));
+
+        txtLogin.setBackground(new java.awt.Color(27, 62, 111));
+        txtLogin.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtLogin.setForeground(new java.awt.Color(254, 254, 254));
+        txtLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtLogin.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        pLogin.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 129, 290, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(254, 254, 254));
+        jSeparator1.setForeground(new java.awt.Color(254, 254, 254));
+        pLogin.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 10));
+
+        lblLogin.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(254, 254, 254));
+        lblLogin.setText("LOGIN");
+        pLogin.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 70, 30));
+
+        jSeparator2.setBackground(new java.awt.Color(254, 254, 254));
+        jSeparator2.setForeground(new java.awt.Color(254, 254, 254));
+        pLogin.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
+
+        txtSenha.setBackground(new java.awt.Color(27, 62, 111));
+        txtSenha.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(254, 254, 254));
+        txtSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
+        pLogin.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 30));
+
+        btnEntrarLogin.setText("ENTRAR");
+        btnEntrarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarLoginActionPerformed(evt);
+            }
+        });
+        pLogin.add(btnEntrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, -1));
+
+        pMenuConta.add(pLogin, "card3");
+
+        pMenu.setBackground(new java.awt.Color(254, 254, 254));
+        pMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnGeraPdf.setBackground(new java.awt.Color(27, 62, 111));
+        btnGeraPdf.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
+        btnGeraPdf.setForeground(new java.awt.Color(254, 254, 254));
+        btnGeraPdf.setText("Gerar 2 via");
+        btnGeraPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGeraPdfActionPerformed(evt);
+            }
+        });
+        pMenu.add(btnGeraPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, 50));
+
+        jLabel2.setFont(new java.awt.Font("Universalis ADF Std", 0, 30)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Bem vindo a sua conta,");
+        pMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 430, -1));
+
+        jLabel3.setFont(new java.awt.Font("Universalis ADF Std", 0, 30)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("jLabel3");
+        pMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 50, 430, -1));
+
+        btn2via.setBackground(new java.awt.Color(27, 62, 111));
+        btn2via.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
+        btn2via.setForeground(new java.awt.Color(254, 254, 254));
+        btn2via.setText("Vendas");
+        btn2via.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2viaActionPerformed(evt);
+            }
+        });
+        pMenu.add(btn2via, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 190, 50));
+
+        jButton1.setBackground(new java.awt.Color(27, 62, 111));
+        jButton1.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(254, 254, 254));
+        jButton1.setText("Sair");
+        pMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 70, -1));
+
+        pMenuConta.add(pMenu, "card3");
+
+        painelLogin.add(pMenuConta);
+
+        PainelConta.add(painelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
+
         PainelTelas.add(PainelConta, "card2");
 
         PainelCheckIn.setBackground(new java.awt.Color(0, 77, 128));
@@ -311,10 +465,58 @@ public class AppInicio extends javax.swing.JFrame {
         );
         btnExit2Layout.setVerticalGroup(
             btnExit2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlblExit2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         PainelCheckIn.add(btnExit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
+
+        painelLogin1.setBackground(new java.awt.Color(0, 77, 128));
+        painelLogin1.setLayout(new java.awt.GridLayout());
+
+        jPanel7.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painelLogin1.add(jPanel7);
+
+        jPanel8.setBackground(new java.awt.Color(27, 62, 111));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel12.setText("SENHA");
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 30));
+
+        jTextField3.setBackground(new java.awt.Color(27, 62, 111));
+        jTextField3.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(254, 254, 254));
+        jTextField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField3.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        jPanel8.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 129, 290, 30));
+
+        jSeparator5.setBackground(new java.awt.Color(254, 254, 254));
+        jSeparator5.setForeground(new java.awt.Color(254, 254, 254));
+        jPanel8.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 10));
+
+        jLabel13.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel13.setText("LOGIN");
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 70, 30));
+
+        jSeparator6.setBackground(new java.awt.Color(254, 254, 254));
+        jSeparator6.setForeground(new java.awt.Color(254, 254, 254));
+        jPanel8.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
+
+        jPasswordField3.setBackground(new java.awt.Color(27, 62, 111));
+        jPasswordField3.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jPasswordField3.setForeground(new java.awt.Color(254, 254, 254));
+        jPasswordField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel8.add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 30));
+
+        jButton3.setText("ENTRAR");
+        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, -1));
+
+        painelLogin1.add(jPanel8);
+
+        PainelCheckIn.add(painelLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
 
         PainelTelas.add(PainelCheckIn, "card2");
 
@@ -401,7 +603,7 @@ public class AppInicio extends javax.swing.JFrame {
         jlblEquipeAzul.setFont(new java.awt.Font("TeX Gyre DejaVu Math", 0, 48)); // NOI18N
         jlblEquipeAzul.setForeground(new java.awt.Color(254, 254, 254));
         jlblEquipeAzul.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/build/classes/UI_ICons/icons8-Chamada em conferência Filled-100.png")); // NOI18N
-        jlblEquipeAzul.setText("Equipe Orca");
+        jlblEquipeAzul.setText("Equipe ");
         PainelRepresentante.add(jlblEquipeAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 420, 90));
 
         lblArthur.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
@@ -550,6 +752,78 @@ public class AppInicio extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExit5MouseClicked
 
+    private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
+        if(txtLogin.getText().equals("Arthur") && txtSenha.getText().equals("123")) {
+            pLogin.setVisible(false);
+            lblIconLogin.setIcon(null);
+            pMenu.setVisible(true);
+        }
+        else if(txtLogin.getText().equals("Dani") && txtSenha.getText().equals("123")) {
+            pLogin.setVisible(false);
+            lblIconLogin.setIcon(null);
+            pMenu.setVisible(true);
+        }
+        else if(txtLogin.getText().equals("Thayza") && txtSenha.getText().equals("123")) {
+            pLogin.setVisible(false);
+            lblIconLogin.setIcon(null);
+            pMenu.setVisible(true);
+        }
+    }//GEN-LAST:event_btnEntrarLoginActionPerformed
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            btnEntrarLogin.doClick();
+    }//GEN-LAST:event_txtSenhaKeyPressed
+
+    private void btn2viaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2viaActionPerformed
+        // botao de gerar pdf
+        
+        Document vendas = new Document();
+        try {
+            PdfWriter.getInstance(vendas, new FileOutputStream("Vendas.pdf"));
+            vendas.open();
+            vendas.add(new Paragraph("Quantas vendas foram feitas no dia .. / .. / .... "));
+            
+        } catch (FileNotFoundException | DocumentException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            vendas.close();
+        }
+        
+        try {
+            Desktop.getDesktop().open(new File("Vendas.pdf"));
+        } catch (IOException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btn2viaActionPerformed
+
+    private void btnGeraPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeraPdfActionPerformed
+        // gerar segunda via com o nome do cliente
+        
+        Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
+            document.open();
+            document.add(new Paragraph("Segunda via do passageiro"));
+            
+        } catch (FileNotFoundException | DocumentException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            document.close();
+        }
+        
+        try {
+            Desktop.getDesktop().open(new File("2via.pdf"));
+        } catch (IOException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGeraPdfActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -606,18 +880,35 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel PainelVenderPassagem;
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel Titulo;
+    private javax.swing.JButton btn2via;
+    private javax.swing.JButton btnEntrarLogin;
     private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnExit1;
     private javax.swing.JPanel btnExit2;
     private javax.swing.JPanel btnExit3;
     private javax.swing.JPanel btnExit4;
     private javax.swing.JPanel btnExit5;
+    private javax.swing.JButton btnGeraPdf;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jIconCheckIn;
     private javax.swing.JLabel jIconNovidades;
     private javax.swing.JLabel jIconRepresentante;
     private javax.swing.JLabel jIconVender;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPasswordField jPasswordField3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel jSubtitulo;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jlblCheckIn;
     private javax.swing.JLabel jlblConta;
@@ -633,12 +924,24 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jlblVender;
     private javax.swing.JLabel lblArthur;
     private javax.swing.JLabel lblDanielli;
+    private javax.swing.JLabel lblIconLogin;
+    private javax.swing.JLabel lblImagemLogin;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblThayza;
     private javax.swing.JPanel pCheckIn;
     private javax.swing.JPanel pConta;
+    private javax.swing.JPanel pImagemLogin;
+    private javax.swing.JPanel pLogin;
+    private javax.swing.JPanel pMenu;
+    private javax.swing.JPanel pMenuConta;
     private javax.swing.JPanel pNovidade;
     private javax.swing.JPanel pRepresentante;
     private javax.swing.JPanel pVender;
+    private javax.swing.JPanel painelLogin;
+    private javax.swing.JPanel painelLogin1;
+    private javax.swing.JTextField txtLogin;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
     private void setColor(JPanel panel) {

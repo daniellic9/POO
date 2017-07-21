@@ -40,6 +40,5 @@ public class Voos {
 
     public int getDataChegada() {
         return dataChegada;
-    }
-    
+    }   
 }
