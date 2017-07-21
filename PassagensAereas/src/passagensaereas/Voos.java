@@ -9,7 +9,7 @@ public class Voos {
     public String getOrigem() {
         return origem;
     }
-
+    
     public String getDestino() {
         return destino;
     }

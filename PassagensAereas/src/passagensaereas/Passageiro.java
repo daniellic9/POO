@@ -1,20 +1,18 @@
 package passagensaereas;
 
-public class Passageiro {
-    private String nomeCliente;
-    private double cpf;
-    
+public class Passageiro extends Pessoa {
+        
     public Passageiro(String nome, double cpf) {
-        this.nomeCliente = nome;
+        this.nomePessoa = nomePessoa;
         this.cpf = cpf;
     }
 
     //get e set do nome do cliente
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getNomePessoa() {
+        return nomePessoa;
     }
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
     }
 
     //get e set número do cpf do cliente

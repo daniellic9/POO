@@ -30,13 +30,15 @@ public class NewClassmodle extends AbstractTableModel{
         return colunas.length;
     }
 
+    
     @Override
     public Object getValueAt(int linha, int coluna) {
+        String horario = vendas.get(linha).getHorarioSaida()+"-"+vendas.get(linha).getHorarioChegada();
         switch(coluna){
             case 0:
-                return vendas.get(linha).getVoo();
+                return vendas.get(linha).getIdVoo();
             case 1:
-                return vendas.get(linha).getHorario();
+                return horario;
             case 2:
                 return vendas.get(linha).getOrigem();
             case 3:
