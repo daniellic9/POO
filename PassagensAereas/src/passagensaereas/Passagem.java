@@ -68,6 +68,13 @@ public class Passagem extends InformacoesViagem {
     public void setHorarioChegada(int horarioChegada) {
         this.horarioChegada=horarioChegada;
     }
+      public String getData() {
+        return this.data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
    
     
 }

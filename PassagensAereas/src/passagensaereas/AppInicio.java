@@ -24,9 +24,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.table.TableModel;
 
 
 /**
@@ -121,6 +123,8 @@ public class AppInicio extends javax.swing.JFrame {
         jSepDestino = new javax.swing.JSeparator();
         jFormattedData = new javax.swing.JFormattedTextField();
         pCompradePassagem = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         PainelCheckIn = new javax.swing.JPanel();
         btnExit2 = new javax.swing.JPanel();
         jlblExit2 = new javax.swing.JLabel();
@@ -499,6 +503,11 @@ public class AppInicio extends javax.swing.JFrame {
         txtOrigem.setForeground(new java.awt.Color(254, 254, 254));
         txtOrigem.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtOrigem.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        txtOrigem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOrigemActionPerformed(evt);
+            }
+        });
         pSelecaoPassagem.add(txtOrigem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 290, 30));
 
         lblOrigem.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
@@ -559,6 +568,22 @@ public class AppInicio extends javax.swing.JFrame {
 
         pCompradePassagem.setBackground(new java.awt.Color(27, 62, 111));
         pCompradePassagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        pCompradePassagem.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 330, 400));
+
         pVenderPassagemDir.add(pCompradePassagem, "card3");
 
         painelVenderPassagem.add(pVenderPassagemDir);
@@ -1054,13 +1079,12 @@ public class AppInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGerar2ViaMousePressed
 
     private void btnverVendasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnverVendasMousePressed
-        
+
         Document vendas = new Document();
         try {
             PdfWriter.getInstance(vendas, new FileOutputStream("Vendas.pdf"));
             vendas.open();
             vendas.add(new Paragraph("Quantas vendas foram feitas no dia .. / .. / .... "));
-            
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
             //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
@@ -1083,9 +1107,15 @@ public class AppInicio extends javax.swing.JFrame {
         txtLogin.setText("");
         txtSenha.setText("");
     }//GEN-LAST:event_btnSaiMousePressed
-
+TabelaHorarios tab= new TabelaHorarios();
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        pCompradePassagem.setVisible(true);
+        pSelecaoPassagem.setVisible(false);
+        Passagem p = new Passagem();
+        p.setOrigem(txtOrigem.getText());
+        tab.addRow(p);
+        jTable1.setModel(tab);
+        
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExit4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit4MouseClicked
@@ -1115,6 +1145,10 @@ public class AppInicio extends javax.swing.JFrame {
     private void btnGerar2ViaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerar2ViaMouseExited
         resetColor(btnGerar2Via);
     }//GEN-LAST:event_btnGerar2ViaMouseExited
+
+    private void txtOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigemActionPerformed
+
+    }//GEN-LAST:event_txtOrigemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1197,6 +1231,7 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSepData;
     private javax.swing.JSeparator jSepDestino;
     private javax.swing.JSeparator jSepIdDoVoo;
@@ -1204,6 +1239,7 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jSubtitulo;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jlblCheckIn;
     private javax.swing.JLabel jlblConta;

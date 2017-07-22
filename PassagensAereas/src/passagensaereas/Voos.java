@@ -18,17 +18,17 @@ public class Voos extends InformacoesViagem{
         this.numAviao = numAviao;
     }
 
-    public int getData() {
-        return data;
+    public String getData() {
+        return this.data;
     }
 
-    public void setData(int data) {
+    public void setData(String data) {
         this.data = data;
     }
    
     private Poltronas poltronas[][] = new Poltronas[4][10];
     
-    private int numAviao, data;
+    private int numAviao;
 
     @Override
     public String getOrigem() {
