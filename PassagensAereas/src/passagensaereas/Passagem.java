@@ -1,35 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package passagensaereas;
 
-public class Voos extends InformacoesViagem{
+/**
+ *
+ * @author arthur
+ */
+public class Passagem extends InformacoesViagem {
+    private float valor;
+     private String idVoo;
 
-    public Poltronas[][] getPoltronas() {
-        return poltronas;
+    public float getValor() {
+        return valor;
     }
 
-    public void setPoltronas(Poltronas[][] poltronas) {
-        this.poltronas = poltronas;
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 
-    public int getNumAviao() {
-        return numAviao;
+    public String getIdVoo() {
+        return idVoo;
     }
 
-    public void setNumAviao(int numAviao) {
-        this.numAviao = numAviao;
+    public void setIdVoo(String idVoo) {
+        this.idVoo = idVoo;
     }
-
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
-   
-    private Poltronas poltronas[][] = new Poltronas[4][10];
     
-    private int numAviao, data;
-
     @Override
     public String getOrigem() {
         return this.origem;
@@ -69,6 +68,6 @@ public class Voos extends InformacoesViagem{
     public void setHorarioChegada(int horarioChegada) {
         this.horarioChegada=horarioChegada;
     }
-
    
+    
 }

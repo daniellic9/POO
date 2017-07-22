@@ -13,7 +13,7 @@ import javax.swing.table.AbstractTableModel;
  * @author danie
  */
 public class TabelaVendas extends AbstractTableModel{
-    private ArrayList<Voos> vendas=new <Voos>ArrayList();
+    private ArrayList<Passagem> vendas=new <Passagem>ArrayList();
     
     private String [] colunas={"Voo","Horário","Origem","Destino"};
 
@@ -49,7 +49,7 @@ public class TabelaVendas extends AbstractTableModel{
         }
     }
 
-    public ArrayList<Voos> getVendas() {
+    public ArrayList<Passagem> getVendas() {
         return vendas;
     }
 

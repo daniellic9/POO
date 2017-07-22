@@ -6,35 +6,43 @@
 package passagensaereas;
 
 import java.util.ArrayList;
-import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author arthur
  */
-public class TabelaHorarios extends AbstractTableModel{
-    private ArrayList<Voos> voosDisponiveis=new <Voos>ArrayList();
+public class TabelaHorarios {
+    private ArrayList<Passagem> voosDisponiveis=new <Passagem>ArrayList();
     
-    private String [] colunas={"Horário","Origem","Destino","Valor","Poltronas Disponiveis"};
+    private String [] colunas={"Horário","Origem","Destino","Valor"};
 
-    @Override
+    //@Override
     public String getColumnName(int column){
         return colunas[column];
     }
-    @Override
+    //@Override
     public int getRowCount() {
         return voosDisponiveis.size();
     }
 
-    @Override
+    //@Override
     public int getColumnCount() {
         return colunas.length;
     }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //@Override
+    public Object getValueAt(int linha, int coluna) {
+        String horario = voosDisponiveis.get(linha).getHorarioSaida()+"-"+voosDisponiveis.get(linha).getHorarioChegada();
+        switch(coluna){
+            case 0:
+                return horario;
+            case 1:
+                return voosDisponiveis.get(linha).getOrigem();
+            case 2:
+                return voosDisponiveis.get(linha).getDestino();
+            case 3:
+                return voosDisponiveis.get(linha).getValor();
+            default:
+                return null;
+        }
     }
-
-    
 }
