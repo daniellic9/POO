@@ -5,6 +5,7 @@
  */
 package passagensaereas;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -23,6 +24,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 
 /**
  *
@@ -36,6 +39,7 @@ public class AppInicio extends javax.swing.JFrame {
     public AppInicio() {
 
         initComponents();
+        setIconImage(new ImageIcon("Icons/Whale.png").getImage());
         
 //        Toolkit tool = Toolkit.getDefaultToolkit();
 //        Dimension dim = new Dimension(tool.getScreenSize());
@@ -80,14 +84,59 @@ public class AppInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnExit = new javax.swing.JPanel();
         jlblExit = new javax.swing.JLabel();
+        PainelRepresentante = new javax.swing.JPanel();
+        btnExit5 = new javax.swing.JPanel();
+        jlblExit5 = new javax.swing.JLabel();
+        jlblEquipeAzul = new javax.swing.JLabel();
+        lblArthur = new javax.swing.JLabel();
+        lblDanielli = new javax.swing.JLabel();
+        lblThayza = new javax.swing.JLabel();
+        PainelNovidades = new javax.swing.JPanel();
+        btnExit4 = new javax.swing.JPanel();
+        jlblExit4 = new javax.swing.JLabel();
+        painelNovidades = new javax.swing.JPanel();
+        pNovidadesEsq = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        pNovidadesDir = new javax.swing.JPanel();
+        lblNovidades = new javax.swing.JLabel();
+        PainelVenderPassagem = new javax.swing.JPanel();
+        btnExit3 = new javax.swing.JPanel();
+        jlblExit3 = new javax.swing.JLabel();
+        painelVenderPassagem = new javax.swing.JPanel();
+        pVenderPassagemEsq = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        pVenderPassagemDir = new javax.swing.JPanel();
+        pSelecaoPassagem = new javax.swing.JPanel();
+        txtOrigem = new javax.swing.JTextField();
+        lblOrigem = new javax.swing.JLabel();
+        jSepOrigem = new javax.swing.JSeparator();
+        btnPesquisar = new javax.swing.JButton();
+        lblData = new javax.swing.JLabel();
+        jSepData = new javax.swing.JSeparator();
+        txtDestino = new javax.swing.JTextField();
+        lblDestino = new javax.swing.JLabel();
+        jSepDestino = new javax.swing.JSeparator();
+        jFormattedData = new javax.swing.JFormattedTextField();
+        PainelCheckIn = new javax.swing.JPanel();
+        btnExit2 = new javax.swing.JPanel();
+        jlblExit2 = new javax.swing.JLabel();
+        painelCheckIn = new javax.swing.JPanel();
+        pCheckInEsq = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        pCheckInDir = new javax.swing.JPanel();
+        txtIDVoo = new javax.swing.JTextField();
+        lblIdDoVoo = new javax.swing.JLabel();
+        jSepIdDoVoo = new javax.swing.JSeparator();
+        btnCarregar = new javax.swing.JButton();
         PainelConta = new javax.swing.JPanel();
         btnExit1 = new javax.swing.JPanel();
         jlblExit1 = new javax.swing.JLabel();
-        painelLogin = new javax.swing.JPanel();
-        pImagemLogin = new javax.swing.JPanel();
+        painelConta = new javax.swing.JPanel();
+        pContaEsq = new javax.swing.JPanel();
         lblIconLogin = new javax.swing.JLabel();
         lblImagemLogin = new javax.swing.JLabel();
-        pMenuConta = new javax.swing.JPanel();
+        pContaDir = new javax.swing.JPanel();
         pLogin = new javax.swing.JPanel();
         lblSenha = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
@@ -98,36 +147,19 @@ public class AppInicio extends javax.swing.JFrame {
         btnEntrarLogin = new javax.swing.JButton();
         pMenu = new javax.swing.JPanel();
         btnGeraPdf = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblBemvindo = new javax.swing.JLabel();
+        lblNomeUsuario = new javax.swing.JLabel();
         btn2via = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        PainelCheckIn = new javax.swing.JPanel();
-        btnExit2 = new javax.swing.JPanel();
-        jlblExit2 = new javax.swing.JLabel();
-        painelLogin1 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel13 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jButton3 = new javax.swing.JButton();
-        PainelVenderPassagem = new javax.swing.JPanel();
-        btnExit3 = new javax.swing.JPanel();
-        jlblExit3 = new javax.swing.JLabel();
-        PainelNovidades = new javax.swing.JPanel();
-        btnExit4 = new javax.swing.JPanel();
-        jlblExit4 = new javax.swing.JLabel();
-        PainelRepresentante = new javax.swing.JPanel();
-        btnExit5 = new javax.swing.JPanel();
-        jlblExit5 = new javax.swing.JLabel();
-        jlblEquipeAzul = new javax.swing.JLabel();
-        lblArthur = new javax.swing.JLabel();
-        lblDanielli = new javax.swing.JLabel();
-        lblThayza = new javax.swing.JLabel();
+        btnSair = new javax.swing.JButton();
+        btnverVendas = new javax.swing.JPanel();
+        iconeVendas = new javax.swing.JLabel();
+        nomevendas = new javax.swing.JLabel();
+        btnSai = new javax.swing.JPanel();
+        nomesai = new javax.swing.JLabel();
+        iconesai = new javax.swing.JLabel();
+        btnGerar2Via = new javax.swing.JPanel();
+        nomeGerar = new javax.swing.JLabel();
+        iconeGerar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -158,7 +190,7 @@ public class AppInicio extends javax.swing.JFrame {
 
         jTitulo.setFont(new java.awt.Font("Universalis ADF Std", 1, 52)); // NOI18N
         jTitulo.setForeground(new java.awt.Color(255, 250, 250));
-        jTitulo.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/build/classes/UI_ICons/icons8-Baleia Filled-100.png")); // NOI18N
+        jTitulo.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/LogoBaleia.png")); // NOI18N
         jTitulo.setText("Orca");
         Titulo.add(jTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 90));
 
@@ -301,6 +333,311 @@ public class AppInicio extends javax.swing.JFrame {
 
         PainelTelas.add(PainelBoasVindas, "card7");
 
+        PainelRepresentante.setBackground(new java.awt.Color(0, 77, 128));
+        PainelRepresentante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnExit5.setBackground(PainelBoasVindas.getBackground());
+        btnExit5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExit5MouseClicked(evt);
+            }
+        });
+
+        jlblExit5.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jlblExit5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlblExit5.setText("X");
+
+        javax.swing.GroupLayout btnExit5Layout = new javax.swing.GroupLayout(btnExit5);
+        btnExit5.setLayout(btnExit5Layout);
+        btnExit5Layout.setHorizontalGroup(
+            btnExit5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit5, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+        btnExit5Layout.setVerticalGroup(
+            btnExit5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        PainelRepresentante.add(btnExit5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
+
+        jlblEquipeAzul.setFont(new java.awt.Font("TeX Gyre DejaVu Math", 0, 48)); // NOI18N
+        jlblEquipeAzul.setForeground(new java.awt.Color(254, 254, 254));
+        jlblEquipeAzul.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/build/classes/UI_ICons/icons8-Chamada em conferência Filled-100.png")); // NOI18N
+        jlblEquipeAzul.setText("Equipe ");
+        PainelRepresentante.add(jlblEquipeAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 420, 90));
+
+        lblArthur.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
+        lblArthur.setForeground(new java.awt.Color(254, 254, 254));
+        lblArthur.setText("Arthur Costa de Novais");
+        PainelRepresentante.add(lblArthur, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        lblDanielli.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
+        lblDanielli.setForeground(new java.awt.Color(254, 254, 254));
+        lblDanielli.setText("Danielli dos Reis Costa");
+        PainelRepresentante.add(lblDanielli, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        lblThayza.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
+        lblThayza.setForeground(new java.awt.Color(254, 254, 254));
+        lblThayza.setText("Thayza Sacconi Guarnier");
+        PainelRepresentante.add(lblThayza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        PainelTelas.add(PainelRepresentante, "card2");
+
+        PainelNovidades.setBackground(new java.awt.Color(0, 77, 128));
+        PainelNovidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnExit4.setBackground(PainelBoasVindas.getBackground());
+        btnExit4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExit4MouseClicked(evt);
+            }
+        });
+
+        jlblExit4.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jlblExit4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlblExit4.setText("X");
+
+        javax.swing.GroupLayout btnExit4Layout = new javax.swing.GroupLayout(btnExit4);
+        btnExit4.setLayout(btnExit4Layout);
+        btnExit4Layout.setHorizontalGroup(
+            btnExit4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        btnExit4Layout.setVerticalGroup(
+            btnExit4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        PainelNovidades.add(btnExit4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
+
+        painelNovidades.setBackground(new java.awt.Color(0, 77, 128));
+        painelNovidades.setLayout(new java.awt.GridLayout());
+
+        pNovidadesEsq.setBackground(new java.awt.Color(24, 116, 210));
+        pNovidadesEsq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/Load5.gif")); // NOI18N
+        pNovidadesEsq.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 410, 530));
+
+        painelNovidades.add(pNovidadesEsq);
+
+        pNovidadesDir.setBackground(new java.awt.Color(27, 62, 111));
+        pNovidadesDir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNovidades.setFont(new java.awt.Font("Noto Sans", 1, 34)); // NOI18N
+        lblNovidades.setForeground(new java.awt.Color(254, 254, 254));
+        lblNovidades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNovidades.setText("NOVIDADES EM BREVE!!");
+        pNovidadesDir.add(lblNovidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 530));
+
+        painelNovidades.add(pNovidadesDir);
+
+        PainelNovidades.add(painelNovidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
+
+        PainelTelas.add(PainelNovidades, "card2");
+
+        PainelVenderPassagem.setBackground(new java.awt.Color(0, 77, 128));
+        PainelVenderPassagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnExit3.setBackground(PainelBoasVindas.getBackground());
+        btnExit3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExit3MouseClicked(evt);
+            }
+        });
+
+        jlblExit3.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jlblExit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlblExit3.setText("X");
+
+        javax.swing.GroupLayout btnExit3Layout = new javax.swing.GroupLayout(btnExit3);
+        btnExit3.setLayout(btnExit3Layout);
+        btnExit3Layout.setHorizontalGroup(
+            btnExit3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        btnExit3Layout.setVerticalGroup(
+            btnExit3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        PainelVenderPassagem.add(btnExit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
+
+        painelVenderPassagem.setBackground(new java.awt.Color(0, 77, 128));
+        painelVenderPassagem.setLayout(new java.awt.GridLayout());
+
+        jPanel9.setBackground(new java.awt.Color(24, 116, 210));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/Load2.gif")); // NOI18N
+        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 330, 280));
+
+        javax.swing.GroupLayout pVenderPassagemEsqLayout = new javax.swing.GroupLayout(pVenderPassagemEsq);
+        pVenderPassagemEsq.setLayout(pVenderPassagemEsqLayout);
+        pVenderPassagemEsqLayout.setHorizontalGroup(
+            pVenderPassagemEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pVenderPassagemEsqLayout.setVerticalGroup(
+            pVenderPassagemEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pVenderPassagemEsqLayout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        painelVenderPassagem.add(pVenderPassagemEsq);
+
+        pSelecaoPassagem.setBackground(new java.awt.Color(27, 62, 111));
+        pSelecaoPassagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtOrigem.setBackground(new java.awt.Color(27, 62, 111));
+        txtOrigem.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtOrigem.setForeground(new java.awt.Color(254, 254, 254));
+        txtOrigem.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtOrigem.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        pSelecaoPassagem.add(txtOrigem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 290, 30));
+
+        lblOrigem.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblOrigem.setForeground(new java.awt.Color(254, 254, 254));
+        lblOrigem.setText("ORIGEM");
+        pSelecaoPassagem.add(lblOrigem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 100, 30));
+
+        jSepOrigem.setBackground(new java.awt.Color(254, 254, 254));
+        jSepOrigem.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPassagem.add(jSepOrigem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 290, 10));
+
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        pSelecaoPassagem.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 110, -1));
+
+        lblData.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblData.setForeground(new java.awt.Color(254, 254, 254));
+        lblData.setText("DATA");
+        pSelecaoPassagem.add(lblData, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, 30));
+
+        jSepData.setBackground(new java.awt.Color(254, 254, 254));
+        jSepData.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPassagem.add(jSepData, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 130, 10));
+
+        txtDestino.setBackground(new java.awt.Color(27, 62, 111));
+        txtDestino.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtDestino.setForeground(new java.awt.Color(254, 254, 254));
+        txtDestino.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtDestino.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        pSelecaoPassagem.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, 30));
+
+        lblDestino.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblDestino.setForeground(new java.awt.Color(254, 254, 254));
+        lblDestino.setText("DESTINO");
+        pSelecaoPassagem.add(lblDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 100, 30));
+
+        jSepDestino.setBackground(new java.awt.Color(254, 254, 254));
+        jSepDestino.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPassagem.add(jSepDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 290, 10));
+
+        jFormattedData.setBackground(new java.awt.Color(27, 62, 111));
+        jFormattedData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jFormattedData.setForeground(new java.awt.Color(254, 254, 254));
+        try {
+            jFormattedData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedData.setText("  /        /    ");
+        pSelecaoPassagem.add(jFormattedData, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 130, 30));
+
+        javax.swing.GroupLayout pVenderPassagemDirLayout = new javax.swing.GroupLayout(pVenderPassagemDir);
+        pVenderPassagemDir.setLayout(pVenderPassagemDirLayout);
+        pVenderPassagemDirLayout.setHorizontalGroup(
+            pVenderPassagemDirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pSelecaoPassagem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+        );
+        pVenderPassagemDirLayout.setVerticalGroup(
+            pVenderPassagemDirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pVenderPassagemDirLayout.createSequentialGroup()
+                .addComponent(pSelecaoPassagem, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        painelVenderPassagem.add(pVenderPassagemDir);
+
+        PainelVenderPassagem.add(painelVenderPassagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
+
+        PainelTelas.add(PainelVenderPassagem, "card2");
+
+        PainelCheckIn.setBackground(new java.awt.Color(0, 77, 128));
+        PainelCheckIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnExit2.setBackground(PainelBoasVindas.getBackground());
+        btnExit2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExit2MouseClicked(evt);
+            }
+        });
+
+        jlblExit2.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jlblExit2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlblExit2.setText("X");
+
+        javax.swing.GroupLayout btnExit2Layout = new javax.swing.GroupLayout(btnExit2);
+        btnExit2.setLayout(btnExit2Layout);
+        btnExit2Layout.setHorizontalGroup(
+            btnExit2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        btnExit2Layout.setVerticalGroup(
+            btnExit2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblExit2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        PainelCheckIn.add(btnExit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
+
+        painelCheckIn.setBackground(new java.awt.Color(0, 77, 128));
+        painelCheckIn.setLayout(new java.awt.GridLayout(1, 0));
+
+        pCheckInEsq.setBackground(new java.awt.Color(254, 254, 254));
+        pCheckInEsq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/Load4.gif")); // NOI18N
+        pCheckInEsq.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-230, -40, -1, -1));
+
+        painelCheckIn.add(pCheckInEsq);
+
+        pCheckInDir.setBackground(new java.awt.Color(27, 62, 111));
+        pCheckInDir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtIDVoo.setBackground(new java.awt.Color(27, 62, 111));
+        txtIDVoo.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtIDVoo.setForeground(new java.awt.Color(254, 254, 254));
+        txtIDVoo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtIDVoo.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        pCheckInDir.add(txtIDVoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 129, 290, 30));
+
+        lblIdDoVoo.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblIdDoVoo.setForeground(new java.awt.Color(254, 254, 254));
+        lblIdDoVoo.setText("ID DO VOO");
+        pCheckInDir.add(lblIdDoVoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 30));
+
+        jSepIdDoVoo.setBackground(new java.awt.Color(254, 254, 254));
+        jSepIdDoVoo.setForeground(new java.awt.Color(254, 254, 254));
+        pCheckInDir.add(jSepIdDoVoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
+
+        btnCarregar.setText("Carregar");
+        pCheckInDir.add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 80, -1));
+
+        painelCheckIn.add(pCheckInDir);
+
+        PainelCheckIn.add(painelCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
+
+        PainelTelas.add(PainelCheckIn, "card2");
+
         PainelConta.setBackground(new java.awt.Color(0, 77, 128));
         PainelConta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -328,22 +665,22 @@ public class AppInicio extends javax.swing.JFrame {
 
         PainelConta.add(btnExit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
 
-        painelLogin.setBackground(new java.awt.Color(0, 77, 128));
-        painelLogin.setLayout(new java.awt.GridLayout());
+        painelConta.setBackground(new java.awt.Color(0, 77, 128));
+        painelConta.setLayout(new java.awt.GridLayout(1, 0));
 
-        pImagemLogin.setBackground(new java.awt.Color(254, 254, 254));
-        pImagemLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pContaEsq.setBackground(new java.awt.Color(254, 254, 254));
+        pContaEsq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconLogin.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/icons8-Usuário homem com círculo-100.png")); // NOI18N
-        pImagemLogin.add(lblIconLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+        pContaEsq.add(lblIconLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
 
         lblImagemLogin.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/Load3.gif")); // NOI18N
         lblImagemLogin.setText("jLabel5");
-        pImagemLogin.add(lblImagemLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -10, 650, -1));
+        pContaEsq.add(lblImagemLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -10, 650, -1));
 
-        painelLogin.add(pImagemLogin);
+        painelConta.add(pContaEsq);
 
-        pMenuConta.setLayout(new java.awt.CardLayout());
+        pContaDir.setLayout(new java.awt.CardLayout());
 
         pLogin.setBackground(new java.awt.Color(27, 62, 111));
         pLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -392,236 +729,166 @@ public class AppInicio extends javax.swing.JFrame {
         });
         pLogin.add(btnEntrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, -1));
 
-        pMenuConta.add(pLogin, "card3");
+        pContaDir.add(pLogin, "card3");
 
         pMenu.setBackground(new java.awt.Color(254, 254, 254));
         pMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGeraPdf.setBackground(new java.awt.Color(27, 62, 111));
         btnGeraPdf.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
-        btnGeraPdf.setForeground(new java.awt.Color(254, 254, 254));
+        btnGeraPdf.setForeground(new java.awt.Color(236, 236, 236));
         btnGeraPdf.setText("Gerar 2 via");
         btnGeraPdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGeraPdfActionPerformed(evt);
             }
         });
-        pMenu.add(btnGeraPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, 50));
+        pMenu.add(btnGeraPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 190, 50));
 
-        jLabel2.setFont(new java.awt.Font("Universalis ADF Std", 0, 30)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Bem vindo a sua conta,");
-        pMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 430, -1));
+        lblBemvindo.setFont(new java.awt.Font("Universalis ADF Std", 0, 30)); // NOI18N
+        lblBemvindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBemvindo.setText("Bem vindo a sua conta,");
+        pMenu.add(lblBemvindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 430, -1));
 
-        jLabel3.setFont(new java.awt.Font("Universalis ADF Std", 0, 30)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("jLabel3");
-        pMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 50, 430, -1));
+        lblNomeUsuario.setFont(new java.awt.Font("Universalis ADF Std", 0, 30)); // NOI18N
+        lblNomeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pMenu.add(lblNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 430, 50));
 
         btn2via.setBackground(new java.awt.Color(27, 62, 111));
         btn2via.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
-        btn2via.setForeground(new java.awt.Color(254, 254, 254));
+        btn2via.setForeground(new java.awt.Color(236, 236, 236));
         btn2via.setText("Vendas");
         btn2via.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2viaActionPerformed(evt);
             }
         });
-        pMenu.add(btn2via, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 190, 50));
+        pMenu.add(btn2via, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 190, 50));
 
-        jButton1.setBackground(new java.awt.Color(27, 62, 111));
-        jButton1.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setText("Sair");
-        pMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 70, -1));
+        btnSair.setBackground(new java.awt.Color(27, 62, 111));
+        btnSair.setFont(new java.awt.Font("Universalis ADF Std", 0, 14)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(236, 236, 236));
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        pMenu.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 70, -1));
 
-        pMenuConta.add(pMenu, "card3");
+        btnverVendas.setBackground(new java.awt.Color(0, 140, 220));
+        btnverVendas.setBorder(null);
+        btnverVendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnverVendasMousePressed(evt);
+            }
+        });
 
-        painelLogin.add(pMenuConta);
+        iconeVendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconeVendas.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/icons8-Caixa registradora antiga-64.png")); // NOI18N
 
-        PainelConta.add(painelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
+        nomevendas.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        nomevendas.setForeground(new java.awt.Color(254, 254, 254));
+        nomevendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomevendas.setText("Vendas");
+
+        javax.swing.GroupLayout btnverVendasLayout = new javax.swing.GroupLayout(btnverVendas);
+        btnverVendas.setLayout(btnverVendasLayout);
+        btnverVendasLayout.setHorizontalGroup(
+            btnverVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(nomevendas, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(iconeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        btnverVendasLayout.setVerticalGroup(
+            btnverVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnverVendasLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(nomevendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(iconeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pMenu.add(btnverVendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 110, 110));
+
+        btnSai.setBackground(new java.awt.Color(0, 140, 220));
+        btnSai.setBorder(null);
+        btnSai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSaiMousePressed(evt);
+            }
+        });
+
+        nomesai.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        nomesai.setForeground(new java.awt.Color(254, 254, 254));
+        nomesai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomesai.setText("Sair");
+
+        iconesai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconesai.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/icons8-Sair-64.png")); // NOI18N
+
+        javax.swing.GroupLayout btnSaiLayout = new javax.swing.GroupLayout(btnSai);
+        btnSai.setLayout(btnSaiLayout);
+        btnSaiLayout.setHorizontalGroup(
+            btnSaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(nomesai, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(iconesai, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        btnSaiLayout.setVerticalGroup(
+            btnSaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSaiLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(nomesai, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(iconesai, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pMenu.add(btnSai, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 110, 110));
+
+        btnGerar2Via.setBackground(new java.awt.Color(0, 140, 220));
+        btnGerar2Via.setBorder(null);
+        btnGerar2Via.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGerar2ViaMousePressed(evt);
+            }
+        });
+
+        nomeGerar.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        nomeGerar.setForeground(new java.awt.Color(254, 254, 254));
+        nomeGerar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomeGerar.setText("Gerar 2 via");
+
+        iconeGerar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconeGerar.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/src/UI_ICons/icons8-PDF 2-64.png")); // NOI18N
+
+        javax.swing.GroupLayout btnGerar2ViaLayout = new javax.swing.GroupLayout(btnGerar2Via);
+        btnGerar2Via.setLayout(btnGerar2ViaLayout);
+        btnGerar2ViaLayout.setHorizontalGroup(
+            btnGerar2ViaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnGerar2ViaLayout.createSequentialGroup()
+                .addGroup(btnGerar2ViaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomeGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconeGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+        btnGerar2ViaLayout.setVerticalGroup(
+            btnGerar2ViaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnGerar2ViaLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(nomeGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(iconeGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(400, 400, 400))
+        );
+
+        pMenu.add(btnGerar2Via, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 110));
+
+        pContaDir.add(pMenu, "card3");
+
+        painelConta.add(pContaDir);
+
+        PainelConta.add(painelConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
 
         PainelTelas.add(PainelConta, "card2");
-
-        PainelCheckIn.setBackground(new java.awt.Color(0, 77, 128));
-        PainelCheckIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnExit2.setBackground(PainelBoasVindas.getBackground());
-        btnExit2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnExit2MouseClicked(evt);
-            }
-        });
-
-        jlblExit2.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jlblExit2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlblExit2.setText("X");
-
-        javax.swing.GroupLayout btnExit2Layout = new javax.swing.GroupLayout(btnExit2);
-        btnExit2.setLayout(btnExit2Layout);
-        btnExit2Layout.setHorizontalGroup(
-            btnExit2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        btnExit2Layout.setVerticalGroup(
-            btnExit2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        PainelCheckIn.add(btnExit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
-
-        painelLogin1.setBackground(new java.awt.Color(0, 77, 128));
-        painelLogin1.setLayout(new java.awt.GridLayout());
-
-        jPanel7.setBackground(new java.awt.Color(254, 254, 254));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        painelLogin1.add(jPanel7);
-
-        jPanel8.setBackground(new java.awt.Color(27, 62, 111));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel12.setText("SENHA");
-        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 30));
-
-        jTextField3.setBackground(new java.awt.Color(27, 62, 111));
-        jTextField3.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(254, 254, 254));
-        jTextField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField3.setSelectedTextColor(new java.awt.Color(254, 254, 254));
-        jPanel8.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 129, 290, 30));
-
-        jSeparator5.setBackground(new java.awt.Color(254, 254, 254));
-        jSeparator5.setForeground(new java.awt.Color(254, 254, 254));
-        jPanel8.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 10));
-
-        jLabel13.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel13.setText("LOGIN");
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 70, 30));
-
-        jSeparator6.setBackground(new java.awt.Color(254, 254, 254));
-        jSeparator6.setForeground(new java.awt.Color(254, 254, 254));
-        jPanel8.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
-
-        jPasswordField3.setBackground(new java.awt.Color(27, 62, 111));
-        jPasswordField3.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jPasswordField3.setForeground(new java.awt.Color(254, 254, 254));
-        jPasswordField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel8.add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 30));
-
-        jButton3.setText("ENTRAR");
-        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, -1));
-
-        painelLogin1.add(jPanel8);
-
-        PainelCheckIn.add(painelLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 820, 530));
-
-        PainelTelas.add(PainelCheckIn, "card2");
-
-        PainelVenderPassagem.setBackground(new java.awt.Color(0, 77, 128));
-        PainelVenderPassagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnExit3.setBackground(PainelBoasVindas.getBackground());
-        btnExit3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnExit3MouseClicked(evt);
-            }
-        });
-
-        jlblExit3.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jlblExit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlblExit3.setText("X");
-
-        javax.swing.GroupLayout btnExit3Layout = new javax.swing.GroupLayout(btnExit3);
-        btnExit3.setLayout(btnExit3Layout);
-        btnExit3Layout.setHorizontalGroup(
-            btnExit3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        btnExit3Layout.setVerticalGroup(
-            btnExit3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        PainelVenderPassagem.add(btnExit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
-
-        PainelTelas.add(PainelVenderPassagem, "card2");
-
-        PainelNovidades.setBackground(new java.awt.Color(0, 77, 128));
-        PainelNovidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnExit4.setBackground(PainelBoasVindas.getBackground());
-
-        jlblExit4.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jlblExit4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlblExit4.setText("X");
-
-        javax.swing.GroupLayout btnExit4Layout = new javax.swing.GroupLayout(btnExit4);
-        btnExit4.setLayout(btnExit4Layout);
-        btnExit4Layout.setHorizontalGroup(
-            btnExit4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        btnExit4Layout.setVerticalGroup(
-            btnExit4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        PainelNovidades.add(btnExit4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
-
-        PainelTelas.add(PainelNovidades, "card2");
-
-        PainelRepresentante.setBackground(new java.awt.Color(0, 77, 128));
-        PainelRepresentante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnExit5.setBackground(PainelBoasVindas.getBackground());
-        btnExit5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnExit5MouseClicked(evt);
-            }
-        });
-
-        jlblExit5.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jlblExit5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlblExit5.setText("X");
-
-        javax.swing.GroupLayout btnExit5Layout = new javax.swing.GroupLayout(btnExit5);
-        btnExit5.setLayout(btnExit5Layout);
-        btnExit5Layout.setHorizontalGroup(
-            btnExit5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit5, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-        btnExit5Layout.setVerticalGroup(
-            btnExit5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblExit5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        PainelRepresentante.add(btnExit5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 40));
-
-        jlblEquipeAzul.setFont(new java.awt.Font("TeX Gyre DejaVu Math", 0, 48)); // NOI18N
-        jlblEquipeAzul.setForeground(new java.awt.Color(254, 254, 254));
-        jlblEquipeAzul.setIcon(new javax.swing.ImageIcon("/home/arthur/GitHub/POOTrab/POO/PassagensAereas/build/classes/UI_ICons/icons8-Chamada em conferência Filled-100.png")); // NOI18N
-        jlblEquipeAzul.setText("Equipe ");
-        PainelRepresentante.add(jlblEquipeAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 420, 90));
-
-        lblArthur.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
-        lblArthur.setForeground(new java.awt.Color(254, 254, 254));
-        lblArthur.setText("Arthur Costa de Novais");
-        PainelRepresentante.add(lblArthur, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
-        lblDanielli.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
-        lblDanielli.setForeground(new java.awt.Color(254, 254, 254));
-        lblDanielli.setText("Danielli dos Reis Costa");
-        PainelRepresentante.add(lblDanielli, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
-
-        lblThayza.setFont(new java.awt.Font("Te X Gyre Adventor", 0, 36)); // NOI18N
-        lblThayza.setForeground(new java.awt.Color(254, 254, 254));
-        lblThayza.setText("Thayza Sacconi Guarnier");
-        PainelRepresentante.add(lblThayza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
-
-        PainelTelas.add(PainelRepresentante, "card2");
 
         PainelTOTAL.add(PainelTelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 930, 620));
 
@@ -757,6 +1024,7 @@ public class AppInicio extends javax.swing.JFrame {
             pLogin.setVisible(false);
             lblIconLogin.setIcon(null);
             pMenu.setVisible(true);
+            lblNomeUsuario.setText(txtLogin.getText());
         }
         else if(txtLogin.getText().equals("Dani") && txtSenha.getText().equals("123")) {
             pLogin.setVisible(false);
@@ -824,6 +1092,77 @@ public class AppInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGeraPdfActionPerformed
 
+    private void btnGerar2ViaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerar2ViaMousePressed
+
+        Document document = new Document();
+        
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
+            document.open();
+            document.add(new Paragraph("Segunda via do passageiro"));
+            
+        } catch (FileNotFoundException | DocumentException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            document.close();
+        }
+        
+        try {
+            Desktop.getDesktop().open(new File("2via.pdf"));
+        } catch (IOException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGerar2ViaMousePressed
+
+    private void btnverVendasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnverVendasMousePressed
+        
+        Document vendas = new Document();
+        try {
+            PdfWriter.getInstance(vendas, new FileOutputStream("Vendas.pdf"));
+            vendas.open();
+            vendas.add(new Paragraph("Quantas vendas foram feitas no dia .. / .. / .... "));
+            
+        } catch (FileNotFoundException | DocumentException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            vendas.close();
+        }
+        
+        try {
+            Desktop.getDesktop().open(new File("Vendas.pdf"));
+        } catch (IOException ex) {
+            System.out.println("Erro: " + ex.toString());
+            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnverVendasMousePressed
+
+    private void btnSaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaiMousePressed
+        pLogin.setVisible(true);
+        lblIconLogin.setIcon(new ImageIcon("Icons/Usuario100.png"));
+        pMenu.setVisible(false);
+        txtLogin.setText("");
+        txtSenha.setText("");
+    }//GEN-LAST:event_btnSaiMousePressed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnExit4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit4MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnExit4MouseClicked
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        pLogin.setVisible(true);
+        lblIconLogin.setIcon(new ImageIcon("Icons/Usuario100.png"));
+        pMenu.setVisible(false);
+        txtLogin.setText("");
+        txtSenha.setText("");
+    }//GEN-LAST:event_btnSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -881,6 +1220,7 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel Titulo;
     private javax.swing.JButton btn2via;
+    private javax.swing.JButton btnCarregar;
     private javax.swing.JButton btnEntrarLogin;
     private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnExit1;
@@ -889,26 +1229,31 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel btnExit4;
     private javax.swing.JPanel btnExit5;
     private javax.swing.JButton btnGeraPdf;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel btnGerar2Via;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JPanel btnSai;
+    private javax.swing.JButton btnSair;
+    private javax.swing.JPanel btnverVendas;
+    private javax.swing.JLabel iconeGerar;
+    private javax.swing.JLabel iconeVendas;
+    private javax.swing.JLabel iconesai;
+    private javax.swing.JFormattedTextField jFormattedData;
     private javax.swing.JLabel jIconCheckIn;
     private javax.swing.JLabel jIconNovidades;
     private javax.swing.JLabel jIconRepresentante;
     private javax.swing.JLabel jIconVender;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPasswordField jPasswordField3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JSeparator jSepData;
+    private javax.swing.JSeparator jSepDestino;
+    private javax.swing.JSeparator jSepIdDoVoo;
+    private javax.swing.JSeparator jSepOrigem;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel jSubtitulo;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jlblCheckIn;
     private javax.swing.JLabel jlblConta;
@@ -923,24 +1268,46 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jlblRepresentante;
     private javax.swing.JLabel jlblVender;
     private javax.swing.JLabel lblArthur;
+    private javax.swing.JLabel lblBemvindo;
     private javax.swing.JLabel lblDanielli;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblDestino;
     private javax.swing.JLabel lblIconLogin;
+    private javax.swing.JLabel lblIdDoVoo;
     private javax.swing.JLabel lblImagemLogin;
     private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblNomeUsuario;
+    private javax.swing.JLabel lblNovidades;
+    private javax.swing.JLabel lblOrigem;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblThayza;
+    private javax.swing.JLabel nomeGerar;
+    private javax.swing.JLabel nomesai;
+    private javax.swing.JLabel nomevendas;
     private javax.swing.JPanel pCheckIn;
+    private javax.swing.JPanel pCheckInDir;
+    private javax.swing.JPanel pCheckInEsq;
     private javax.swing.JPanel pConta;
-    private javax.swing.JPanel pImagemLogin;
+    private javax.swing.JPanel pContaDir;
+    private javax.swing.JPanel pContaEsq;
     private javax.swing.JPanel pLogin;
     private javax.swing.JPanel pMenu;
-    private javax.swing.JPanel pMenuConta;
     private javax.swing.JPanel pNovidade;
+    private javax.swing.JPanel pNovidadesDir;
+    private javax.swing.JPanel pNovidadesEsq;
     private javax.swing.JPanel pRepresentante;
+    private javax.swing.JPanel pSelecaoPassagem;
     private javax.swing.JPanel pVender;
-    private javax.swing.JPanel painelLogin;
-    private javax.swing.JPanel painelLogin1;
+    private javax.swing.JPanel pVenderPassagemDir;
+    private javax.swing.JPanel pVenderPassagemEsq;
+    private javax.swing.JPanel painelCheckIn;
+    private javax.swing.JPanel painelConta;
+    private javax.swing.JPanel painelNovidades;
+    private javax.swing.JPanel painelVenderPassagem;
+    private javax.swing.JTextField txtDestino;
+    private javax.swing.JTextField txtIDVoo;
     private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtOrigem;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
