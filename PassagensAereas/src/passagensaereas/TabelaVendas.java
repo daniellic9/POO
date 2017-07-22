@@ -3,6 +3,14 @@ package passagensaereas;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
+<<<<<<< HEAD
+=======
+/**
+ *Tabela
+ * 
+ * @author danie
+ */
+>>>>>>> 442e26d73475eea10e2a5a7f6b8200a975aad4d2
 public class TabelaVendas extends AbstractTableModel{
     private ArrayList<Passagem> vendas = new <Passagem>ArrayList();
     
