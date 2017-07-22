@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 /**
- *
+ *Tabela
+ * 
  * @author danie
  */
 public class TabelaVendas extends AbstractTableModel{

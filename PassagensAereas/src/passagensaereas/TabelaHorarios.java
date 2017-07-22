@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 /**
- *
+ *Tabela
  * @author arthur
  */
 public class TabelaHorarios extends AbstractTableModel{
