@@ -12,8 +12,9 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author danie
  */
-public class NewClassmodle extends AbstractTableModel{
+public class TabelaVendas extends AbstractTableModel{
     private ArrayList<Voos> vendas=new <Voos>ArrayList();
+    
     private String [] colunas={"Voo","Horário","Origem","Destino"};
 
     @Override
