@@ -6,30 +6,32 @@
 package passagensaereas;
 
 import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author arthur
  */
-public class TabelaHorarios {
+public class TabelaHorarios extends AbstractTableModel{
     private ArrayList<Passagem> voosDisponiveis=new <Passagem>ArrayList();
+
     
     private String [] colunas={"Horário","Origem","Destino","Valor"};
 
-    //@Override
+    @Override
     public String getColumnName(int column){
         return colunas[column];
     }
-    //@Override
+    @Override
     public int getRowCount() {
         return voosDisponiveis.size();
     }
 
-    //@Override
+    @Override
     public int getColumnCount() {
         return colunas.length;
     }
-     //@Override
+    @Override
     public Object getValueAt(int linha, int coluna) {
         String horario = voosDisponiveis.get(linha).getHorarioSaida()+"-"+voosDisponiveis.get(linha).getHorarioChegada();
         switch(coluna){
@@ -44,5 +46,8 @@ public class TabelaHorarios {
             default:
                 return null;
         }
+    }
+    public void addRow(Passagem p){
+        this.voosDisponiveis.add(p);
     }
 }

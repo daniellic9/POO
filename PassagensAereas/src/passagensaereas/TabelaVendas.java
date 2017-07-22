@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class TabelaVendas extends AbstractTableModel{
     private ArrayList<Passagem> vendas=new <Passagem>ArrayList();
     
-    private String [] colunas={"Voo","Horário","Origem","Destino"};
+    private final String [] colunas={"Voo","Horário","Origem","Destino","Valor"};
 
     @Override
     public String getColumnName(int column){
@@ -44,6 +44,9 @@ public class TabelaVendas extends AbstractTableModel{
                 return vendas.get(linha).getOrigem();
             case 3:
                 return vendas.get(linha).getDestino();
+            case 4:
+                return vendas.get(linha).getValor();
+            case 5:
             default:
                 return null;
         }
