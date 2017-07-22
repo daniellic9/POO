@@ -3,13 +3,6 @@ package passagensaereas;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-<<<<<<< HEAD
-=======
-/**
- *Tabela
- * @author arthur
- */
->>>>>>> 442e26d73475eea10e2a5a7f6b8200a975aad4d2
 public class TabelaHorarios extends AbstractTableModel{
     private ArrayList<Passagem> voosDisponiveis = new <Passagem>ArrayList();
 
