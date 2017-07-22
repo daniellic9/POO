@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author danie
- */
 public class TabelaVendas extends AbstractTableModel{
-    private ArrayList<Passagem> vendas=new <Passagem>ArrayList();
+    private ArrayList<Passagem> vendas = new <Passagem>ArrayList();
     
-    private final String [] colunas={"Voo","Horário","Origem","Destino","Valor"};
+    private final String[] colunas = {"idVoo", "Nome do Passageiro ", "Horário", "Origem", "Destino", "Valor"};
 
     @Override
     public String getColumnName(int column){

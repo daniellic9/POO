@@ -16,8 +16,14 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.BarcodeEAN;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
@@ -308,7 +314,7 @@ public class AppInicio extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(30, 153, 219));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/Janelinha.png"))); // NOI18N
-        jLabel1.setText("Seja bem vindo a linha aerea Orca");
+        jLabel1.setText("Seja bem vindo à linha aérea Orca");
         PainelBoasVindas.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 620));
 
         btnExit.setBackground(PainelBoasVindas.getBackground());
@@ -715,7 +721,6 @@ public class AppInicio extends javax.swing.JFrame {
         pMenu.add(lblNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 430, 50));
 
         btnverVendas.setBackground(new java.awt.Color(30, 153, 219));
-        btnverVendas.setBorder(null);
         btnverVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnverVendasMousePressed(evt);
@@ -755,7 +760,6 @@ public class AppInicio extends javax.swing.JFrame {
         pMenu.add(btnverVendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 110, 110));
 
         btnSai.setBackground(new java.awt.Color(30, 153, 219));
-        btnSai.setBorder(null);
         btnSai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnSaiMousePressed(evt);
@@ -795,7 +799,6 @@ public class AppInicio extends javax.swing.JFrame {
         pMenu.add(btnSai, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 110, 110));
 
         btnGerar2Via.setBackground(new java.awt.Color(30, 153, 219));
-        btnGerar2Via.setBorder(null);
         btnGerar2Via.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnGerar2ViaMousePressed(evt);
@@ -1051,30 +1054,40 @@ public class AppInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void btnGerar2ViaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerar2ViaMousePressed
-
-        Document document = new Document();
+        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         
+        //gera segunda via é o mesmo método pra gerar o check-in
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
             document.open();
             TabelaVendas a = new TabelaVendas();
-            for (int i = 0; i < 4; i++) {
-            document.add(new Phrase(new Chunk( a.getColumnName(i) )));
-                
+            Font f = new Font(FontFamily.COURIER, 20, Font.ITALIC);
+            document.add(new Paragraph("Segunda via de Check-in", f));
+            for (int i = 0; i < 6; i++) {
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(i) )));
+                document.add(new Paragraph(" "));
             }
+            document.add(new Paragraph(" "));
+            PdfContentByte cb = writer.getDirectContent();
+            BarcodeEAN codeEAN = new BarcodeEAN();
+            document.add(new Paragraph(" "));
+            codeEAN.setCodeType(codeEAN.EAN13);
+            codeEAN.setCode("9070802124510"); // fazer random para cada pessoa
+            Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);
+            document.add(new Phrase(new Chunk(imageEAN, 0, 0)));
             
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             document.close();
         }
         
+        //abre o pdf gerado
         try {
             Desktop.getDesktop().open(new File("2via.pdf"));
         } catch (IOException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnGerar2ViaMousePressed
 
@@ -1087,7 +1100,6 @@ public class AppInicio extends javax.swing.JFrame {
             vendas.add(new Paragraph("Quantas vendas foram feitas no dia .. / .. / .... "));
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             vendas.close();
         }
@@ -1096,7 +1108,6 @@ public class AppInicio extends javax.swing.JFrame {
             Desktop.getDesktop().open(new File("Vendas.pdf"));
         } catch (IOException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnverVendasMousePressed
 

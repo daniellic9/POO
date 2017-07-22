@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
 
-/**
- *
- * @author arthur
- */
 public abstract class InformacoesViagem {
-     protected String origem, destino,data;
+     protected String origem, destino, data;
      protected int horarioSaida, horarioChegada; //mudar para o 'time' de data/hora
 
     public abstract String getOrigem();
