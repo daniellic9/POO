@@ -40,23 +40,24 @@ public class Passagem extends InformacoesViagem {
         this.destino=destino;
     }
 
+
     @Override
-    public int getHorarioSaida() {
+    public String getHorarioSaida() {
         return this.horarioSaida;
     }
 
     @Override
-    public void setHorarioSaida(int horarioSaida) {
+    public void setHorarioSaida(String horarioSaida) {
         this.horarioSaida=horarioSaida;
     }
 
     @Override
-    public int getHorarioChegada() {
+    public String getHorarioChegada() {
         return this.horarioChegada;
     }
 
     @Override
-    public void setHorarioChegada(int horarioChegada) {
+    public void setHorarioChegada(String horarioChegada) {
         this.horarioChegada=horarioChegada;
     }
       public String getData() {

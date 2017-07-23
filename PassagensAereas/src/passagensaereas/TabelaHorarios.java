@@ -6,7 +6,8 @@ import javax.swing.table.AbstractTableModel;
 public class TabelaHorarios extends AbstractTableModel{
     private ArrayList<Passagem> voosDisponiveis = new <Passagem>ArrayList();
 
-    private String[] colunas = {"Horário", "Origem", "Destino", "Valor"};
+    
+    private String [] colunas={"id","Horário","Origem","Destino","Valor"};
 
     @Override
     public String getColumnName(int column){
@@ -26,12 +27,14 @@ public class TabelaHorarios extends AbstractTableModel{
         String horario = voosDisponiveis.get(linha).getHorarioSaida()+"-"+voosDisponiveis.get(linha).getHorarioChegada();
         switch(coluna){
             case 0:
-                return horario;
+                return voosDisponiveis.get(linha).getIdVoo();
             case 1:
-                return voosDisponiveis.get(linha).getOrigem();
+                return horario;
             case 2:
-                return voosDisponiveis.get(linha).getDestino();
+                return voosDisponiveis.get(linha).getOrigem();
             case 3:
+                return voosDisponiveis.get(linha).getDestino();
+            case 4:
                 return voosDisponiveis.get(linha).getValor();
             default:
                 return null;
@@ -39,5 +42,6 @@ public class TabelaHorarios extends AbstractTableModel{
     }
     public void addRow(Passagem p){
         this.voosDisponiveis.add(p);
+        this.fireTableDataChanged();
     }
 }

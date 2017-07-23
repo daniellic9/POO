@@ -31,6 +31,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -42,12 +43,77 @@ import javax.swing.table.TableModel;
  * @author arthur
  */
 public class AppInicio extends javax.swing.JFrame {
+  ArrayList<Voos> agendaVoos= new ArrayList<Voos>();
+  ArrayList<Passagem> agendaPassagens= new ArrayList<Passagem>();
+    public AppInicio() {
+agendaVoos.add(new Voos("São Paulo", "Rio de Janeiro"));
+agendaVoos.add(new Voos("São Paulo","Vitória"));
+agendaVoos.add(new Voos("São Paulo","Porto Alegre"));
+agendaVoos.add(new Voos("São Paulo","Brasília"));
+agendaVoos.add(new Voos("São Paulo","Belo Horizonte"));
+agendaVoos.add(new Voos("São Paulo","Manaus"));
+agendaVoos.add(new Voos("São Paulo","Fortaleza"));
+agendaVoos.add(new Voos("São Paulo","Natal"));
+agendaVoos.add(new Voos("Brasília","São Paulo"));
+agendaVoos.add(new Voos("Brasília","Rio de Janeiro"));
+agendaVoos.add(new Voos("Brasília","Vitória"));
+agendaVoos.add(new Voos("Brasília","Porto Alegre"));
+agendaVoos.add(new Voos("Brasília","Manaus"));
+agendaVoos.add(new Voos("Brasília","Fortaleza"));
+agendaVoos.add(new Voos("Brasília","Belo Horizonte"));
+agendaVoos.add(new Voos("Brasília","Natal"));
+agendaVoos.add(new Voos("Rio de Janeiro","São Paulo"));
+agendaVoos.add(new Voos("Rio de Janeiro","Vitória"));
+agendaVoos.add(new Voos("Rio de Janeiro","Porto Alegre"));
+agendaVoos.add(new Voos("Rio de Janeiro","Belo Horizonte"));
+agendaVoos.add(new Voos("Rio de Janeiro","Brasília"));
+agendaVoos.add(new Voos("Rio de Janeiro","Manaus"));
+agendaVoos.add(new Voos("Rio de Janeiro","Fortaleza"));
+agendaVoos.add(new Voos("Rio de Janeiro","Natal"));
+agendaVoos.add(new Voos("Vitória","Rio de Janeiro"));
+agendaVoos.add(new Voos("Vitória","São Paulo"));
+agendaVoos.add(new Voos("Vitória","Porto Alegre"));
+agendaVoos.add(new Voos("Vitória","Belo Horizonte"));
+agendaVoos.add(new Voos("Vitória","Brasília"));
+agendaVoos.add(new Voos("Vitória","Manaus"));
+agendaVoos.add(new Voos("Vitória","Fortaleza"));
+agendaVoos.add(new Voos("Vitória","Natal"));
+agendaVoos.add(new Voos("Manaus","Natal"));
+agendaVoos.add(new Voos("Manaus","Fortaleza"));
+agendaVoos.add(new Voos("Manaus","Brasília"));
+agendaVoos.add(new Voos("Manaus","São Paulo"));
+agendaVoos.add(new Voos("Manaus","Rio de Janeiro"));
+agendaVoos.add(new Voos("Manaus","Vitória"));
+agendaVoos.add(new Voos("Manaus","Porto Alegre"));
+agendaVoos.add(new Voos("Manaus","Belo Horizonte"));
+agendaVoos.add(new Voos("Natal","Manaus"));
+agendaVoos.add(new Voos("Natal","Fortaleza"));
+agendaVoos.add(new Voos("Natal","Brasília"));
+agendaVoos.add(new Voos("Natal","São Paulo"));
+agendaVoos.add(new Voos("Natal","Rio de Janeiro"));
+agendaVoos.add(new Voos("Natal","Vitória"));
+agendaVoos.add(new Voos("Natal","Porto Alegre"));
+agendaVoos.add(new Voos("Natal","Belo Horizonte"));
+agendaVoos.add(new Voos("Fortaleza","Manaus"));
+agendaVoos.add(new Voos("Fortaleza","Natal"));
+agendaVoos.add(new Voos("Fortaleza","Brasília"));
+agendaVoos.add(new Voos("Fortaleza","São Paulo"));
+agendaVoos.add(new Voos("Fortaleza","Rio de Janeiro"));
+agendaVoos.add(new Voos("Fortaleza","Vitória"));
+agendaVoos.add(new Voos("Fortaleza","Porto Alegre"));
+agendaVoos.add(new Voos("Fortaleza","Belo Horizonte"));
+agendaVoos.add(new Voos("Porto Alegre","São Paulo"));
+agendaVoos.add(new Voos("Porto Alegre","Rio de Janeiro"));
+agendaVoos.add(new Voos("Porto Alegre","Vitória"));
+agendaVoos.add(new Voos("Porto Alegre","Natal"));
+agendaVoos.add(new Voos("Porto Alegre","Brasília"));
+agendaVoos.add(new Voos("Porto Alegre","Manaus"));
+agendaVoos.add(new Voos("Porto Alegre","Fortaleza"));
+agendaVoos.add(new Voos("Porto Alegre","Natal"));
 
     /**
      * Creates new form NewJFrame
      */
-    public AppInicio() {
-
         initComponents();
         setIconImage(new ImageIcon("Icons/Whale.png").getImage());
         
@@ -1118,15 +1184,56 @@ public class AppInicio extends javax.swing.JFrame {
         txtLogin.setText("");
         txtSenha.setText("");
     }//GEN-LAST:event_btnSaiMousePressed
-TabelaHorarios tab= new TabelaHorarios();
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pCompradePassagem.setVisible(true);
         pSelecaoPassagem.setVisible(false);
-        Passagem p = new Passagem();
-        p.setOrigem(txtOrigem.getText());
-        tab.addRow(p);
-        jTable1.setModel(tab);
-        
+        int i=0,j=0;
+        Passagem p  = new Passagem();
+        TabelaHorarios tab= new TabelaHorarios();
+        for(;i<agendaVoos.size();i++){
+            if((txtOrigem.getText().equals(agendaVoos.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(i).getDestino()))){
+                jTable1.setModel(tab);
+                int a=(int)Math.floor(Math.random()*22);
+                p.setDestino(agendaVoos.get(i).getDestino());
+                p.setOrigem(agendaVoos.get(i).getOrigem());
+                p.setData(null);
+                p.setHorarioSaida(a+":00");
+                p.setHorarioChegada((a+2)+":00");
+                tab.addRow(p);
+                agendaPassagens.add(p);
+                j=i;
+            }
+            else{
+                //Se não existir passagem, sumir com a tabela
+                //Botar mensagem na tela que n exite passagem
+                        
+            }
+
+        }
+     for(int k=0;k<6;k++){   
+       Passagem p1= new Passagem();
+       int a=(int)Math.floor(Math.random()*22);
+       p1.setDestino(agendaVoos.get(j).getDestino());
+       p1.setOrigem(agendaVoos.get(j).getOrigem());
+        p1.setHorarioSaida(a+":00");
+        p1.setHorarioChegada((a+2)+":00");
+        tab.addRow(p1);
+        agendaPassagens.add(p1);
+     }
+     for(int b=0;b<agendaPassagens.size();b++){
+        if(agendaPassagens.get(b).getOrigem().equals("São Paulo")||agendaPassagens.get(b).getDestino().equals("São Paulo")){
+            if(agendaPassagens.get(b).getOrigem().equals("Rio de Janeiro")||agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
+                agendaPassagens.get(b).setValor(239);
+                if(agendaPassagens.get(b).getDestino().equals("")){
+                    Random r= new Random();
+                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                }else{
+                    Random r= new Random();
+                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                }
+            }
+        }
+     }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExit4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit4MouseClicked
