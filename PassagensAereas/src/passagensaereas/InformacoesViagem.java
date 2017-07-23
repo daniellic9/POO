@@ -1,6 +1,8 @@
 package passagensaereas;
 
-public abstract class InformacoesViagem {
+import java.io.Serializable;
+
+public abstract class InformacoesViagem implements Serializable{
      protected String origem, destino,data;
      protected String horarioSaida, horarioChegada; //mudar para o 'time' de data/hora
 

@@ -12,9 +12,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import passagensaereas.AppInicio;
 import passagensaereas.Passagem;
 import passagensaereas.Voos;
-import static passagensaereas.PassagensAereas.*;
 
 /**
  *
@@ -22,8 +22,13 @@ import static passagensaereas.PassagensAereas.*;
  */
 public class Disco implements InterfaceDisco{
 
-     
-
+    public static ArrayList<Voos> agendaVoos= new ArrayList<Voos>();
+    public static ArrayList<Passagem> agendaPassagem= new ArrayList<Passagem>();
+    
+    public Disco(){
+        carregarVoos();
+        carregarPassagens();
+    }
     
     
     @Override
@@ -37,6 +42,8 @@ public class Disco implements InterfaceDisco{
             fout.close();
         }catch(Exception ex){
             System.err.println("Erro: "+ ex.toString());
+        }finally{
+            System.out.println("Salvo Com sucesso.");
         }
     }
 
@@ -70,6 +77,8 @@ public class Disco implements InterfaceDisco{
             fout.close();
         }catch(Exception ex){
             System.err.println("Erro: "+ ex.toString());
+        }finally{
+            System.out.println("Salvo Com sucesso.");
         }
     }
 
@@ -81,9 +90,6 @@ public class Disco implements InterfaceDisco{
             FileInputStream fin = new FileInputStream(arquivo);
             ObjectInputStream oin =new ObjectInputStream(fin);
             agendaPassagem =(ArrayList<Passagem>)oin.readObject();
-            for(Passagem p: agendaPassagem){
-                p.imprimir();
-            }
             oin.close();
             fin.close();
         }catch(Exception ex){
