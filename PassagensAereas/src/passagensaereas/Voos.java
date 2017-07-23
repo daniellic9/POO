@@ -1,6 +1,18 @@
 package passagensaereas;
 
 public class Voos extends InformacoesViagem{
+    private String conexao;
+public Voos(String origem,String destino){
+    this.origem=origem;
+    this.destino=destino;
+}
+    public String getConexao() {
+        return conexao;
+    }
+
+    public void setConexao(String conexao) {
+        this.conexao = conexao;
+    }
 
     public Poltronas[][] getPoltronas() {
         return poltronas;
@@ -51,22 +63,22 @@ public class Voos extends InformacoesViagem{
     }
 
     @Override
-    public int getHorarioSaida() {
+    public String getHorarioSaida() {
         return this.horarioSaida;
     }
 
     @Override
-    public void setHorarioSaida(int horarioSaida) {
+    public void setHorarioSaida(String horarioSaida) {
         this.horarioSaida=horarioSaida;
     }
 
     @Override
-    public int getHorarioChegada() {
+    public String getHorarioChegada() {
         return this.horarioChegada;
     }
 
     @Override
-    public void setHorarioChegada(int horarioChegada) {
+    public void setHorarioChegada(String horarioChegada) {
         this.horarioChegada=horarioChegada;
     }
 
