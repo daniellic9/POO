@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
 
-/**
- *
- * @author arthur
- */
-public abstract class InformacoesViagem {
+import java.io.Serializable;
+
+public abstract class InformacoesViagem implements Serializable{
      protected String origem, destino,data;
      protected String horarioSaida, horarioChegada; //mudar para o 'time' de data/hora
-
+    protected float valor;
+    
+    public abstract float getValor();
+    public abstract void setValor(float valor);
     public abstract String getOrigem();
     public abstract void setOrigem(String origem);
     public abstract String getDestino();

@@ -6,6 +6,9 @@
 package passagensaereas;
 
 
+import Disco.Disco;
+import static Disco.Disco.agendaVoos;
+import static Disco.Disco.agendaVoos;
 import com.itextpdf.text.Chunk;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,8 +19,14 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.BarcodeEAN;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
@@ -37,111 +46,11 @@ import javax.swing.table.TableModel;
  * @author arthur
  */
 public class AppInicio extends javax.swing.JFrame {
-  ArrayList<Voos> agendaVoos= new ArrayList<Voos>();
-  ArrayList<Passagem> agendaPassagens= new ArrayList<Passagem>();
+    
+    Disco disc = new Disco();
+    
     public AppInicio() {
-agendaVoos.add(new Voos("São Paulo", "Rio de Janeiro"));
-agendaVoos.add(new Voos("São Paulo","Vitória"));
-agendaVoos.add(new Voos("São Paulo","Porto Alegre"));
-agendaVoos.add(new Voos("São Paulo","Brasília"));
-agendaVoos.add(new Voos("São Paulo","Belo Horizonte"));
-agendaVoos.add(new Voos("São Paulo","Manaus"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("São Paulo","Fortaleza"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("São Paulo","Natal"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Brasília","São Paulo"));
-agendaVoos.add(new Voos("Brasília","Rio de Janeiro"));
-agendaVoos.add(new Voos("Brasília","Vitória"));
-agendaVoos.add(new Voos("Brasília","Porto Alegre"));
-agendaVoos.add(new Voos("Brasília","Manaus"));
-agendaVoos.add(new Voos("Brasília","Fortaleza"));
-agendaVoos.add(new Voos("Brasília","Belo Horizonte"));
-agendaVoos.add(new Voos("Brasília","Natal"));
-agendaVoos.add(new Voos("Rio de Janeiro","São Paulo"));
-agendaVoos.add(new Voos("Rio de Janeiro","Vitória"));
-agendaVoos.add(new Voos("Rio de Janeiro","Porto Alegre"));
-agendaVoos.add(new Voos("Rio de Janeiro","Belo Horizonte"));
-agendaVoos.add(new Voos("Rio de Janeiro","Brasília"));
-agendaVoos.add(new Voos("Rio de Janeiro","Manaus"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Rio de Janeiro","Fortaleza"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Rio de Janeiro","Natal"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Vitória","Rio de Janeiro"));
-agendaVoos.add(new Voos("Vitória","São Paulo"));
-agendaVoos.add(new Voos("Vitória","Porto Alegre"));
-agendaVoos.add(new Voos("Vitória","Belo Horizonte"));
-agendaVoos.add(new Voos("Vitória","Brasília"));
-agendaVoos.add(new Voos("Vitória","Manaus"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Vitória","Fortaleza"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Vitória","Natal"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Manaus","Natal"));
-agendaVoos.add(new Voos("Manaus","Fortaleza"));
-agendaVoos.add(new Voos("Manaus","Brasília"));
-agendaVoos.add(new Voos("Manaus","São Paulo"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Manaus","Rio de Janeiro"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Manaus","Vitória"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Manaus","Porto Alegre"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Manaus","Belo Horizonte"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Natal","Manaus"));
-agendaVoos.add(new Voos("Natal","Fortaleza"));
-agendaVoos.add(new Voos("Natal","Brasília"));
-agendaVoos.add(new Voos("Natal","São Paulo"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Natal","Rio de Janeiro"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Natal","Vitória"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Natal","Porto Alegre"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Natal","Belo Horizonte"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Fortaleza","Manaus"));
-agendaVoos.add(new Voos("Fortaleza","Natal"));
-agendaVoos.add(new Voos("Fortaleza","Brasília"));
-agendaVoos.add(new Voos("Fortaleza","São Paulo"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Fortaleza","Rio de Janeiro"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Fortaleza","Vitória"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Fortaleza","Porto Alegre"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Fortaleza","Belo Horizonte"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Porto Alegre","São Paulo"));
-agendaVoos.add(new Voos("Porto Alegre","Rio de Janeiro"));
-agendaVoos.add(new Voos("Porto Alegre","Vitória"));
-agendaVoos.add(new Voos("Porto Alegre","Natal"));
-agendaVoos.add(new Voos("Porto Alegre","Brasília"));
-agendaVoos.add(new Voos("Porto Alegre","Manaus"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Porto Alegre","Fortaleza"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Porto Alegre","Natal"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Belo Horizonte","São Paulo"));
-agendaVoos.add(new Voos("Belo Horizonte","Rio de Janeiro"));
-agendaVoos.add(new Voos("Belo Horizonte","Vitória"));
-agendaVoos.add(new Voos("Belo Horizonte","Porto Alegre"));
-agendaVoos.add(new Voos("Belo Horizonte","Manaus"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Belo Horizonte","Fortaleza"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
-agendaVoos.add(new Voos("Belo Horizonte","Brasilia"));
-agendaVoos.add(new Voos("Belo Horizonte","Natal"));
-agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
+
     /**
      * Creates new form NewJFrame
      */
@@ -411,7 +320,7 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
         jLabel1.setForeground(new java.awt.Color(30, 153, 219));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/Janelinha.png"))); // NOI18N
-        jLabel1.setText("Seja bem vindo a linha aerea Orca");
+        jLabel1.setText("Seja bem vindo à linha aérea Orca");
         PainelBoasVindas.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 620));
 
         btnExit.setBackground(PainelBoasVindas.getBackground());
@@ -818,7 +727,6 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
         pMenu.add(lblNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 430, 50));
 
         btnverVendas.setBackground(new java.awt.Color(30, 153, 219));
-        btnverVendas.setBorder(null);
         btnverVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnverVendasMousePressed(evt);
@@ -858,7 +766,6 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
         pMenu.add(btnverVendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 110, 110));
 
         btnSai.setBackground(new java.awt.Color(30, 153, 219));
-        btnSai.setBorder(null);
         btnSai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnSaiMousePressed(evt);
@@ -898,7 +805,6 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
         pMenu.add(btnSai, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 110, 110));
 
         btnGerar2Via.setBackground(new java.awt.Color(30, 153, 219));
-        btnGerar2Via.setBorder(null);
         btnGerar2Via.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnGerar2ViaMousePressed(evt);
@@ -1154,30 +1060,40 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void btnGerar2ViaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerar2ViaMousePressed
-
-        Document document = new Document();
+        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         
+        //gera segunda via é o mesmo método pra gerar o check-in
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
             document.open();
             TabelaVendas a = new TabelaVendas();
-            for (int i = 0; i < 4; i++) {
-            document.add(new Phrase(new Chunk( a.getColumnName(i) )));
-                
+            Font f = new Font(FontFamily.COURIER, 20, Font.ITALIC);
+            document.add(new Paragraph("Segunda via de Check-in", f));
+            for (int i = 0; i < 6; i++) {
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(i) )));
+                document.add(new Paragraph(" "));
             }
+            document.add(new Paragraph(" "));
+            PdfContentByte cb = writer.getDirectContent();
+            BarcodeEAN codeEAN = new BarcodeEAN();
+            document.add(new Paragraph(" "));
+            codeEAN.setCodeType(codeEAN.EAN13);
+            codeEAN.setCode("9070802124510"); // fazer random para cada pessoa
+            Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);
+            document.add(new Phrase(new Chunk(imageEAN, 0, 0)));
             
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             document.close();
         }
         
+        //abre o pdf gerado
         try {
             Desktop.getDesktop().open(new File("2via.pdf"));
         } catch (IOException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnGerar2ViaMousePressed
 
@@ -1190,7 +1106,6 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
             vendas.add(new Paragraph("Quantas vendas foram feitas no dia .. / .. / .... "));
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             vendas.close();
         }
@@ -1199,7 +1114,6 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
             Desktop.getDesktop().open(new File("Vendas.pdf"));
         } catch (IOException ex) {
             System.out.println("Erro: " + ex.toString());
-            //Logger.getLogger(ViewGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnverVendasMousePressed
 
@@ -1214,7 +1128,7 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
         pCompradePassagem.setVisible(true);
         pSelecaoPassagem.setVisible(false);
         int i=0,j=0;
-        Passagem p  = new Passagem();
+        Voos p  = new Voos();
         TabelaHorarios tab= new TabelaHorarios();
         for(;i<agendaVoos.size();i++){
             if((txtOrigem.getText().equals(agendaVoos.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(i).getDestino()))){
@@ -1226,421 +1140,421 @@ agendaVoos.get(agendaVoos.size()-1).setConexao("Brasília");
                 p.setHorarioSaida(a+":00");
                 p.setHorarioChegada((a+2)+":00");
                 tab.addRow(p);
-                agendaPassagens.add(p);
+                agendaVoos.add(p);
                 j=i;
             }
             else{
                 //Se não existir passagem, sumir com a tabela
                 //Botar mensagem na tela que n exite passagem
-                        
+                       
             }
 
         }
-     for(int k=0;k<6;k++){   
-       Passagem p1= new Passagem();
+     for(int k=0;k<6;k++){  
+       Voos p1= new Voos();
        int a=(int)Math.floor(Math.random()*22);
        p1.setDestino(agendaVoos.get(j).getDestino());
        p1.setOrigem(agendaVoos.get(j).getOrigem());
         p1.setHorarioSaida(a+":00");
         p1.setHorarioChegada((a+2)+":00");
         tab.addRow(p1);
-        agendaPassagens.add(p1);
+        agendaVoos.add(p1);
      }
-     for(int b=0;b<agendaPassagens.size();b++){
-        if(agendaPassagens.get(b).getOrigem().equals("São Paulo")||agendaPassagens.get(b).getDestino().equals("São Paulo")){
-            if(agendaPassagens.get(b).getOrigem().equals("Rio de Janeiro")||agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
-                agendaPassagens.get(b).setValor(239);
-                if(agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
+     for(int b=0;b<agendaVoos.size();b++){
+        if(agendaVoos.get(b).getOrigem().equals("São Paulo")||agendaVoos.get(b).getDestino().equals("São Paulo")){
+            if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                agendaVoos.get(b).setValor(239);
+                if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(312);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(312);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Porto Alegre")||agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                agendaPassagens.get(b).setValor(365);
-                if(agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                agendaVoos.get(b).setValor(365);
+                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Brasília")||agendaPassagens.get(b).getDestino().equals("Brasília")){
-                agendaPassagens.get(b).setValor(408);
-                if(agendaPassagens.get(b).getDestino().equals("Brasília")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasília")){
+                agendaVoos.get(b).setValor(408);
+                if(agendaVoos.get(b).getDestino().equals("Brasília")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Manaus")||agendaPassagens.get(b).getDestino().equals("Manaus")){
-                agendaPassagens.get(b).setValor(1560);
-                if(agendaPassagens.get(b).getDestino().equals("Manaus")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                agendaVoos.get(b).setValor(1560);
+                if(agendaVoos.get(b).getDestino().equals("Manaus")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(795);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(795);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                agendaPassagens.get(b).setValor(320);
-                if(agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                agendaVoos.get(b).setValor(320);
+                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(429);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(429);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Brasília")||agendaPassagens.get(b).getDestino().equals("Brasíia")){
-            if(agendaPassagens.get(b).getOrigem().equals("Rio de Janeiro")||agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
-                agendaPassagens.get(b).setValor(336);
-                if(agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(818);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Porto Alegre")||agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                agendaPassagens.get(b).setValor(896);
-                if(agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Manaus")||agendaPassagens.get(b).getDestino().equals("Manaus")){
-                agendaPassagens.get(b).setValor(987);
-                if(agendaPassagens.get(b).getDestino().equals("Manaus")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(1131);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                agendaPassagens.get(b).setValor(340);
-                if(agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(825);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
             } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Rio de Janeiro")||agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
-            if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(289);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
+        }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasíia")){
+            if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                agendaVoos.get(b).setValor(336);
+                if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Porto Alegre")||agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                agendaPassagens.get(b).setValor(558);
-                if(agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(818);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Manaus")||agendaPassagens.get(b).getDestino().equals("Manaus")){
-                agendaPassagens.get(b).setValor(1152);
-                if(agendaPassagens.get(b).getDestino().equals("Manaus")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                agendaVoos.get(b).setValor(896);
+                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(696);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                agendaVoos.get(b).setValor(987);
+                if(agendaVoos.get(b).getDestino().equals("Manaus")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                agendaPassagens.get(b).setValor(226);
-                if(agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(1131);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(1037);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                agendaVoos.get(b).setValor(340);
+                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Manaus")||agendaPassagens.get(b).getDestino().equals("Manaus")){
-            if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(1230);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(825);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Porto Alegre")||agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                agendaPassagens.get(b).setValor(1169);
-                if(agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(884);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                agendaPassagens.get(b).setValor(1184);
-                if(agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(1214);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
             } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Rio de Janeiro")||agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
-            if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(289);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
+        }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(289);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Porto Alegre")||agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-                agendaPassagens.get(b).setValor(558);
-                if(agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                agendaVoos.get(b).setValor(558);
+                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Manaus")||agendaPassagens.get(b).getDestino().equals("Manaus")){
-                agendaPassagens.get(b).setValor(1152);
-                if(agendaPassagens.get(b).getDestino().equals("Manaus")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                agendaVoos.get(b).setValor(1152);
+                if(agendaVoos.get(b).getDestino().equals("Manaus")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(696);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(696);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                agendaPassagens.get(b).setValor(226);
-                if(agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                agendaVoos.get(b).setValor(226);
+                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(1037);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(1037);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Porto Alegre")||agendaPassagens.get(b).getDestino().equals("Porto Alegre")){
-            if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(558);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(1035);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                agendaPassagens.get(b).setValor(365);
-                if(agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(1026);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
-                }else{
-                    Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
             } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Belo Horizonte")||agendaPassagens.get(b).getDestino().equals("Belo Horizonte")){
-            if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-                agendaPassagens.get(b).setValor(312);
-                if(agendaPassagens.get(b).getDestino().equals("Vitória")){
+        }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(1230);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(795);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                agendaVoos.get(b).setValor(1169);
+                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(429);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(884);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Vitória")||agendaPassagens.get(b).getDestino().equals("Vitória")){
-            if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(696);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                agendaVoos.get(b).setValor(1184);
+                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
-            }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-                agendaPassagens.get(b).setValor(1037);
-                if(agendaPassagens.get(b).getDestino().equals("Natal")){
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(1214);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }
             } 
-        }else if(agendaPassagens.get(b).getOrigem().equals("Natal")||agendaPassagens.get(b).getDestino().equals("Natal")){
-            if(agendaPassagens.get(b).getOrigem().equals("Fortaleza")||agendaPassagens.get(b).getDestino().equals("Fortaleza")){
-                agendaPassagens.get(b).setValor(884);
-                if(agendaPassagens.get(b).getDestino().equals("Fortaleza")){
+        }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(289);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
                 }else{
                     Random r= new Random();
-                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                agendaVoos.get(b).setValor(558);
+                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                agendaVoos.get(b).setValor(1152);
+                if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(696);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                agendaVoos.get(b).setValor(226);
+                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(1037);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            } 
+        }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(558);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(1035);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                agendaVoos.get(b).setValor(365);
+                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(1026);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            } 
+        }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                agendaVoos.get(b).setValor(312);
+                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(795);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(429);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            } 
+        }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+            if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(696);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                agendaVoos.get(b).setValor(1037);
+                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }
+            } 
+        }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+            if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                agendaVoos.get(b).setValor(884);
+                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
+                }else{
+                    Random r= new Random();
+                    agendaVoos.get(b).setIdvoo(i);
                 }
             } 
         }

@@ -1,19 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *Tabela
- * @author arthur
- */
 public class TabelaHorarios extends AbstractTableModel{
-    private ArrayList<Passagem> voosDisponiveis=new <Passagem>ArrayList();
+    private ArrayList<Voos> voosDisponiveis = new <Voos>ArrayList();
 
     
     private String [] colunas={"id","Horário","Origem","Destino","Valor"};
@@ -36,7 +27,7 @@ public class TabelaHorarios extends AbstractTableModel{
         String horario = voosDisponiveis.get(linha).getHorarioSaida()+"-"+voosDisponiveis.get(linha).getHorarioChegada();
         switch(coluna){
             case 0:
-                return voosDisponiveis.get(linha).getIdVoo();
+                return voosDisponiveis.get(linha).getIdvoo();
             case 1:
                 return horario;
             case 2:
@@ -49,7 +40,7 @@ public class TabelaHorarios extends AbstractTableModel{
                 return null;
         }
     }
-    public void addRow(Passagem p){
+    public void addRow(Voos p){
         this.voosDisponiveis.add(p);
         this.fireTableDataChanged();
     }
