@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -37,7 +38,7 @@ import javax.swing.table.TableModel;
  */
 public class AppInicio extends javax.swing.JFrame {
   ArrayList<Voos> agendaVoos= new ArrayList<Voos>();
-
+  ArrayList<Passagem> agendaPassagens= new ArrayList<Passagem>();
     public AppInicio() {
 agendaVoos.add(new Voos("São Paulo", "Rio de Janeiro"));
 agendaVoos.add(new Voos("São Paulo","Vitória"));
@@ -1181,13 +1182,14 @@ agendaVoos.add(new Voos("Porto Alegre","Natal"));
         for(;i<agendaVoos.size();i++){
             if((txtOrigem.getText().equals(agendaVoos.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(i).getDestino()))){
                 jTable1.setModel(tab);
+                int a=(int)Math.floor(Math.random()*22);
                 p.setDestino(agendaVoos.get(i).getDestino());
                 p.setOrigem(agendaVoos.get(i).getOrigem());
                 p.setData(null);
-                p.setIdVoo("ABC"+i);
-                p.setHorarioSaida("6:00");
-                p.setHorarioChegada("8:00");
+                p.setHorarioSaida(a+":00");
+                p.setHorarioChegada((a+2)+":00");
                 tab.addRow(p);
+                agendaPassagens.add(p);
                 j=i;
             }
             else{
@@ -1197,20 +1199,30 @@ agendaVoos.add(new Voos("Porto Alegre","Natal"));
             }
 
         }
+     for(int k=0;k<6;k++){   
        Passagem p1= new Passagem();
+       int a=(int)Math.floor(Math.random()*22);
        p1.setDestino(agendaVoos.get(j).getDestino());
        p1.setOrigem(agendaVoos.get(j).getOrigem());
-        p1.setIdVoo("DEF"+(j+i));
-        p1.setHorarioSaida("12:00");
-        p1.setHorarioChegada("14:00");
+        p1.setHorarioSaida(a+":00");
+        p1.setHorarioChegada((a+2)+":00");
         tab.addRow(p1);
-           Passagem p2= new Passagem();
-       p2.setDestino(agendaVoos.get(j).getDestino());
-       p2.setOrigem(agendaVoos.get(j).getOrigem());
-        p2.setIdVoo("GHI"+(j+2*i));
-        p2.setHorarioSaida("18:00");
-        p2.setHorarioChegada("20:00");
-        tab.addRow(p2);
+        agendaPassagens.add(p1);
+     }
+     for(int b=0;b<agendaPassagens.size();b++){
+        if(agendaPassagens.get(b).getOrigem().equals("São Paulo")||agendaPassagens.get(b).getDestino().equals("São Paulo")){
+            if(agendaPassagens.get(b).getOrigem().equals("Rio de Janeiro")||agendaPassagens.get(b).getDestino().equals("Rio de Janeiro")){
+                agendaPassagens.get(b).setValor(239);
+                if(agendaPassagens.get(b).getDestino().equals("")){
+                    Random r= new Random();
+                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                }else{
+                    Random r= new Random();
+                    agendaPassagens.get(b).setIdVoo(r.toString().substring(18));
+                }
+            }
+        }
+     }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExit4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit4MouseClicked
