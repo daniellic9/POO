@@ -3336,6 +3336,12 @@ public class AppInicio extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println("Erro: " + ex.toString());
         }
+        Mandaarq novo=new Mandaarq();
+        try {
+            novo.mandapdf();
+        } catch (Exception ex) {
+            Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         txtIDVOOPASSAGEM.setText("");
         txtSelecaoPoltronaCPF.setText("");
