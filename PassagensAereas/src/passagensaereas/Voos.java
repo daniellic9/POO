@@ -5,10 +5,21 @@ public class Voos extends InformacoesViagem{
     private int idvoo,numPolt;
 
     public Voos(){
+for(int i=0;i<7;i++){
+    for(int j=0;j<3;j++){
+        poltronas[i][j]=new Poltronas();
+    }
+}
     }
     public Voos(String origem,String destino){
         this.destino = destino;
-        this.origem = origem;  
+        this.origem = origem; 
+        for(int i=0;i<7;i++){
+    for(int j=0;j<3;j++){
+        poltronas[i][j]=new Poltronas();
+    }
+}
+
     }
         
     public void imprimir(){
@@ -23,9 +34,8 @@ public class Voos extends InformacoesViagem{
     
     
     public boolean IsPoltronaOcupada(int x, int y){
-        if(this.poltronas[x][y].isOcupado())
-            return true;
-        return false;
+        
+        return this.poltronas[x][y].isOcupado();
     }
     
     public void setPoltronaOcupada(int x, int y){

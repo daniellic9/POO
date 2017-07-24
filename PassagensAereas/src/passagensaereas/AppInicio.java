@@ -48,10 +48,10 @@ public class AppInicio extends javax.swing.JFrame {
     int poltx,polty;
     
     public AppInicio() {
-    /*
+    
      
 
-        agendaVoo.add(new Voos("São Paulo", "Rio de Janeiro"));
+      /*  agendaVoo.add(new Voos("São Paulo", "Rio de Janeiro"));
     agendaVoo.add(new Voos("São Paulo","Vitória"));
     agendaVoo.add(new Voos("São Paulo","Porto Alegre"));
     agendaVoo.add(new Voos("São Paulo","Brasília"));
@@ -116,8 +116,8 @@ public class AppInicio extends javax.swing.JFrame {
     agendaVoo.add(new Voos("Porto Alegre","Fortaleza"));
     agendaVoo.add(new Voos("Porto Alegre","Natal"));
     disc.salvarVoo();
-    
-          */
+   */
+          
         initComponents();
         setIconImage(new ImageIcon("Icons/Whale.png").getImage());
         
@@ -2178,10 +2178,11 @@ public class AppInicio extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jFormattedData1.setText("");
-        for(int i =0; i<7;i++){
-            for(int j =0; j<3;j++){
+        int i,j;
+        for( i =0; i<7;i++){
+            for( j =0; j<3;j++){
                             System.out.println("i:"+i+"  j:"+j);
-                        agendaVoos.get(3);
+                        if(agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).IsPoltronaOcupada(i, j))
                             setPoltronaVermelha(i, j);
                         
             }
