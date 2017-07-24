@@ -5,11 +5,13 @@
  */
 package passagensaereas;
 
+import java.io.Serializable;
+
 /**
  *
  * @author arthur
  */
-public class Administradores {
+public class Administradores implements Serializable{
     private String nome;
     private int vendas;
     private String senha;
