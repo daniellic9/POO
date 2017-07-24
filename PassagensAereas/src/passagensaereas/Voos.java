@@ -1,12 +1,12 @@
 package passagensaereas;
 
 public class Voos extends InformacoesViagem{
-    private Poltronas poltronas[][] = new Poltronas[7][3];
+    private Poltronas poltronas[][] = new Poltronas[8][4];
     private int idvoo,numPolt;
 
     public Voos(){
-for(int i=0;i<7;i++){
-    for(int j=0;j<3;j++){
+for(int i=0;i<8;i++){
+    for(int j=0;j<4;j++){
         poltronas[i][j]=new Poltronas();
     }
 }
@@ -14,11 +14,11 @@ for(int i=0;i<7;i++){
     public Voos(String origem,String destino){
         this.destino = destino;
         this.origem = origem; 
-        for(int i=0;i<7;i++){
-    for(int j=0;j<3;j++){
-        poltronas[i][j]=new Poltronas();
-    }
-}
+        for(int i=0;i<8;i++){
+            for(int j=0;j<3;j++){
+                poltronas[i][j]=new Poltronas();
+            }
+        }
 
     }
         
@@ -34,7 +34,6 @@ for(int i=0;i<7;i++){
     
     
     public boolean IsPoltronaOcupada(int x, int y){
-        
         return this.poltronas[x][y].isOcupado();
     }
     

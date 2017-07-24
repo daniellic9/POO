@@ -2,6 +2,19 @@ package passagensaereas;
 
 public class Passagem extends InformacoesViagem {
 private int idpassagem;
+
+    public Passagem(int idpassagem, Voos voo) {
+        this.idpassagem = idpassagem;
+        this.data = voo.data;
+        this.destino = voo.destino;
+        this.horarioChegada = voo.horarioChegada;
+        this.horarioSaida = voo.horarioSaida;
+        this.origem = voo.origem;
+        this.valor = voo.valor;
+    }
+
+
+
     public float getValor() {
         return valor;
     }

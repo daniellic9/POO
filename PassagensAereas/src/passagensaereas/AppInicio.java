@@ -1,8 +1,10 @@
 package passagensaereas;
 
 import Disco.Disco;
+import static Disco.Disco.agendaPassagem;
 import static Disco.Disco.agendaVoos;
 import static Disco.Disco.agendaVoo;
+import static Disco.Disco.agenda;
 import com.itextpdf.text.Chunk;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,6 +24,8 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.BarcodeEAN;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,6 +35,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -46,12 +52,14 @@ public class AppInicio extends javax.swing.JFrame {
     
     Disco disc = new Disco();
     int poltx,polty;
-    
-    public AppInicio() {
-    
+    boolean logado;
+    Administradores adm;
+    public AppInicio() throws InterruptedException {
      
 
-      /*  agendaVoo.add(new Voos("São Paulo", "Rio de Janeiro"));
+      /* 
+     
+    agendaVoo.add(new Voos("São Paulo", "Rio de Janeiro"));
     agendaVoo.add(new Voos("São Paulo","Vitória"));
     agendaVoo.add(new Voos("São Paulo","Porto Alegre"));
     agendaVoo.add(new Voos("São Paulo","Brasília"));
@@ -116,10 +124,14 @@ public class AppInicio extends javax.swing.JFrame {
     agendaVoo.add(new Voos("Porto Alegre","Fortaleza"));
     agendaVoo.add(new Voos("Porto Alegre","Natal"));
     disc.salvarVoo();
-   */
-          
+  
+          */
         initComponents();
         setIconImage(new ImageIcon("Icons/Whale.png").getImage());
+        Som.music();
+        Thread.sleep(1000);
+        Som.music();
+        logado = false;
         
 //        Toolkit tool = Toolkit.getDefaultToolkit();
 //        Dimension dim = new Dimension(tool.getScreenSize());
@@ -249,10 +261,10 @@ public class AppInicio extends javax.swing.JFrame {
         txtIDVOOPASSAGEM = new javax.swing.JTextField();
         lblDestino1 = new javax.swing.JLabel();
         jSepDestino1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSairComprarPassagem = new javax.swing.JButton();
+        btnComprarPassagem = new javax.swing.JButton();
         pSelecaoPoltrona = new javax.swing.JPanel();
-        txtOrigem1 = new javax.swing.JTextField();
+        txtSelecaoPoltronaNome = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
         jSepOrigem1 = new javax.swing.JSeparator();
         btnComprarPoltrona = new javax.swing.JButton();
@@ -260,7 +272,7 @@ public class AppInicio extends javax.swing.JFrame {
         jSepData1 = new javax.swing.JSeparator();
         lblCPF = new javax.swing.JLabel();
         jSepDestino3 = new javax.swing.JSeparator();
-        jFormattedData1 = new javax.swing.JFormattedTextField();
+        txtSelecaoPoltronaCPF = new javax.swing.JFormattedTextField();
         lblPoltrona = new javax.swing.JLabel();
         PainelCheckIn = new javax.swing.JPanel();
         btnExit2 = new javax.swing.JPanel();
@@ -569,7 +581,6 @@ public class AppInicio extends javax.swing.JFrame {
         lblNovidades.setFont(new java.awt.Font("Noto Sans", 1, 30)); // NOI18N
         lblNovidades.setForeground(new java.awt.Color(254, 254, 254));
         lblNovidades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNovidades.setText("NOVIDADES EM BREVE!!");
         pNovidadesDir.add(lblNovidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 530));
 
         painelNovidades.add(pNovidadesDir);
@@ -1045,38 +1056,38 @@ public class AppInicio extends javax.swing.JFrame {
         jSepDestino1.setForeground(new java.awt.Color(254, 254, 254));
         pCompradePassagem.add(jSepDestino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, 10));
 
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSairComprarPassagem.setText("Sair");
+        btnSairComprarPassagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSairComprarPassagemActionPerformed(evt);
             }
         });
-        pCompradePassagem.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 90, -1));
+        pCompradePassagem.add(btnSairComprarPassagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 90, -1));
 
-        jButton2.setText("Comprar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnComprarPassagem.setText("Comprar");
+        btnComprarPassagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnComprarPassagemActionPerformed(evt);
             }
         });
-        pCompradePassagem.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 90, -1));
+        pCompradePassagem.add(btnComprarPassagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 90, -1));
 
         pVenderPassagemDir.add(pCompradePassagem, "card3");
 
         pSelecaoPoltrona.setBackground(new java.awt.Color(27, 62, 111));
         pSelecaoPoltrona.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtOrigem1.setBackground(new java.awt.Color(27, 62, 111));
-        txtOrigem1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        txtOrigem1.setForeground(new java.awt.Color(254, 254, 254));
-        txtOrigem1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtOrigem1.setSelectedTextColor(new java.awt.Color(254, 254, 254));
-        txtOrigem1.addActionListener(new java.awt.event.ActionListener() {
+        txtSelecaoPoltronaNome.setBackground(new java.awt.Color(27, 62, 111));
+        txtSelecaoPoltronaNome.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtSelecaoPoltronaNome.setForeground(new java.awt.Color(254, 254, 254));
+        txtSelecaoPoltronaNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtSelecaoPoltronaNome.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        txtSelecaoPoltronaNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrigem1ActionPerformed(evt);
+                txtSelecaoPoltronaNomeActionPerformed(evt);
             }
         });
-        pSelecaoPoltrona.add(txtOrigem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 290, 30));
+        pSelecaoPoltrona.add(txtSelecaoPoltronaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 290, 30));
 
         lblNome.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
         lblNome.setForeground(new java.awt.Color(254, 254, 254));
@@ -1112,17 +1123,17 @@ public class AppInicio extends javax.swing.JFrame {
         jSepDestino3.setForeground(new java.awt.Color(254, 254, 254));
         pSelecaoPoltrona.add(jSepDestino3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 150, 10));
 
-        jFormattedData1.setBackground(new java.awt.Color(27, 62, 111));
-        jFormattedData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jFormattedData1.setForeground(new java.awt.Color(254, 254, 254));
+        txtSelecaoPoltronaCPF.setBackground(new java.awt.Color(27, 62, 111));
+        txtSelecaoPoltronaCPF.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtSelecaoPoltronaCPF.setForeground(new java.awt.Color(254, 254, 254));
         try {
-            jFormattedData1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtSelecaoPoltronaCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedData1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jFormattedData1.setText("584.545.454-54");
-        pSelecaoPoltrona.add(jFormattedData1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 30));
+        txtSelecaoPoltronaCPF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtSelecaoPoltronaCPF.setText("584.545.454-54");
+        pSelecaoPoltrona.add(txtSelecaoPoltronaCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 30));
 
         lblPoltrona.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
         lblPoltrona.setForeground(new java.awt.Color(254, 254, 254));
@@ -1461,6 +1472,7 @@ public class AppInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_formMousePressed
 
     private void pRepresentanteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pRepresentanteMousePressed
+            
         setColor(pRepresentante);
         resetColor(pConta);
         resetColor(pVender);
@@ -1477,63 +1489,93 @@ public class AppInicio extends javax.swing.JFrame {
         PainelTelas.repaint();
         PainelTelas.revalidate();
         
+        
     }//GEN-LAST:event_pRepresentanteMousePressed
 
     private void pVenderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pVenderMousePressed
-        setColor(pVender);
-        resetColor(pConta);
-        //resetColor(pVender);
-        resetColor(pCheckIn);
-        resetColor(pNovidade);
-        resetColor(pRepresentante);
-        
-        PainelTelas.removeAll();
-        PainelTelas.repaint();
-        PainelTelas.revalidate();
-        
-        
-        PainelTelas.add(PainelVenderPassagem);
-        PainelTelas.repaint();
-        PainelTelas.revalidate();
+        if(logado){
+
+            setColor(pVender);
+            resetColor(pConta);
+            resetColor(pCheckIn);
+            resetColor(pNovidade);
+            resetColor(pRepresentante);
+
+            PainelTelas.removeAll();
+            PainelTelas.repaint();
+            PainelTelas.revalidate();
+
+
+            PainelTelas.add(PainelVenderPassagem);
+            PainelTelas.repaint();
+            PainelTelas.revalidate();
+        }else{
+            Som.erro();
+            setUnavaible(pVender);
+            resetColor(pConta);
+            resetColor(pCheckIn);
+            resetColor(pNovidade);
+            resetColor(pRepresentante);
+        }
     }//GEN-LAST:event_pVenderMousePressed
 
     private void pNovidadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pNovidadeMousePressed
-        setColor(pNovidade);
-        resetColor(pConta);
-        resetColor(pVender);
-        resetColor(pCheckIn);
-        //resetColor(pNovidade);
-        resetColor(pRepresentante);
+        if(logado){
 
-        
-        PainelTelas.removeAll();
-        PainelTelas.repaint();
-        PainelTelas.revalidate();
-        
-        
-        PainelTelas.add(PainelNovidades);
-        PainelTelas.repaint();
-        PainelTelas.revalidate();
+            setColor(pNovidade);
+            resetColor(pConta);
+            resetColor(pVender);
+            resetColor(pCheckIn);
+            resetColor(pRepresentante);
+
+
+            PainelTelas.removeAll();
+            PainelTelas.repaint();
+            PainelTelas.revalidate();
+
+
+            PainelTelas.add(PainelNovidades);
+            PainelTelas.repaint();
+            PainelTelas.revalidate();
+        }else{
+            Som.erro();
+            setUnavaible(pNovidade);
+            resetColor(pConta);
+            resetColor(pVender);
+            resetColor(pCheckIn);
+            resetColor(pRepresentante);
+        }
     }//GEN-LAST:event_pNovidadeMousePressed
 
     private void pCheckInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pCheckInMousePressed
-        setColor(pCheckIn);
-        resetColor(pConta);
-        resetColor(pVender);
-        //resetColor(pCheckIn);
-        resetColor(pNovidade);
-        resetColor(pRepresentante);
-        
-        PainelTelas.removeAll();
-        PainelTelas.repaint();
-        PainelTelas.revalidate();
-        
-        PainelTelas.add(PainelCheckIn);
-        PainelTelas.repaint();
-        PainelTelas.revalidate();
+        if(logado){
+
+            setColor(pCheckIn);
+            resetColor(pConta);
+            resetColor(pVender);
+            resetColor(pNovidade);
+            resetColor(pRepresentante);
+
+            PainelTelas.removeAll();
+            PainelTelas.repaint();
+            PainelTelas.revalidate();
+
+            PainelTelas.add(PainelCheckIn);
+            PainelTelas.repaint();
+            PainelTelas.revalidate();
+        }else{
+            Som.erro();
+            setUnavaible(pCheckIn);
+            resetColor(pConta);
+            resetColor(pVender);
+            resetColor(pNovidade);
+            resetColor(pRepresentante);
+            
+        }
     }//GEN-LAST:event_pCheckInMousePressed
 
     private void pContaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pContaMousePressed
+        
         setColor(pConta);
         //resetColor(pConta);
         resetColor(pVender);
@@ -1571,25 +1613,19 @@ public class AppInicio extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExit5MouseClicked
 
+    
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
-        if(txtLogin.getText().equals("Arthur") && txtSenha.getText().equals("123")) {
-            pLogin.setVisible(false);
-            lblIconLogin.setIcon(null);
-            pMenu.setVisible(true);
-            lblNomeUsuario.setText(txtLogin.getText());
+        for (int i = 0; i <agenda.size(); i++) {
+            
+            if(agenda.get(i).testaSenha(txtLogin.getText(),txtSenha.getText())){
+                pLogin.setVisible(false);
+                lblIconLogin.setIcon(null);
+                pMenu.setVisible(true);
+                lblNomeUsuario.setText(txtLogin.getText());
+            }
+            
         }
-        else if(txtLogin.getText().equals("Dani") && txtSenha.getText().equals("123")) {
-            pLogin.setVisible(false);
-            lblIconLogin.setIcon(null);
-            pMenu.setVisible(true);
-            lblNomeUsuario.setText(txtLogin.getText());
-        }
-        else if(txtLogin.getText().equals("Thayza") && txtSenha.getText().equals("123")) {
-            pLogin.setVisible(false);
-            lblIconLogin.setIcon(null);
-            pMenu.setVisible(true);
-            lblNomeUsuario.setText(txtLogin.getText());
-        }
+        logado = true;
     }//GEN-LAST:event_btnEntrarLoginActionPerformed
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
@@ -1661,6 +1697,7 @@ public class AppInicio extends javax.swing.JFrame {
         pMenu.setVisible(false);
         txtLogin.setText("");
         txtSenha.setText("");
+        logado=false;
     }//GEN-LAST:event_btnSaiMousePressed
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         System.out.println(jFormattedData.getText());
@@ -2158,13 +2195,14 @@ public class AppInicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtOrigemActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSairComprarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairComprarPassagemActionPerformed
         pSelecaoPassagem.setVisible(true);
         pCompradePassagem.setVisible(false);
         txtIDVOOPASSAGEM.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSairComprarPassagemActionPerformed
 
     public void setPoltronaVermelha(int x, int y){
+        
         if(x==0 && y==0){
             A1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
@@ -2174,307 +2212,470 @@ public class AppInicio extends javax.swing.JFrame {
         else if(x==0 && y==2){
             A3.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
+        else if(x==0 && y==3){
+            A4.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==4){
+            A5.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==5){
+            A6.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==6){
+            A7.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==7){
+            A8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==0){
+            B1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==1){
+            B2.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==2){
+            B3.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==3){
+            B4.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==4){
+            B5.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==5){
+            B6.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==6){
+            B7.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==7){
+            B8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==0){
+            C1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==1){
+            C2.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==2){
+            C3.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==3){
+            C4.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==4){
+            C5.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==5){
+            C6.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==6){
+            C7.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==7){
+            C8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==0){
+            D1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==1){
+            D2.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==2){
+            D3.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==3){
+            D4.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==4){
+            D5.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==5){
+            D6.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==6){
+            D7.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==7){
+            D8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        
+        
     }
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jFormattedData1.setText("");
+    private void btnComprarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPassagemActionPerformed
         int i,j;
-        for( i =0; i<7;i++){
-            for( j =0; j<3;j++){
-                            System.out.println("i:"+i+"  j:"+j);
-                        if(agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).IsPoltronaOcupada(i, j))
-                            setPoltronaVermelha(i, j);
+        for( i =0; i<8;i++){
+            for( j =0; j<4;j++){
+                System.out.println("i:"+i+"  j:"+j);
+                if(agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).IsPoltronaOcupada(i, j)){
+                System.out.println(agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).IsPoltronaOcupada(i, j));
+                setPoltronaVermelha(j, i);
+                }
                         
             }
         }
+        agendaPassagem.add(new Passagem(agendaPassagem.size(), agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText()))));
+        //disc.salvarPassagem(); //#########################################################################
         
+        txtIDVOOPASSAGEM.setText("");
+        txtSelecaoPoltronaCPF.setText("");
+        txtSelecaoPoltronaNome.setText("");
         pVPoltronas.setVisible(true);
         pSelecaoPoltrona.setVisible(true);
         pVPassagemBaleia.setVisible(false);
         pCompradePassagem.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnComprarPassagemActionPerformed
 
     private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
-        // TODO add your handling code here:
+       if(Integer.parseInt(txtIDVoo.getText()) <= agendaPassagem.size()){
+           agendaPassagem.get(Integer.parseInt(txtIDVoo.getText()));
+       }
     }//GEN-LAST:event_btnCarregarActionPerformed
 
-    private void txtOrigem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigem1ActionPerformed
+    private void txtSelecaoPoltronaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSelecaoPoltronaNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrigem1ActionPerformed
+    }//GEN-LAST:event_txtSelecaoPoltronaNomeActionPerformed
+
 
     private void btnComprarPoltronaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPoltronaActionPerformed
         System.out.println("Voce Escolheu a poltrona "+poltx+polty);
-        agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).setPoltronaOcupada(poltx, polty);
+        agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).setPoltronaOcupada(polty, poltx);
+        pVPoltronas.setVisible(false);
+        pVPassagemBaleia.setVisible(true);
+        pCompradePassagem.setVisible(true);
+        pSelecaoPoltrona.setVisible(false);
+        
+        //new SocketCliente().run();
+        //GERAR O PDF AQUI
     }//GEN-LAST:event_btnComprarPoltronaActionPerformed
 
     
     private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
 
-        resetAllbtn();
-        A1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A1");
-        poltx = 0;
-        polty = 0;
+        if(A1.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A1");
+            poltx = 0;
+            polty = 0;
+        }
+            
     }//GEN-LAST:event_A1ActionPerformed
 
     private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
 
-        resetAllbtn();
-        A2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A2");
-        poltx = 0;
-        polty = 1;
-
+        if(A2.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A2");
+            poltx = 0;
+            polty = 1;
+        }
+        
     }//GEN-LAST:event_A2ActionPerformed
 
     private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
 
-        resetAllbtn();
-        A3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A3");
-        poltx = 0;
-        polty = 2;
+        if(A3.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A3");
+            poltx = 0;
+            polty = 2;
+        }
 
     }//GEN-LAST:event_A3ActionPerformed
 
     private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
-
-        resetAllbtn();
-        A4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A4");
-        poltx = 0;
-        polty = 3;
-
+        if(A4.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A4");
+            poltx = 0;
+            polty = 3;
+        }
     }//GEN-LAST:event_A4ActionPerformed
 
     private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
-        resetAllbtn();
-        A5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A5");
-        poltx = 0;
-        polty = 4;
-
+        if(A5.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A5");
+            poltx = 0;
+            polty = 4;
+        }
     }//GEN-LAST:event_A5ActionPerformed
 
     private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
-        resetAllbtn();
-        A6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A6");
-        poltx = 0;
-        polty = 5;
-
+        if(A6.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A6");
+            poltx = 0;
+            polty = 5;
+        }
     }//GEN-LAST:event_A6ActionPerformed
 
     private void A7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A7ActionPerformed
-        resetAllbtn();
-        A7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A7");
-        poltx = 0;
-        polty = 6;
-
+        if(A7.getIcon().toString().contains("VerdeG.png")){  
+            resetAllbtn();
+            A7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A7");
+            poltx = 0;
+            polty = 6;
+        }
     }//GEN-LAST:event_A7ActionPerformed
 
     private void A8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A8ActionPerformed
-
-        resetAllbtn();
-        A8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("A8");
-        poltx = 0;
-        polty = 7;
-
+    if(A8.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A8");
+            poltx = 0;
+            polty = 7;
+    }
     }//GEN-LAST:event_A8ActionPerformed
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
-        resetAllbtn();
-        B1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B1");
-        poltx = 1;
-        polty = 0;
+        if(B1.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B1");
+            poltx = 1;
+            polty = 0;
+        }
     }//GEN-LAST:event_B1ActionPerformed
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
-        resetAllbtn();
-        B2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B2");
-        poltx = 1;
-        polty = 1;
+        if(B2.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B2");
+            poltx = 1;
+            polty = 1;
+        }
     }//GEN-LAST:event_B2ActionPerformed
 
     private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
-        resetAllbtn();
-        B3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B3");
-        poltx = 1;
-        polty = 2;
+        if(B3.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B3");
+            poltx = 1;
+            polty = 2;
+        }
     }//GEN-LAST:event_B3ActionPerformed
 
     private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
-        resetAllbtn();
-        B4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B4");
-        poltx = 1;
-        polty = 3;
+        if(B4.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B4");
+            poltx = 1;
+            polty = 3;
+        }
     }//GEN-LAST:event_B4ActionPerformed
 
     private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
-        resetAllbtn();
-        B5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B5");
-        poltx = 1;
-        polty = 4;
+        if(B5.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B5");
+            poltx = 1;
+            polty = 4;
+        }
     }//GEN-LAST:event_B5ActionPerformed
 
     private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
-        resetAllbtn();
-        B6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B6");
-        poltx = 1;
-        polty = 5;
+        if(B6.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B6");
+            poltx = 1;
+            polty = 5;
+        }
     }//GEN-LAST:event_B6ActionPerformed
 
     private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
-        resetAllbtn();
-        B7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B7");
-        poltx = 1;
-        polty = 6;
+        if(B7.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B7");
+            poltx = 1;
+            polty = 6;
+        }
     }//GEN-LAST:event_B7ActionPerformed
 
     private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
-        resetAllbtn();
-        B8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("B8");
-        poltx = 1;
-        polty = 7;
+        if(B8.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B8");
+            poltx = 1;
+            polty = 7;
+        }
     }//GEN-LAST:event_B8ActionPerformed
 
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
-        resetAllbtn();
-        C1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C1");
-        poltx = 2;
-        polty = 0;
+        if(C1.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C1");
+            poltx = 2;
+            polty = 0;
+        }
     }//GEN-LAST:event_C1ActionPerformed
 
     private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
-        resetAllbtn();
-        C2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C2");
-        poltx = 2;
-        polty = 1;
+        if(C2.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C2");
+            poltx = 2;
+            polty = 1;
+        }
     }//GEN-LAST:event_C2ActionPerformed
 
     private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
-        resetAllbtn();
-        C3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C3");
-        poltx = 2;
-        polty = 2;
+        if(C3.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C3");
+            poltx = 2;
+            polty = 2;
+        }
     }//GEN-LAST:event_C3ActionPerformed
 
     private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
-        resetAllbtn();
-        C4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C4");
-        poltx = 2;
-        polty = 3;
+        if(C4.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C4");
+            poltx = 2;
+            polty = 3;
+        }
     }//GEN-LAST:event_C4ActionPerformed
 
     private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
-        resetAllbtn();
-        C5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C5");
-        poltx = 2;
-        polty = 4;
+        if(C5.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C5");
+            poltx = 2;
+            polty = 4;
+        }
     }//GEN-LAST:event_C5ActionPerformed
 
     private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
-        resetAllbtn();
-        C6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C6");
-        poltx = 2;
-        polty = 5;
+        if(C6.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C6");
+            poltx = 2;
+            polty = 5;
+        }
     }//GEN-LAST:event_C6ActionPerformed
 
     private void C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C7ActionPerformed
-        resetAllbtn();
-        C7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C7");
-        poltx = 2;
-        polty = 6;
+        if(C7.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C7");
+            poltx = 2;
+            polty = 6;
+        }
     }//GEN-LAST:event_C7ActionPerformed
 
     private void C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C8ActionPerformed
-        resetAllbtn();
-        C8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("C8");
-        poltx = 2;
-        polty = 7;
+        if(C8.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C8");
+            poltx = 2;
+            polty = 7;
+        }
     }//GEN-LAST:event_C8ActionPerformed
 
     private void D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D1ActionPerformed
-        resetAllbtn();
-        D1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D1");
-        poltx = 3;
-        polty = 0;
+        if(D1.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D1");
+            poltx = 3;
+            polty = 0;
+        }
     }//GEN-LAST:event_D1ActionPerformed
 
     private void D2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D2ActionPerformed
-        resetAllbtn();
-        D2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D2");
-        poltx = 3;
-        polty = 1;
+        if(D2.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D2");
+            poltx = 3;
+            polty = 1;
+        }
         
     }//GEN-LAST:event_D2ActionPerformed
 
     private void D3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D3ActionPerformed
-        resetAllbtn();
-        D3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D3");
-        poltx = 3;
-        polty = 2;
+        if(D3.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D3");
+            poltx = 3;
+            polty = 2;
+        }
     }//GEN-LAST:event_D3ActionPerformed
 
     private void D4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D4ActionPerformed
-        resetAllbtn();
-        D4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D4");
-        poltx = 3;
-        polty = 3;
+        if(D4.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D4");
+            poltx = 3;
+            polty = 3;
+        }
     }//GEN-LAST:event_D4ActionPerformed
 
     private void D5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D5ActionPerformed
-        resetAllbtn();
-        D5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D5");
-        poltx = 3;
-        polty = 4;
+        if(D5.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D5");
+            poltx = 3;
+            polty = 4;
+        }
     }//GEN-LAST:event_D5ActionPerformed
 
     private void D6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D6ActionPerformed
-        resetAllbtn();
-        D6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D6");
-        poltx = 3;
-        polty = 5;
+        if(D6.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D6");
+            poltx = 3;
+            polty = 5;
+        }
     }//GEN-LAST:event_D6ActionPerformed
 
     private void D7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D7ActionPerformed
-        resetAllbtn();
-        D7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D7");
-        poltx = 3;
-        polty = 6;
+        if(D7.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D7");
+            poltx = 3;
+            polty = 6;
+        }
     }//GEN-LAST:event_D7ActionPerformed
 
     private void D8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D8ActionPerformed
-        resetAllbtn();
-        D8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
-        lblNumPoltrona.setText("D8");
-        poltx = 3;
-        polty = 7;
+        if(D8.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D8");
+            poltx = 3;
+            polty = 7;
+        }
     }//GEN-LAST:event_D8ActionPerformed
 
     /**
@@ -2508,15 +2709,19 @@ public class AppInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                /*
-                
                 try {
+                    /*
+                    
+                    try {
                     Thread.sleep(5000);
+                    } catch (InterruptedException ex) {
+                    Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    */
+                    new AppInicio().setVisible(true);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                */
-                new AppInicio().setVisible(true);
             }
         });
     }
@@ -2566,6 +2771,7 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel Titulo;
     private javax.swing.JButton btnCarregar;
+    private javax.swing.JButton btnComprarPassagem;
     private javax.swing.JButton btnComprarPoltrona;
     private javax.swing.JButton btnEntrarLogin;
     private javax.swing.JPanel btnExit;
@@ -2577,14 +2783,12 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel btnGerar2Via;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JPanel btnSai;
+    private javax.swing.JButton btnSairComprarPassagem;
     private javax.swing.JPanel btnverVendas;
     private javax.swing.JLabel iconeGerar;
     private javax.swing.JLabel iconeVendas;
     private javax.swing.JLabel iconesai;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFormattedData;
-    private javax.swing.JFormattedTextField jFormattedData1;
     private javax.swing.JLabel jIconCheckIn;
     private javax.swing.JLabel jIconNovidades;
     private javax.swing.JLabel jIconRepresentante;
@@ -2682,50 +2886,86 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JTextField txtIDVoo;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtOrigem;
-    private javax.swing.JTextField txtOrigem1;
+    private javax.swing.JFormattedTextField txtSelecaoPoltronaCPF;
+    private javax.swing.JTextField txtSelecaoPoltronaNome;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
     private void setColor(JPanel panel) {
         panel.setBackground(new Color(0, 77, 128));
     }
+    private void setUnavaible(JPanel panel){
+        panel.setBackground(new Color(117, 124, 130));
+    }
     
     private void resetColor(JPanel panel){
         panel.setBackground(SidePanel.getBackground());
     }
-        private void resetAllbtn(){
-        jButton1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        jButton2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        A8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        B8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        C8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        D1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        D2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        D3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        D4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        D5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
-        D6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+    private void resetAllbtn(){
+        if(A1.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A2.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A3.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A4.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A5.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A6.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A7.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A8.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B1.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B2.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B3.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B4.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B5.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B6.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B7.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B8.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C1.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C2.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C3.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C4.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C5.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C6.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C7.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C8.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D1.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D2.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D3.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D4.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D5.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D6.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D7.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D8.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
     }
     
 }

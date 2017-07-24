@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import passagensaereas.Administradores;
 import passagensaereas.AppInicio;
 import passagensaereas.Passagem;
 import passagensaereas.Voos;
@@ -26,11 +27,19 @@ public class Disco implements InterfaceDisco{
     public static ArrayList<Voos> agendaVoo= new ArrayList<Voos>();
     public static ArrayList<Voos> agendaVoos= new ArrayList<Voos>();
     public static ArrayList<Passagem> agendaPassagem= new ArrayList<Passagem>();
+    public static ArrayList<Administradores> agenda = new ArrayList<Administradores>();
+    
+    
     
     public Disco(){
        agendaVoo.addAll(carregarVoo());
        agendaVoos.addAll(carregarVoos());
-       //carregarPassagens();
+       
+       agenda.add(new Administradores("Arthur", "123"));
+       agenda.add(new Administradores("Thayza", "123"));
+       agenda.add(new Administradores("Dani", "123"));
+       salvarAdmin();
+       //agendaPassagem.addAll(carregarPassagem());
     }
     
     
@@ -135,6 +144,37 @@ public class Disco implements InterfaceDisco{
         return agendaPassagem;
     }
 
+
+    public void salvarAdmin() {
+        File arquivo=new File("agenda.txt");
+        try{
+            FileOutputStream fout = new FileOutputStream(arquivo);
+            ObjectOutputStream oos =new ObjectOutputStream(fout);
+            oos.writeObject(agenda);
+            oos.flush();
+            fout.close();
+        }catch(Exception ex){
+            System.err.println("Erro: "+ ex.toString());
+        }finally{
+            System.out.println("Salvo Com sucesso.");
+        }
+    }
+
+
+    public ArrayList<Administradores> carregarAdmin() {
+        File arquivo=new File("agenda.txt");
+        try{
+            ArrayList<Administradores> b = new ArrayList<Administradores>();
+            FileInputStream fin = new FileInputStream(arquivo);
+            ObjectInputStream oin =new ObjectInputStream(fin);
+            agenda =(ArrayList<Administradores>)oin.readObject();
+            oin.close();
+            fin.close();
+        }catch(Exception ex){
+            System.err.println("Erro: "+ ex.toString());
+        }
+        return agenda;
+    }
 
     
     
