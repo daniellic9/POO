@@ -1,11 +1,35 @@
 package passagensaereas;
 
 public class Voos extends InformacoesViagem{
-    private Poltronas poltronas[][] = new Poltronas[4][10];
+    private Poltronas poltronas[][] = new Poltronas[7][3];
     private int idvoo,numPolt;
 
+    public Voos(){
+    }
+    public Voos(String origem,String destino){
+        this.destino = destino;
+        this.origem = origem;  
+    }
+        
+    public void imprimir(){
+            System.out.println("Numero do Origem: "+origem);
+            System.out.println("Numero do Conexao: "+conexao);
+            System.out.println("Numero do Destino: "+destino);
+    }
+    
     public int getIdvoo() {
         return idvoo;
+    }
+    
+    
+    public boolean IsPoltronaOcupada(int x, int y){
+        if(this.poltronas[x][y].isOcupado())
+            return true;
+        return false;
+    }
+    
+    public void setPoltronaOcupada(int x, int y){
+        this.poltronas[x][y].setOcupado(true);
     }
 
     public void setIdvoo(int idvoo) {
@@ -13,11 +37,6 @@ public class Voos extends InformacoesViagem{
     }
     private String conexao;
     
-    public void imprimir(){
-            System.out.println("Numero do Origem: "+origem);
-            System.out.println("Numero do Conexao: "+conexao);
-            System.out.println("Numero do Destino: "+destino);
-    }
     
     public String getConexao() {
         return conexao;

@@ -21,13 +21,16 @@ import passagensaereas.Voos;
  * @author danie
  */
 public class Disco implements InterfaceDisco{
-
+    
+    
+    public static ArrayList<Voos> agendaVoo= new ArrayList<Voos>();
     public static ArrayList<Voos> agendaVoos= new ArrayList<Voos>();
     public static ArrayList<Passagem> agendaPassagem= new ArrayList<Passagem>();
     
     public Disco(){
-        carregarVoos();
-        carregarPassagens();
+       agendaVoo.addAll(carregarVoo());
+       agendaVoos.addAll(carregarVoos());
+       //carregarPassagens();
     }
     
     
@@ -45,6 +48,40 @@ public class Disco implements InterfaceDisco{
         }finally{
             System.out.println("Salvo Com sucesso.");
         }
+    }
+    
+    
+    public void salvarVoo(){
+        File arquivo=new File("agendaVoo.txt");
+        try{
+            FileOutputStream fout = new FileOutputStream(arquivo);
+            ObjectOutputStream oos =new ObjectOutputStream(fout);
+            oos.writeObject(agendaVoo);
+            oos.flush();
+            fout.close();
+        }catch(Exception ex){
+            System.err.println("Erro: "+ ex.toString());
+        }finally{
+            System.out.println("Salvo Com sucesso.");
+        }
+    }
+    
+        public ArrayList<Voos> carregarVoo() {
+        File arquivo=new File("agendaVoo.txt");
+        try{
+            ArrayList<Voos> b = new ArrayList<Voos>();
+            FileInputStream fin = new FileInputStream(arquivo);
+            ObjectInputStream oin =new ObjectInputStream(fin);
+            agendaVoo =(ArrayList<Voos>)oin.readObject();
+//            for(Voos p: agendaVoo){
+//                p.imprimir();
+//            }
+            oin.close();
+            fin.close();
+        }catch(Exception ex){
+            System.err.println("Erro: "+ ex.toString());
+        }
+        return agendaVoo;
     }
 
     @Override

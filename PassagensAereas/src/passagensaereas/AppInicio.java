@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
-
 
 import Disco.Disco;
 import static Disco.Disco.agendaVoos;
-import static Disco.Disco.agendaVoos;
+import static Disco.Disco.agendaVoo;
 import com.itextpdf.text.Chunk;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -37,7 +31,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 
@@ -48,12 +45,79 @@ import javax.swing.table.TableModel;
 public class AppInicio extends javax.swing.JFrame {
     
     Disco disc = new Disco();
+    int poltx,polty;
     
     public AppInicio() {
+    /*
+     
 
-    /**
-     * Creates new form NewJFrame
-     */
+        agendaVoo.add(new Voos("São Paulo", "Rio de Janeiro"));
+    agendaVoo.add(new Voos("São Paulo","Vitória"));
+    agendaVoo.add(new Voos("São Paulo","Porto Alegre"));
+    agendaVoo.add(new Voos("São Paulo","Brasília"));
+    agendaVoo.add(new Voos("São Paulo","Belo Horizonte"));
+    agendaVoo.add(new Voos("São Paulo","Manaus"));
+    agendaVoo.add(new Voos("São Paulo","Fortaleza"));
+    agendaVoo.add(new Voos("São Paulo","Natal"));
+    agendaVoo.add(new Voos("Brasília","São Paulo"));
+    agendaVoo.add(new Voos("Brasília","Rio de Janeiro"));
+    agendaVoo.add(new Voos("Brasília","Vitória"));
+    agendaVoo.add(new Voos("Brasília","Porto Alegre"));
+    agendaVoo.add(new Voos("Brasília","Manaus"));
+    agendaVoo.add(new Voos("Brasília","Fortaleza"));
+    agendaVoo.add(new Voos("Brasília","Belo Horizonte"));
+    agendaVoo.add(new Voos("Brasília","Natal"));
+    agendaVoo.add(new Voos("Rio de Janeiro","São Paulo"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Vitória"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Porto Alegre"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Belo Horizonte"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Brasília"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Manaus"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Fortaleza"));
+    agendaVoo.add(new Voos("Rio de Janeiro","Natal"));
+    agendaVoo.add(new Voos("Vitória","Rio de Janeiro"));
+    agendaVoo.add(new Voos("Vitória","São Paulo"));
+    agendaVoo.add(new Voos("Vitória","Porto Alegre"));
+    agendaVoo.add(new Voos("Vitória","Belo Horizonte"));
+    agendaVoo.add(new Voos("Vitória","Brasília"));
+    agendaVoo.add(new Voos("Vitória","Manaus"));
+    agendaVoo.add(new Voos("Vitória","Fortaleza"));
+    agendaVoo.add(new Voos("Vitória","Natal"));
+    agendaVoo.add(new Voos("Manaus","Natal"));
+    agendaVoo.add(new Voos("Manaus","Fortaleza"));
+    agendaVoo.add(new Voos("Manaus","Brasília"));
+    agendaVoo.add(new Voos("Manaus","São Paulo"));
+    agendaVoo.add(new Voos("Manaus","Rio de Janeiro"));
+    agendaVoo.add(new Voos("Manaus","Vitória"));
+    agendaVoo.add(new Voos("Manaus","Porto Alegre"));
+    agendaVoo.add(new Voos("Manaus","Belo Horizonte"));
+    agendaVoo.add(new Voos("Natal","Manaus"));
+    agendaVoo.add(new Voos("Natal","Fortaleza"));
+    agendaVoo.add(new Voos("Natal","Brasília"));
+    agendaVoo.add(new Voos("Natal","São Paulo"));
+    agendaVoo.add(new Voos("Natal","Rio de Janeiro"));
+    agendaVoo.add(new Voos("Natal","Vitória"));
+    agendaVoo.add(new Voos("Natal","Porto Alegre"));
+    agendaVoo.add(new Voos("Natal","Belo Horizonte"));
+    agendaVoo.add(new Voos("Fortaleza","Manaus"));
+    agendaVoo.add(new Voos("Fortaleza","Natal"));
+    agendaVoo.add(new Voos("Fortaleza","Brasília"));
+    agendaVoo.add(new Voos("Fortaleza","São Paulo"));
+    agendaVoo.add(new Voos("Fortaleza","Rio de Janeiro"));
+    agendaVoo.add(new Voos("Fortaleza","Vitória"));
+    agendaVoo.add(new Voos("Fortaleza","Porto Alegre"));
+    agendaVoo.add(new Voos("Fortaleza","Belo Horizonte"));
+    agendaVoo.add(new Voos("Porto Alegre","São Paulo"));
+    agendaVoo.add(new Voos("Porto Alegre","Rio de Janeiro"));
+    agendaVoo.add(new Voos("Porto Alegre","Vitória"));
+    agendaVoo.add(new Voos("Porto Alegre","Natal"));
+    agendaVoo.add(new Voos("Porto Alegre","Brasília"));
+    agendaVoo.add(new Voos("Porto Alegre","Manaus"));
+    agendaVoo.add(new Voos("Porto Alegre","Fortaleza"));
+    agendaVoo.add(new Voos("Porto Alegre","Natal"));
+    disc.salvarVoo();
+    
+          */
         initComponents();
         setIconImage(new ImageIcon("Icons/Whale.png").getImage());
         
@@ -120,8 +184,53 @@ public class AppInicio extends javax.swing.JFrame {
         jlblExit3 = new javax.swing.JLabel();
         painelVenderPassagem = new javax.swing.JPanel();
         pVenderPassagemEsq = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
+        pVPassagemBaleia = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        pVPoltronas = new javax.swing.JPanel();
+        A1 = new javax.swing.JButton();
+        A2 = new javax.swing.JButton();
+        A3 = new javax.swing.JButton();
+        A4 = new javax.swing.JButton();
+        A5 = new javax.swing.JButton();
+        A6 = new javax.swing.JButton();
+        A7 = new javax.swing.JButton();
+        A8 = new javax.swing.JButton();
+        B1 = new javax.swing.JButton();
+        B2 = new javax.swing.JButton();
+        B3 = new javax.swing.JButton();
+        B4 = new javax.swing.JButton();
+        B5 = new javax.swing.JButton();
+        B6 = new javax.swing.JButton();
+        B7 = new javax.swing.JButton();
+        B8 = new javax.swing.JButton();
+        C1 = new javax.swing.JButton();
+        C2 = new javax.swing.JButton();
+        C3 = new javax.swing.JButton();
+        C4 = new javax.swing.JButton();
+        C5 = new javax.swing.JButton();
+        C6 = new javax.swing.JButton();
+        C7 = new javax.swing.JButton();
+        C8 = new javax.swing.JButton();
+        D1 = new javax.swing.JButton();
+        D2 = new javax.swing.JButton();
+        D3 = new javax.swing.JButton();
+        D4 = new javax.swing.JButton();
+        D5 = new javax.swing.JButton();
+        D6 = new javax.swing.JButton();
+        D7 = new javax.swing.JButton();
+        D8 = new javax.swing.JButton();
+        lblPoltA = new javax.swing.JLabel();
+        lblPoltB = new javax.swing.JLabel();
+        lblPoltC = new javax.swing.JLabel();
+        lblPoltD = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         pVenderPassagemDir = new javax.swing.JPanel();
         pSelecaoPassagem = new javax.swing.JPanel();
         txtOrigem = new javax.swing.JTextField();
@@ -137,6 +246,22 @@ public class AppInicio extends javax.swing.JFrame {
         pCompradePassagem = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        txtIDVOOPASSAGEM = new javax.swing.JTextField();
+        lblDestino1 = new javax.swing.JLabel();
+        jSepDestino1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        pSelecaoPoltrona = new javax.swing.JPanel();
+        txtOrigem1 = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        jSepOrigem1 = new javax.swing.JSeparator();
+        btnComprarPoltrona = new javax.swing.JButton();
+        lblNumPoltrona = new javax.swing.JLabel();
+        jSepData1 = new javax.swing.JSeparator();
+        lblCPF = new javax.swing.JLabel();
+        jSepDestino3 = new javax.swing.JSeparator();
+        jFormattedData1 = new javax.swing.JFormattedTextField();
+        lblPoltrona = new javax.swing.JLabel();
         PainelCheckIn = new javax.swing.JPanel();
         btnExit2 = new javax.swing.JPanel();
         jlblExit2 = new javax.swing.JLabel();
@@ -156,6 +281,14 @@ public class AppInicio extends javax.swing.JFrame {
         lblIconLogin = new javax.swing.JLabel();
         lblImagemLogin = new javax.swing.JLabel();
         pContaDir = new javax.swing.JPanel();
+        pLogin = new javax.swing.JPanel();
+        lblSenha = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblLogin = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        txtSenha = new javax.swing.JPasswordField();
+        btnEntrarLogin = new javax.swing.JButton();
         pMenu = new javax.swing.JPanel();
         lblBemvindo = new javax.swing.JLabel();
         lblNomeUsuario = new javax.swing.JLabel();
@@ -168,14 +301,6 @@ public class AppInicio extends javax.swing.JFrame {
         btnGerar2Via = new javax.swing.JPanel();
         nomeGerar = new javax.swing.JLabel();
         iconeGerar = new javax.swing.JLabel();
-        pLogin = new javax.swing.JPanel();
-        lblSenha = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        lblLogin = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        txtSenha = new javax.swing.JPasswordField();
-        btnEntrarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -483,25 +608,325 @@ public class AppInicio extends javax.swing.JFrame {
         painelVenderPassagem.setBackground(new java.awt.Color(0, 77, 128));
         painelVenderPassagem.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel9.setBackground(new java.awt.Color(24, 116, 210));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pVenderPassagemEsq.setLayout(new java.awt.CardLayout());
+
+        pVPassagemBaleia.setBackground(new java.awt.Color(24, 116, 210));
+        pVPassagemBaleia.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/Load2.gif"))); // NOI18N
-        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 330, 280));
+        pVPassagemBaleia.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 330, 280));
 
-        javax.swing.GroupLayout pVenderPassagemEsqLayout = new javax.swing.GroupLayout(pVenderPassagemEsq);
-        pVenderPassagemEsq.setLayout(pVenderPassagemEsqLayout);
-        pVenderPassagemEsqLayout.setHorizontalGroup(
-            pVenderPassagemEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pVenderPassagemEsqLayout.setVerticalGroup(
-            pVenderPassagemEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pVenderPassagemEsqLayout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        pVenderPassagemEsq.add(pVPassagemBaleia, "card2");
+
+        pVPoltronas.setBackground(new java.awt.Color(254, 254, 254));
+        pVPoltronas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        A1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A1ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 50, 52, -1));
+
+        A2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A2ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 111, 52, -1));
+
+        A3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A3ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 172, 52, -1));
+
+        A4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A4ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 233, 52, -1));
+
+        A5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A5ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A5, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 294, 52, -1));
+
+        A6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A6ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A6, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 355, 52, -1));
+
+        A7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A7ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 416, 52, -1));
+
+        A8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A8ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A8, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 477, 52, -1));
+
+        B1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B1ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 50, 52, -1));
+
+        B2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B2ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 111, 52, -1));
+
+        B3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 172, 52, -1));
+
+        B4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B4ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 233, 52, -1));
+
+        B5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B5ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B5, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 294, 52, -1));
+
+        B6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B6ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 355, 52, -1));
+
+        B7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B7ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B7, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 416, 52, -1));
+
+        B8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B8ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B8, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 477, 52, -1));
+
+        C1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C1ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 50, 52, -1));
+
+        C2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C2ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C2, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 111, 52, -1));
+
+        C3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C3ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C3, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 172, 52, -1));
+
+        C4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C4ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C4, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 233, 52, -1));
+
+        C5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C5ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C5, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 294, 52, -1));
+
+        C6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C6ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C6, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 355, 52, -1));
+
+        C7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C7ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C7, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 416, 52, -1));
+
+        C8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C8ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C8, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 477, 52, -1));
+
+        D1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D1ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 50, 52, -1));
+
+        D2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D2ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 111, 52, -1));
+
+        D3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D3ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 172, 52, -1));
+
+        D4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D4ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D4, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 233, 52, -1));
+
+        D5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D5ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D5, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 294, 52, -1));
+
+        D6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D6ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D6, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 355, 52, -1));
+
+        D7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D7ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D7, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 416, 52, -1));
+
+        D8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D8ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D8, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 477, 52, -1));
+
+        lblPoltA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltA.setText("A");
+        pVPoltronas.add(lblPoltA, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 12, 52, -1));
+
+        lblPoltB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltB.setText("B");
+        pVPoltronas.add(lblPoltB, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 12, 52, -1));
+
+        lblPoltC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltC.setText("C");
+        pVPoltronas.add(lblPoltC, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 12, 52, -1));
+
+        lblPoltD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltD.setText("D");
+        pVPoltronas.add(lblPoltD, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 12, 52, -1));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("1");
+        pVPoltronas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 50, 40, 49));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("2");
+        pVPoltronas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, 40, 49));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("4");
+        pVPoltronas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 233, 40, 49));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("3");
+        pVPoltronas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, 40, 49));
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("6");
+        pVPoltronas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 355, 40, 49));
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("7");
+        pVPoltronas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 416, 40, 49));
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("5");
+        pVPoltronas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 294, 40, 49));
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("8");
+        pVPoltronas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 50));
+
+        pVenderPassagemEsq.add(pVPoltronas, "card3");
 
         painelVenderPassagem.add(pVenderPassagemEsq);
 
@@ -591,12 +1016,120 @@ public class AppInicio extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        pCompradePassagem.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 330, 400));
+        pCompradePassagem.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 330, 180));
+
+        txtIDVOOPASSAGEM.setBackground(new java.awt.Color(27, 62, 111));
+        txtIDVOOPASSAGEM.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtIDVOOPASSAGEM.setForeground(new java.awt.Color(254, 254, 254));
+        txtIDVOOPASSAGEM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtIDVOOPASSAGEM.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        pCompradePassagem.add(txtIDVOOPASSAGEM, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 100, 30));
+
+        lblDestino1.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblDestino1.setForeground(new java.awt.Color(254, 254, 254));
+        lblDestino1.setText("ID DO VOO");
+        pCompradePassagem.add(lblDestino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 140, 30));
+
+        jSepDestino1.setBackground(new java.awt.Color(254, 254, 254));
+        jSepDestino1.setForeground(new java.awt.Color(254, 254, 254));
+        pCompradePassagem.add(jSepDestino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, 10));
+
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        pCompradePassagem.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 90, -1));
+
+        jButton2.setText("Comprar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        pCompradePassagem.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 90, -1));
 
         pVenderPassagemDir.add(pCompradePassagem, "card3");
+
+        pSelecaoPoltrona.setBackground(new java.awt.Color(27, 62, 111));
+        pSelecaoPoltrona.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtOrigem1.setBackground(new java.awt.Color(27, 62, 111));
+        txtOrigem1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtOrigem1.setForeground(new java.awt.Color(254, 254, 254));
+        txtOrigem1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtOrigem1.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        txtOrigem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOrigem1ActionPerformed(evt);
+            }
+        });
+        pSelecaoPoltrona.add(txtOrigem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 290, 30));
+
+        lblNome.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(254, 254, 254));
+        lblNome.setText("NOME");
+        pSelecaoPoltrona.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 100, 30));
+
+        jSepOrigem1.setBackground(new java.awt.Color(254, 254, 254));
+        jSepOrigem1.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPoltrona.add(jSepOrigem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 290, 10));
+
+        btnComprarPoltrona.setText("Comprar");
+        btnComprarPoltrona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarPoltronaActionPerformed(evt);
+            }
+        });
+        pSelecaoPoltrona.add(btnComprarPoltrona, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 110, -1));
+
+        lblNumPoltrona.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblNumPoltrona.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPoltrona.add(lblNumPoltrona, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 40, 30));
+
+        jSepData1.setBackground(new java.awt.Color(254, 254, 254));
+        jSepData1.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPoltrona.add(jSepData1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 40, 10));
+
+        lblCPF.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblCPF.setForeground(new java.awt.Color(254, 254, 254));
+        lblCPF.setText("CPF");
+        pSelecaoPoltrona.add(lblCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 100, 30));
+
+        jSepDestino3.setBackground(new java.awt.Color(254, 254, 254));
+        jSepDestino3.setForeground(new java.awt.Color(254, 254, 254));
+        pSelecaoPoltrona.add(jSepDestino3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 150, 10));
+
+        jFormattedData1.setBackground(new java.awt.Color(27, 62, 111));
+        jFormattedData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jFormattedData1.setForeground(new java.awt.Color(254, 254, 254));
+        try {
+            jFormattedData1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedData1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFormattedData1.setText("584.545.454-54");
+        pSelecaoPoltrona.add(jFormattedData1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 30));
+
+        lblPoltrona.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblPoltrona.setForeground(new java.awt.Color(254, 254, 254));
+        lblPoltrona.setText("POLTRONA");
+        pSelecaoPoltrona.add(lblPoltrona, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, 30));
+
+        pVenderPassagemDir.add(pSelecaoPoltrona, "card2");
 
         painelVenderPassagem.add(pVenderPassagemDir);
 
@@ -662,6 +1195,11 @@ public class AppInicio extends javax.swing.JFrame {
         pCheckInDir.add(jSepIdDoVoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
 
         btnCarregar.setText("Carregar");
+        btnCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarActionPerformed(evt);
+            }
+        });
         pCheckInDir.add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 80, -1));
 
         painelCheckIn.add(pCheckInDir);
@@ -713,6 +1251,55 @@ public class AppInicio extends javax.swing.JFrame {
         painelConta.add(pContaEsq);
 
         pContaDir.setLayout(new java.awt.CardLayout());
+
+        pLogin.setBackground(new java.awt.Color(27, 62, 111));
+        pLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblSenha.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(254, 254, 254));
+        lblSenha.setText("SENHA");
+        pLogin.add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 30));
+
+        txtLogin.setBackground(new java.awt.Color(27, 62, 111));
+        txtLogin.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtLogin.setForeground(new java.awt.Color(254, 254, 254));
+        txtLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtLogin.setSelectedTextColor(new java.awt.Color(254, 254, 254));
+        pLogin.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 129, 290, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(254, 254, 254));
+        jSeparator1.setForeground(new java.awt.Color(254, 254, 254));
+        pLogin.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 10));
+
+        lblLogin.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(254, 254, 254));
+        lblLogin.setText("LOGIN");
+        pLogin.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 70, 30));
+
+        jSeparator2.setBackground(new java.awt.Color(254, 254, 254));
+        jSeparator2.setForeground(new java.awt.Color(254, 254, 254));
+        pLogin.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
+
+        txtSenha.setBackground(new java.awt.Color(27, 62, 111));
+        txtSenha.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(254, 254, 254));
+        txtSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
+        pLogin.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 30));
+
+        btnEntrarLogin.setText("ENTRAR");
+        btnEntrarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarLoginActionPerformed(evt);
+            }
+        });
+        pLogin.add(btnEntrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, -1));
+
+        pContaDir.add(pLogin, "card3");
 
         pMenu.setBackground(new java.awt.Color(254, 254, 254));
         pMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -848,55 +1435,6 @@ public class AppInicio extends javax.swing.JFrame {
         pMenu.add(btnGerar2Via, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 110));
 
         pContaDir.add(pMenu, "card3");
-
-        pLogin.setBackground(new java.awt.Color(27, 62, 111));
-        pLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblSenha.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
-        lblSenha.setForeground(new java.awt.Color(254, 254, 254));
-        lblSenha.setText("SENHA");
-        pLogin.add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 30));
-
-        txtLogin.setBackground(new java.awt.Color(27, 62, 111));
-        txtLogin.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        txtLogin.setForeground(new java.awt.Color(254, 254, 254));
-        txtLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtLogin.setSelectedTextColor(new java.awt.Color(254, 254, 254));
-        pLogin.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 129, 290, 30));
-
-        jSeparator1.setBackground(new java.awt.Color(254, 254, 254));
-        jSeparator1.setForeground(new java.awt.Color(254, 254, 254));
-        pLogin.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 10));
-
-        lblLogin.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
-        lblLogin.setForeground(new java.awt.Color(254, 254, 254));
-        lblLogin.setText("LOGIN");
-        pLogin.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 70, 30));
-
-        jSeparator2.setBackground(new java.awt.Color(254, 254, 254));
-        jSeparator2.setForeground(new java.awt.Color(254, 254, 254));
-        pLogin.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 290, 10));
-
-        txtSenha.setBackground(new java.awt.Color(27, 62, 111));
-        txtSenha.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        txtSenha.setForeground(new java.awt.Color(254, 254, 254));
-        txtSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSenhaKeyPressed(evt);
-            }
-        });
-        pLogin.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 30));
-
-        btnEntrarLogin.setText("ENTRAR");
-        btnEntrarLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarLoginActionPerformed(evt);
-            }
-        });
-        pLogin.add(btnEntrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, -1));
-
-        pContaDir.add(pLogin, "card3");
 
         painelConta.add(pContaDir);
 
@@ -1125,440 +1663,467 @@ public class AppInicio extends javax.swing.JFrame {
         txtSenha.setText("");
     }//GEN-LAST:event_btnSaiMousePressed
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        pCompradePassagem.setVisible(true);
-        pSelecaoPassagem.setVisible(false);
+        System.out.println(jFormattedData.getText());
         int i=0,j=0;
         Voos p  = new Voos();
         TabelaHorarios tab= new TabelaHorarios();
-        for(;i<agendaVoos.size();i++){
-            if((txtOrigem.getText().equals(agendaVoos.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(i).getDestino()))){
-                jTable1.setModel(tab);
-                int a=(int)Math.floor(Math.random()*22);
-                p.setDestino(agendaVoos.get(i).getDestino());
-                p.setOrigem(agendaVoos.get(i).getOrigem());
-                p.setData(null);
-                p.setHorarioSaida(a+":00");
-                p.setHorarioChegada((a+2)+":00");
-                tab.addRow(p);
-                agendaVoos.add(p);
-                j=i;
+        jTable1.setModel(tab);
+        boolean naoexiste = true;
+        
+        for (int k = 0; k < agendaVoos.size(); k++) {//Confere se tem um Voo para o mesmo destino
+            if((txtOrigem.getText().equals(agendaVoos.get(k).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(k).getDestino()))){
+                tab.addRow(agendaVoos.get(k));
+                naoexiste=false;
+            }
+            
+        }
+        
+        if(naoexiste){//Se nao existir um Voo para o mesmo Destino entao ele Cria
+            if(txtOrigem.getText().isEmpty() || txtDestino.getText().isEmpty()){//Se oigem e destino tiver vazio
+                ;
             }
             else{
-                //Se não existir passagem, sumir com a tabela
-                //Botar mensagem na tela que n exite passagem
-                       
-            }
 
+                for(;i<agendaVoo.size();i++){
+                    if((txtOrigem.getText().equals(agendaVoo.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoo.get(i).getDestino()))){
+                        int a=(int)Math.floor(Math.random()*22);
+                        p.setDestino(agendaVoo.get(i).getDestino());
+                        p.setOrigem(agendaVoo.get(i).getOrigem());
+                        p.setIdvoo(agendaVoos.size());
+                        p.setData(jFormattedData.getText());
+                        p.setData(jFormattedData.getText());
+                        p.setHorarioSaida(a+":00");
+                        p.setHorarioChegada((a+2)+":00");
+                        tab.addRow(p);
+                        agendaVoos.add(p);
+                        j=i;
+                    }
+                    else{
+                        //Se não existir passagem, sumir com a tabela
+                        //Botar mensagem na tela que n exite passagem      
+                    }
+                }
+            for(int k=0;k<6;k++){  
+                Voos p1= new Voos();
+                int a=(int)Math.floor(Math.random()*22);
+                p1.setDestino(agendaVoo.get(j).getDestino());
+                p1.setOrigem(agendaVoo.get(j).getOrigem());
+                p1.setData(jFormattedData.getText());
+                p1.setIdvoo(agendaVoos.size());
+                p1.setHorarioSaida(a+":00");
+                p1.setHorarioChegada((a+2)+":00");
+                tab.addRow(p1);
+                agendaVoos.add(p1);
+
+            }
+             /*
+                  */
+
+
+             for(int b=0;b<agendaVoos.size();b++){
+                if(agendaVoos.get(b).getOrigem().equals("São Paulo")||agendaVoos.get(b).getDestino().equals("São Paulo")){
+                    if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+239);
+                        if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+312);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+365);
+                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasília")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+408);
+                        if(agendaVoos.get(b).getDestino().equals("Brasília")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1560);
+                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+795);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+320);
+                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+429);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasíia")){
+                    if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+336);
+                        if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+818);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+896);
+                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+987);
+                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1131);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+340);
+                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+825);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+289);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
+                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1152);
+                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+226);
+                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037 );
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1230);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1169);
+                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+884);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1184);
+                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1214);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+289);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
+                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1152);
+                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+226);
+                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1035);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+365);
+                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1026);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+312);
+                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+795);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+429);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                    if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037);
+                        if(agendaVoos.get(b).getDestino().equals("Natal")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                    if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+884);
+                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }else{
+                            Random r= new Random();
+                            //agendaVoos.get(b).setIdvoo(i);
+                        }
+                    } 
+                }
+            }
         }
-     for(int k=0;k<6;k++){  
-       Voos p1= new Voos();
-       int a=(int)Math.floor(Math.random()*22);
-       p1.setDestino(agendaVoos.get(j).getDestino());
-       p1.setOrigem(agendaVoos.get(j).getOrigem());
-        p1.setHorarioSaida(a+":00");
-        p1.setHorarioChegada((a+2)+":00");
-        tab.addRow(p1);
-        agendaVoos.add(p1);
-     }
-     for(int b=0;b<agendaVoos.size();b++){
-        if(agendaVoos.get(b).getOrigem().equals("São Paulo")||agendaVoos.get(b).getDestino().equals("São Paulo")){
-            if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                agendaVoos.get(b).setValor(239);
-                if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(312);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                agendaVoos.get(b).setValor(365);
-                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasília")){
-                agendaVoos.get(b).setValor(408);
-                if(agendaVoos.get(b).getDestino().equals("Brasília")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                agendaVoos.get(b).setValor(1560);
-                if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(795);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                agendaVoos.get(b).setValor(320);
-                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(429);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasíia")){
-            if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                agendaVoos.get(b).setValor(336);
-                if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(818);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                agendaVoos.get(b).setValor(896);
-                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                agendaVoos.get(b).setValor(987);
-                if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(1131);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                agendaVoos.get(b).setValor(340);
-                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(825);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(289);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                agendaVoos.get(b).setValor(558);
-                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                agendaVoos.get(b).setValor(1152);
-                if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(696);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                agendaVoos.get(b).setValor(226);
-                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(1037);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(1230);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                agendaVoos.get(b).setValor(1169);
-                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(884);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                agendaVoos.get(b).setValor(1184);
-                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(1214);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(289);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                agendaVoos.get(b).setValor(558);
-                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                agendaVoos.get(b).setValor(1152);
-                if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(696);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                agendaVoos.get(b).setValor(226);
-                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(1037);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(558);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(1035);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                agendaVoos.get(b).setValor(365);
-                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(1026);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                agendaVoos.get(b).setValor(312);
-                if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(795);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(429);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-            if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(696);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                agendaVoos.get(b).setValor(1037);
-                if(agendaVoos.get(b).getDestino().equals("Natal")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-            if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                agendaVoos.get(b).setValor(884);
-                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }else{
-                    Random r= new Random();
-                    agendaVoos.get(b).setIdvoo(i);
-                }
-            } 
-        }
-     }
+    }
+    disc.salvarVoos();
+    pCompradePassagem.setVisible(true);
+    pSelecaoPassagem.setVisible(false);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExit4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit4MouseClicked
@@ -1592,6 +2157,324 @@ public class AppInicio extends javax.swing.JFrame {
     private void txtOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigemActionPerformed
 
     }//GEN-LAST:event_txtOrigemActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pSelecaoPassagem.setVisible(true);
+        pCompradePassagem.setVisible(false);
+        txtIDVOOPASSAGEM.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void setPoltronaVermelha(int x, int y){
+        if(x==0 && y==0){
+            A1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==1){
+            A2.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==2){
+            A3.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jFormattedData1.setText("");
+        for(int i =0; i<7;i++){
+            for(int j =0; j<3;j++){
+                            System.out.println("i:"+i+"  j:"+j);
+                        agendaVoos.get(3);
+                            setPoltronaVermelha(i, j);
+                        
+            }
+        }
+        
+        pVPoltronas.setVisible(true);
+        pSelecaoPoltrona.setVisible(true);
+        pVPassagemBaleia.setVisible(false);
+        pCompradePassagem.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCarregarActionPerformed
+
+    private void txtOrigem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOrigem1ActionPerformed
+
+    private void btnComprarPoltronaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPoltronaActionPerformed
+        System.out.println("Voce Escolheu a poltrona "+poltx+polty);
+        agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).setPoltronaOcupada(poltx, polty);
+    }//GEN-LAST:event_btnComprarPoltronaActionPerformed
+
+    
+    private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
+
+        resetAllbtn();
+        A1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A1");
+        poltx = 0;
+        polty = 0;
+    }//GEN-LAST:event_A1ActionPerformed
+
+    private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
+
+        resetAllbtn();
+        A2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A2");
+        poltx = 0;
+        polty = 1;
+
+    }//GEN-LAST:event_A2ActionPerformed
+
+    private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
+
+        resetAllbtn();
+        A3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A3");
+        poltx = 0;
+        polty = 2;
+
+    }//GEN-LAST:event_A3ActionPerformed
+
+    private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
+
+        resetAllbtn();
+        A4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A4");
+        poltx = 0;
+        polty = 3;
+
+    }//GEN-LAST:event_A4ActionPerformed
+
+    private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
+        resetAllbtn();
+        A5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A5");
+        poltx = 0;
+        polty = 4;
+
+    }//GEN-LAST:event_A5ActionPerformed
+
+    private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
+        resetAllbtn();
+        A6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A6");
+        poltx = 0;
+        polty = 5;
+
+    }//GEN-LAST:event_A6ActionPerformed
+
+    private void A7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A7ActionPerformed
+        resetAllbtn();
+        A7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A7");
+        poltx = 0;
+        polty = 6;
+
+    }//GEN-LAST:event_A7ActionPerformed
+
+    private void A8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A8ActionPerformed
+
+        resetAllbtn();
+        A8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("A8");
+        poltx = 0;
+        polty = 7;
+
+    }//GEN-LAST:event_A8ActionPerformed
+
+    private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
+        resetAllbtn();
+        B1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B1");
+        poltx = 1;
+        polty = 0;
+    }//GEN-LAST:event_B1ActionPerformed
+
+    private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
+        resetAllbtn();
+        B2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B2");
+        poltx = 1;
+        polty = 1;
+    }//GEN-LAST:event_B2ActionPerformed
+
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
+        resetAllbtn();
+        B3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B3");
+        poltx = 1;
+        polty = 2;
+    }//GEN-LAST:event_B3ActionPerformed
+
+    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
+        resetAllbtn();
+        B4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B4");
+        poltx = 1;
+        polty = 3;
+    }//GEN-LAST:event_B4ActionPerformed
+
+    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
+        resetAllbtn();
+        B5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B5");
+        poltx = 1;
+        polty = 4;
+    }//GEN-LAST:event_B5ActionPerformed
+
+    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
+        resetAllbtn();
+        B6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B6");
+        poltx = 1;
+        polty = 5;
+    }//GEN-LAST:event_B6ActionPerformed
+
+    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
+        resetAllbtn();
+        B7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B7");
+        poltx = 1;
+        polty = 6;
+    }//GEN-LAST:event_B7ActionPerformed
+
+    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
+        resetAllbtn();
+        B8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("B8");
+        poltx = 1;
+        polty = 7;
+    }//GEN-LAST:event_B8ActionPerformed
+
+    private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
+        resetAllbtn();
+        C1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C1");
+        poltx = 2;
+        polty = 0;
+    }//GEN-LAST:event_C1ActionPerformed
+
+    private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
+        resetAllbtn();
+        C2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C2");
+        poltx = 2;
+        polty = 1;
+    }//GEN-LAST:event_C2ActionPerformed
+
+    private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
+        resetAllbtn();
+        C3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C3");
+        poltx = 2;
+        polty = 2;
+    }//GEN-LAST:event_C3ActionPerformed
+
+    private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
+        resetAllbtn();
+        C4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C4");
+        poltx = 2;
+        polty = 3;
+    }//GEN-LAST:event_C4ActionPerformed
+
+    private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
+        resetAllbtn();
+        C5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C5");
+        poltx = 2;
+        polty = 4;
+    }//GEN-LAST:event_C5ActionPerformed
+
+    private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
+        resetAllbtn();
+        C6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C6");
+        poltx = 2;
+        polty = 5;
+    }//GEN-LAST:event_C6ActionPerformed
+
+    private void C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C7ActionPerformed
+        resetAllbtn();
+        C7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C7");
+        poltx = 2;
+        polty = 6;
+    }//GEN-LAST:event_C7ActionPerformed
+
+    private void C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C8ActionPerformed
+        resetAllbtn();
+        C8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("C8");
+        poltx = 2;
+        polty = 7;
+    }//GEN-LAST:event_C8ActionPerformed
+
+    private void D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D1ActionPerformed
+        resetAllbtn();
+        D1.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D1");
+        poltx = 3;
+        polty = 0;
+    }//GEN-LAST:event_D1ActionPerformed
+
+    private void D2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D2ActionPerformed
+        resetAllbtn();
+        D2.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D2");
+        poltx = 3;
+        polty = 1;
+        
+    }//GEN-LAST:event_D2ActionPerformed
+
+    private void D3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D3ActionPerformed
+        resetAllbtn();
+        D3.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D3");
+        poltx = 3;
+        polty = 2;
+    }//GEN-LAST:event_D3ActionPerformed
+
+    private void D4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D4ActionPerformed
+        resetAllbtn();
+        D4.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D4");
+        poltx = 3;
+        polty = 3;
+    }//GEN-LAST:event_D4ActionPerformed
+
+    private void D5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D5ActionPerformed
+        resetAllbtn();
+        D5.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D5");
+        poltx = 3;
+        polty = 4;
+    }//GEN-LAST:event_D5ActionPerformed
+
+    private void D6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D6ActionPerformed
+        resetAllbtn();
+        D6.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D6");
+        poltx = 3;
+        polty = 5;
+    }//GEN-LAST:event_D6ActionPerformed
+
+    private void D7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D7ActionPerformed
+        resetAllbtn();
+        D7.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D7");
+        poltx = 3;
+        polty = 6;
+    }//GEN-LAST:event_D7ActionPerformed
+
+    private void D8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D8ActionPerformed
+        resetAllbtn();
+        D8.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+        lblNumPoltrona.setText("D8");
+        poltx = 3;
+        polty = 7;
+    }//GEN-LAST:event_D8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1638,6 +2521,38 @@ public class AppInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton A1;
+    private javax.swing.JButton A2;
+    private javax.swing.JButton A3;
+    private javax.swing.JButton A4;
+    private javax.swing.JButton A5;
+    private javax.swing.JButton A6;
+    private javax.swing.JButton A7;
+    private javax.swing.JButton A8;
+    private javax.swing.JButton B1;
+    private javax.swing.JButton B2;
+    private javax.swing.JButton B3;
+    private javax.swing.JButton B4;
+    private javax.swing.JButton B5;
+    private javax.swing.JButton B6;
+    private javax.swing.JButton B7;
+    private javax.swing.JButton B8;
+    private javax.swing.JButton C1;
+    private javax.swing.JButton C2;
+    private javax.swing.JButton C3;
+    private javax.swing.JButton C4;
+    private javax.swing.JButton C5;
+    private javax.swing.JButton C6;
+    private javax.swing.JButton C7;
+    private javax.swing.JButton C8;
+    private javax.swing.JButton D1;
+    private javax.swing.JButton D2;
+    private javax.swing.JButton D3;
+    private javax.swing.JButton D4;
+    private javax.swing.JButton D5;
+    private javax.swing.JButton D6;
+    private javax.swing.JButton D7;
+    private javax.swing.JButton D8;
     private javax.swing.JLabel JIconConta;
     private javax.swing.JPanel PainelBoasVindas;
     private javax.swing.JPanel PainelCheckIn;
@@ -1650,6 +2565,7 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel Titulo;
     private javax.swing.JButton btnCarregar;
+    private javax.swing.JButton btnComprarPoltrona;
     private javax.swing.JButton btnEntrarLogin;
     private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnExit1;
@@ -1664,21 +2580,35 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel iconeGerar;
     private javax.swing.JLabel iconeVendas;
     private javax.swing.JLabel iconesai;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFormattedData;
+    private javax.swing.JFormattedTextField jFormattedData1;
     private javax.swing.JLabel jIconCheckIn;
     private javax.swing.JLabel jIconNovidades;
     private javax.swing.JLabel jIconRepresentante;
     private javax.swing.JLabel jIconVender;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSepData;
+    private javax.swing.JSeparator jSepData1;
     private javax.swing.JSeparator jSepDestino;
+    private javax.swing.JSeparator jSepDestino1;
+    private javax.swing.JSeparator jSepDestino3;
     private javax.swing.JSeparator jSepIdDoVoo;
     private javax.swing.JSeparator jSepOrigem;
+    private javax.swing.JSeparator jSepOrigem1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jSubtitulo;
@@ -1698,16 +2628,25 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jlblVender;
     private javax.swing.JLabel lblArthur;
     private javax.swing.JLabel lblBemvindo;
+    private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblDanielli;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblDestino;
+    private javax.swing.JLabel lblDestino1;
     private javax.swing.JLabel lblIconLogin;
     private javax.swing.JLabel lblIdDoVoo;
     private javax.swing.JLabel lblImagemLogin;
     private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomeUsuario;
     private javax.swing.JLabel lblNovidades;
+    private javax.swing.JLabel lblNumPoltrona;
     private javax.swing.JLabel lblOrigem;
+    private javax.swing.JLabel lblPoltA;
+    private javax.swing.JLabel lblPoltB;
+    private javax.swing.JLabel lblPoltC;
+    private javax.swing.JLabel lblPoltD;
+    private javax.swing.JLabel lblPoltrona;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblThayza;
     private javax.swing.JLabel nomeGerar;
@@ -1727,6 +2666,9 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel pNovidadesEsq;
     private javax.swing.JPanel pRepresentante;
     private javax.swing.JPanel pSelecaoPassagem;
+    private javax.swing.JPanel pSelecaoPoltrona;
+    private javax.swing.JPanel pVPassagemBaleia;
+    private javax.swing.JPanel pVPoltronas;
     private javax.swing.JPanel pVender;
     private javax.swing.JPanel pVenderPassagemDir;
     private javax.swing.JPanel pVenderPassagemEsq;
@@ -1735,9 +2677,11 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JPanel painelNovidades;
     private javax.swing.JPanel painelVenderPassagem;
     private javax.swing.JTextField txtDestino;
+    private javax.swing.JTextField txtIDVOOPASSAGEM;
     private javax.swing.JTextField txtIDVoo;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtOrigem;
+    private javax.swing.JTextField txtOrigem1;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
@@ -1748,4 +2692,39 @@ public class AppInicio extends javax.swing.JFrame {
     private void resetColor(JPanel panel){
         panel.setBackground(SidePanel.getBackground());
     }
+        private void resetAllbtn(){
+        jButton1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        jButton2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        A8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        B8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        C8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        D1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        D2.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        D3.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        D4.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        D5.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        D6.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+    }
+    
 }
