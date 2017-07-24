@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
-
 import java.io.Serializable;
 
-/**
- *
- * @author arthur
- */
-public class Administradores implements Serializable{
+public class Administradores implements Serializable {
     private String nome;
     private int vendas;
     private String senha;

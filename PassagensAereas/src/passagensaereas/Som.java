@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passagensaereas;
 
 import java.applet.Applet;
@@ -23,10 +18,6 @@ import javax.swing.SwingUtilities;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
-/**
- *
- * @author arthur
- */
 public class Som {
     
     public static void music() {  
@@ -56,14 +47,14 @@ public class Som {
     }
 
 class mus extends Thread{
-  public void run(){
-    try {  
-           AudioClip ac = Applet.newAudioClip(new File("irc.wav").toURL());
-           ac.loop();
-        } catch(IOException e){  
-            System.out.println("Erro na thread!!!");  
+    public void run(){
+        try {  
+               AudioClip ac = Applet.newAudioClip(new File("irc.wav").toURL());
+               ac.loop();
+            } catch(IOException e){  
+                System.out.println("Erro na thread!!!");  
+            }  
         }  
-    }  
-  }
+    }
 }
 
