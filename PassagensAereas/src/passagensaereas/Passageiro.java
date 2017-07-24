@@ -2,7 +2,7 @@ package passagensaereas;
 
 public class Passageiro extends Pessoa {
         
-    public Passageiro(String nome, double cpf) {
+    public Passageiro(String nomePessoa, String cpf) {
         this.nomePessoa = nomePessoa;
         this.cpf = cpf;
     }
@@ -16,10 +16,10 @@ public class Passageiro extends Pessoa {
     }
 
     //get e set número do cpf do cliente
-    public double getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    public void setCpf(double cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }

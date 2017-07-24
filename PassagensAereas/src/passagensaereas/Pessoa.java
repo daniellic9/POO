@@ -2,11 +2,11 @@ package passagensaereas;
 
 public abstract class Pessoa {
     String nomePessoa;
-    double cpf;
+    String cpf;
     
     public abstract String getNomePessoa();
     public abstract void setNomePessoa(String nomePessoa);
 
-    public abstract double getCpf();
-    public abstract void setCpf(double cpf);
+    public abstract String getCpf();
+    public abstract void setCpf(String cpf);
 }

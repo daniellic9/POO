@@ -198,6 +198,7 @@ public class AppInicio extends javax.swing.JFrame {
         pVenderPassagemEsq = new javax.swing.JPanel();
         pVPassagemBaleia = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         pVPoltronas = new javax.swing.JPanel();
         A1 = new javax.swing.JButton();
         A2 = new javax.swing.JButton();
@@ -243,6 +244,114 @@ public class AppInicio extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        A9 = new javax.swing.JButton();
+        A10 = new javax.swing.JButton();
+        A11 = new javax.swing.JButton();
+        A12 = new javax.swing.JButton();
+        A13 = new javax.swing.JButton();
+        A14 = new javax.swing.JButton();
+        A15 = new javax.swing.JButton();
+        A16 = new javax.swing.JButton();
+        B9 = new javax.swing.JButton();
+        B10 = new javax.swing.JButton();
+        B11 = new javax.swing.JButton();
+        B12 = new javax.swing.JButton();
+        B13 = new javax.swing.JButton();
+        B14 = new javax.swing.JButton();
+        B15 = new javax.swing.JButton();
+        B16 = new javax.swing.JButton();
+        C9 = new javax.swing.JButton();
+        C10 = new javax.swing.JButton();
+        C11 = new javax.swing.JButton();
+        C12 = new javax.swing.JButton();
+        C13 = new javax.swing.JButton();
+        C14 = new javax.swing.JButton();
+        C15 = new javax.swing.JButton();
+        C16 = new javax.swing.JButton();
+        D9 = new javax.swing.JButton();
+        D10 = new javax.swing.JButton();
+        D11 = new javax.swing.JButton();
+        D12 = new javax.swing.JButton();
+        D13 = new javax.swing.JButton();
+        D14 = new javax.swing.JButton();
+        D15 = new javax.swing.JButton();
+        D16 = new javax.swing.JButton();
+        lblPoltA1 = new javax.swing.JLabel();
+        lblPoltB1 = new javax.swing.JLabel();
+        lblPoltC1 = new javax.swing.JLabel();
+        lblPoltD1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        A17 = new javax.swing.JButton();
+        A18 = new javax.swing.JButton();
+        A19 = new javax.swing.JButton();
+        A20 = new javax.swing.JButton();
+        A21 = new javax.swing.JButton();
+        A22 = new javax.swing.JButton();
+        A23 = new javax.swing.JButton();
+        A24 = new javax.swing.JButton();
+        B17 = new javax.swing.JButton();
+        B18 = new javax.swing.JButton();
+        B19 = new javax.swing.JButton();
+        B20 = new javax.swing.JButton();
+        B21 = new javax.swing.JButton();
+        B22 = new javax.swing.JButton();
+        B23 = new javax.swing.JButton();
+        B24 = new javax.swing.JButton();
+        C17 = new javax.swing.JButton();
+        C18 = new javax.swing.JButton();
+        C19 = new javax.swing.JButton();
+        C20 = new javax.swing.JButton();
+        C21 = new javax.swing.JButton();
+        C22 = new javax.swing.JButton();
+        C23 = new javax.swing.JButton();
+        C24 = new javax.swing.JButton();
+        D17 = new javax.swing.JButton();
+        D18 = new javax.swing.JButton();
+        D19 = new javax.swing.JButton();
+        D20 = new javax.swing.JButton();
+        D21 = new javax.swing.JButton();
+        D22 = new javax.swing.JButton();
+        D23 = new javax.swing.JButton();
+        D24 = new javax.swing.JButton();
+        A25 = new javax.swing.JButton();
+        A26 = new javax.swing.JButton();
+        A27 = new javax.swing.JButton();
+        A28 = new javax.swing.JButton();
+        A29 = new javax.swing.JButton();
+        A30 = new javax.swing.JButton();
+        A31 = new javax.swing.JButton();
+        A32 = new javax.swing.JButton();
+        B25 = new javax.swing.JButton();
+        B26 = new javax.swing.JButton();
+        B27 = new javax.swing.JButton();
+        B28 = new javax.swing.JButton();
+        B29 = new javax.swing.JButton();
+        B30 = new javax.swing.JButton();
+        B31 = new javax.swing.JButton();
+        B32 = new javax.swing.JButton();
+        C25 = new javax.swing.JButton();
+        C26 = new javax.swing.JButton();
+        C27 = new javax.swing.JButton();
+        C28 = new javax.swing.JButton();
+        C29 = new javax.swing.JButton();
+        C30 = new javax.swing.JButton();
+        C31 = new javax.swing.JButton();
+        C32 = new javax.swing.JButton();
+        D25 = new javax.swing.JButton();
+        D26 = new javax.swing.JButton();
+        D27 = new javax.swing.JButton();
+        D28 = new javax.swing.JButton();
+        D29 = new javax.swing.JButton();
+        D30 = new javax.swing.JButton();
+        D31 = new javax.swing.JButton();
+        D32 = new javax.swing.JButton();
         pVenderPassagemDir = new javax.swing.JPanel();
         pSelecaoPassagem = new javax.swing.JPanel();
         txtOrigem = new javax.swing.JTextField();
@@ -937,7 +1046,825 @@ public class AppInicio extends javax.swing.JFrame {
         jLabel12.setText("8");
         pVPoltronas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 50));
 
-        pVenderPassagemEsq.add(pVPoltronas, "card3");
+        A9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A9ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A9, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 50, 52, -1));
+
+        A10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A10ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A10, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 111, 52, -1));
+
+        A11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A11ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A11, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 172, 52, -1));
+
+        A12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A12ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A12, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 233, 52, -1));
+
+        A13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A13ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A13, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 294, 52, -1));
+
+        A14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A14ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A14, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 355, 52, -1));
+
+        A15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A15ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A15, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 416, 52, -1));
+
+        A16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A16ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A16, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 477, 52, -1));
+
+        B9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B9ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B9, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 50, 52, -1));
+
+        B10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B10ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B10, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 111, 52, -1));
+
+        B11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B11ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B11, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 172, 52, -1));
+
+        B12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B12ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B12, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 233, 52, -1));
+
+        B13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B13ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B13, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 294, 52, -1));
+
+        B14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B14ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B14, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 355, 52, -1));
+
+        B15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B15ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B15, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 416, 52, -1));
+
+        B16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B16ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B16, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 477, 52, -1));
+
+        C9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C9ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C9, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 50, 52, -1));
+
+        C10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C10ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C10, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 111, 52, -1));
+
+        C11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C11ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C11, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 172, 52, -1));
+
+        C12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C12ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C12, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 233, 52, -1));
+
+        C13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C13ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C13, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 294, 52, -1));
+
+        C14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C14ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C14, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 355, 52, -1));
+
+        C15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C15ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C15, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 416, 52, -1));
+
+        C16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C16ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C16, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 477, 52, -1));
+
+        D9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D9ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D9, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 50, 52, -1));
+
+        D10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D10ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D10, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 111, 52, -1));
+
+        D11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D11ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D11, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 172, 52, -1));
+
+        D12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D12ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D12, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 233, 52, -1));
+
+        D13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D13ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D13, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 294, 52, -1));
+
+        D14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D14ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D14, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 355, 52, -1));
+
+        D15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D15ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D15, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 416, 52, -1));
+
+        D16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D16ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D16, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 477, 52, -1));
+
+        lblPoltA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltA1.setText("A");
+        pVPoltronas.add(lblPoltA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 12, 52, -1));
+
+        lblPoltB1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltB1.setText("B");
+        pVPoltronas.add(lblPoltB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 12, 52, -1));
+
+        lblPoltC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltC1.setText("C");
+        pVPoltronas.add(lblPoltC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 12, 52, -1));
+
+        lblPoltD1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPoltD1.setText("D");
+        pVPoltronas.add(lblPoltD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 12, 52, -1));
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("1");
+        pVPoltronas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 50, 40, 49));
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("2");
+        pVPoltronas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, 40, 49));
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("4");
+        pVPoltronas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 233, 40, 49));
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("3");
+        pVPoltronas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, 40, 49));
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("6");
+        pVPoltronas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 355, 40, 49));
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("7");
+        pVPoltronas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 416, 40, 49));
+
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("5");
+        pVPoltronas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 294, 40, 49));
+
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("8");
+        pVPoltronas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 50));
+
+        A17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A17ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 52, -1));
+
+        A18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A18ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 52, -1));
+
+        A19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A19ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 650, 52, -1));
+
+        A20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A20ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 710, 52, -1));
+
+        A21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A21ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 52, -1));
+
+        A22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A22ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 830, 52, -1));
+
+        A23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A23ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 900, 52, -1));
+
+        A24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A24ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 960, 52, -1));
+
+        B17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B17ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 52, -1));
+
+        B18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B18ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 52, -1));
+
+        B19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B19ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 650, 52, -1));
+
+        B20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B20ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 710, 52, -1));
+
+        B21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B21ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 770, 52, -1));
+
+        B22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B22ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 830, 52, -1));
+
+        B23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B23ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 900, 52, -1));
+
+        B24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B24ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 960, 52, -1));
+
+        C17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C17ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 52, -1));
+
+        C18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C18ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 52, -1));
+
+        C19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C19ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, 52, -1));
+
+        C20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C20ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C20, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 52, -1));
+
+        C21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C21ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 770, 52, -1));
+
+        C22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C22ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 830, 52, -1));
+
+        C23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C23ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C23, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 900, 52, -1));
+
+        C24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C24ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C24, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 960, 52, -1));
+
+        D17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D17ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 52, -1));
+
+        D18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D18ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 52, -1));
+
+        D19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D19ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 650, 52, -1));
+
+        D20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D20ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 710, 52, -1));
+
+        D21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D21ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 770, 52, -1));
+
+        D22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D22ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 830, 52, -1));
+
+        D23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D23ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D23, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 900, 52, -1));
+
+        D24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D24ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 960, 52, -1));
+
+        A25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A25ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 52, -1));
+
+        A26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A26ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 52, -1));
+
+        A27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A27ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 650, 52, -1));
+
+        A28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A28ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 710, 52, -1));
+
+        A29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A29ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 52, -1));
+
+        A30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A30ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A30, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 830, 52, -1));
+
+        A31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A31ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 900, 52, -1));
+
+        A32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        A32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A32ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(A32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 960, 52, -1));
+
+        B25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B25ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B25, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 52, -1));
+
+        B26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B26ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B26, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 52, -1));
+
+        B27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B27ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 650, 52, -1));
+
+        B28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B28ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 710, 52, -1));
+
+        B29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B29ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B29, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 770, 52, -1));
+
+        B30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B30ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B30, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 830, 52, -1));
+
+        B31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B31ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 900, 52, -1));
+
+        B32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        B32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B32ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(B32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 960, 52, -1));
+
+        C25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C25ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C25, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 52, -1));
+
+        C26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C26ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 52, -1));
+
+        C27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C27ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C27, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, 52, -1));
+
+        C28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C28ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C28, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 52, -1));
+
+        C29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C29ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C29, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 770, 52, -1));
+
+        C30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C30ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C30, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 830, 52, -1));
+
+        C31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C31ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C31, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 900, 52, -1));
+
+        C32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        C32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C32ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(C32, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 960, 52, -1));
+
+        D25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D25ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 52, -1));
+
+        D26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D26ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D26, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 52, -1));
+
+        D27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D27ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 650, 52, -1));
+
+        D28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D28ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D28, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 710, 52, -1));
+
+        D29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D29ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D29, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 770, 52, -1));
+
+        D30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D30ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D30, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 830, 52, -1));
+
+        D31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D31ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D31, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 900, 52, -1));
+
+        D32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
+        D32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D32ActionPerformed(evt);
+            }
+        });
+        pVPoltronas.add(D32, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 960, 52, -1));
+
+        jScrollPane2.setViewportView(pVPoltronas);
+
+        pVenderPassagemEsq.add(jScrollPane2, "card4");
 
         painelVenderPassagem.add(pVenderPassagemEsq);
 
@@ -1673,11 +2600,14 @@ public class AppInicio extends javax.swing.JFrame {
 
     private void btnverVendasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnverVendasMousePressed
 
+        int i;
         Document vendas = new Document();
         try {
             PdfWriter.getInstance(vendas, new FileOutputStream("Vendas.pdf"));
             vendas.open();
-            vendas.add(new Paragraph("Quantas vendas foram feitas no dia .. / .. / .... "));
+            vendas.add(new Paragraph("idVoo"+"   Nome"+"   Horário"+"   Origem"+"   Destino"+"   Valor"));
+            for(i=0;i<agendaPassagem.size();i++)
+                vendas.add(new Paragraph(agendaPassagem.get(i).getIdvoo()+"   "+agendaPassagem.get(i).passageiro.getNomePessoa()+"   "+agendaPassagem.get(i).getHorarioSaida()+"-"+agendaPassagem.get(i).getHorarioChegada()+"   "+agendaPassagem.get(i).getOrigem()+"   "+agendaPassagem.get(i).getDestino()+"   "+agendaPassagem.get(i).getValor()));
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
         } finally {
@@ -2315,21 +3245,26 @@ public class AppInicio extends javax.swing.JFrame {
                         
             }
         }
-        agendaPassagem.add(new Passagem(agendaPassagem.size(), agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText()))));
         //disc.salvarPassagem(); //#########################################################################
         
-        txtIDVOOPASSAGEM.setText("");
-        txtSelecaoPoltronaCPF.setText("");
-        txtSelecaoPoltronaNome.setText("");
+        //txtIDVOOPASSAGEM.setText("");
+        //txtSelecaoPoltronaCPF.setText("");
+        //txtSelecaoPoltronaNome.setText("");
         pVPoltronas.setVisible(true);
         pSelecaoPoltrona.setVisible(true);
         pVPassagemBaleia.setVisible(false);
+        jScrollPane2.setVisible(true);
         pCompradePassagem.setVisible(false);
     }//GEN-LAST:event_btnComprarPassagemActionPerformed
 
     private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
        if(Integer.parseInt(txtIDVoo.getText()) <= agendaPassagem.size()){
-           agendaPassagem.get(Integer.parseInt(txtIDVoo.getText()));
+           try {
+               agendaPassagem.get(Integer.parseInt(txtIDVoo.getText())).getPdf();
+           } catch (DocumentException ex) {
+               Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
        }
     }//GEN-LAST:event_btnCarregarActionPerformed
 
@@ -2345,9 +3280,66 @@ public class AppInicio extends javax.swing.JFrame {
         pVPassagemBaleia.setVisible(true);
         pCompradePassagem.setVisible(true);
         pSelecaoPoltrona.setVisible(false);
+        agendaPassagem.add(new Passagem(agendaPassagem.size(), agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())), txtSelecaoPoltronaNome.getText(),txtSelecaoPoltronaCPF.getText()));
+        String codigo;
         
         //new SocketCliente().run();
         //GERAR O PDF AQUI
+        
+        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        
+        //gera segunda via é o mesmo método pra gerar o check-in
+        try {
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("passagem.pdf"));
+            document.open();
+            TabelaVendas a = new TabelaVendas();
+            Font f = new Font(FontFamily.COURIER, 20, Font.ITALIC);
+            document.add(new Paragraph("Passagem", f));
+            
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(0).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).getIdvoo() )));
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( "idPassagem: \t " + agendaPassagem.get(agendaPassagem.size()-1).getIdpassagem() )));
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(1).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).passageiro.getNomePessoa() )));
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(2).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).getHorarioSaida())));
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(3).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).getOrigem())));
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(4).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).getDestino())));
+                document.add(new Paragraph(" "));
+                document.add(new Phrase(new Chunk( a.getColumnName(5).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).getValor())));
+                
+            document.add(new Paragraph(" "));
+            PdfContentByte cb = writer.getDirectContent();
+            BarcodeEAN codeEAN = new BarcodeEAN();
+            document.add(new Paragraph(" "));
+            codeEAN.setCodeType(codeEAN.EAN13);
+            codigo = Integer.toString((int)Math.floor(Math.random()*1000000000));
+            //System.out.println("Um numero "+);
+            
+            //codeEAN.setCode("9070802124510"); // fazer random para cada pessoa Integer.toString((int)Math.floor(Math.random()*1000000000))
+            codeEAN.setCode(codigo+"4510"); // fazer random para cada pessoa Integer.toString((int)Math.floor(Math.random()*1000000000))
+            Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);
+            document.add(new Phrase(new Chunk(imageEAN, 0, 0)));
+            
+        } catch (FileNotFoundException | DocumentException ex) {
+            System.out.println("Erro: " + ex.toString());
+        } finally {
+            document.close();
+        }
+        
+        //abre o pdf gerado
+        try {
+            Desktop.getDesktop().open(new File("passagem.pdf"));
+        } catch (IOException ex) {
+            System.out.println("Erro: " + ex.toString());
+        }
+        
+        txtIDVOOPASSAGEM.setText("");
+        txtSelecaoPoltronaCPF.setText("");
+        txtSelecaoPoltronaNome.setText("");
     }//GEN-LAST:event_btnComprarPoltronaActionPerformed
 
     
@@ -2678,6 +3670,390 @@ public class AppInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_D8ActionPerformed
 
+    private void A9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A9ActionPerformed
+
+    private void A10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A10ActionPerformed
+
+    private void A11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A11ActionPerformed
+
+    private void A12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A12ActionPerformed
+
+    private void A13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A13ActionPerformed
+
+    private void A14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A14ActionPerformed
+
+    private void A15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A15ActionPerformed
+
+    private void A16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A16ActionPerformed
+
+    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B9ActionPerformed
+
+    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B10ActionPerformed
+
+    private void B11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B11ActionPerformed
+
+    private void B12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B12ActionPerformed
+
+    private void B13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B13ActionPerformed
+
+    private void B14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B14ActionPerformed
+
+    private void B15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B15ActionPerformed
+
+    private void B16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B16ActionPerformed
+
+    private void C9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C9ActionPerformed
+
+    private void C10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C10ActionPerformed
+
+    private void C11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C11ActionPerformed
+
+    private void C12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C12ActionPerformed
+
+    private void C13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C13ActionPerformed
+
+    private void C14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C14ActionPerformed
+
+    private void C15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C15ActionPerformed
+
+    private void C16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C16ActionPerformed
+
+    private void D9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D9ActionPerformed
+
+    private void D10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D10ActionPerformed
+
+    private void D11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D11ActionPerformed
+
+    private void D12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D12ActionPerformed
+
+    private void D13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D13ActionPerformed
+
+    private void D14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D14ActionPerformed
+
+    private void D15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D15ActionPerformed
+
+    private void D16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D16ActionPerformed
+
+    private void A17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A17ActionPerformed
+
+    private void A18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A18ActionPerformed
+
+    private void A19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A19ActionPerformed
+
+    private void A20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A20ActionPerformed
+
+    private void A21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A21ActionPerformed
+
+    private void A22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A22ActionPerformed
+
+    private void A23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A23ActionPerformed
+
+    private void A24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A24ActionPerformed
+
+    private void B17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B17ActionPerformed
+
+    private void B18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B18ActionPerformed
+
+    private void B19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B19ActionPerformed
+
+    private void B20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B20ActionPerformed
+
+    private void B21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B21ActionPerformed
+
+    private void B22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B22ActionPerformed
+
+    private void B23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B23ActionPerformed
+
+    private void B24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B24ActionPerformed
+
+    private void C17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C17ActionPerformed
+
+    private void C18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C18ActionPerformed
+
+    private void C19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C19ActionPerformed
+
+    private void C20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C20ActionPerformed
+
+    private void C21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C21ActionPerformed
+
+    private void C22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C22ActionPerformed
+
+    private void C23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C23ActionPerformed
+
+    private void C24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C24ActionPerformed
+
+    private void D17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D17ActionPerformed
+
+    private void D18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D18ActionPerformed
+
+    private void D19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D19ActionPerformed
+
+    private void D20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D20ActionPerformed
+
+    private void D21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D21ActionPerformed
+
+    private void D22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D22ActionPerformed
+
+    private void D23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D23ActionPerformed
+
+    private void D24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D24ActionPerformed
+
+    private void A25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A25ActionPerformed
+
+    private void A26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A26ActionPerformed
+
+    private void A27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A27ActionPerformed
+
+    private void A28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A28ActionPerformed
+
+    private void A29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A29ActionPerformed
+
+    private void A30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A30ActionPerformed
+
+    private void A31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A31ActionPerformed
+
+    private void A32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A32ActionPerformed
+
+    private void B25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B25ActionPerformed
+
+    private void B26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B26ActionPerformed
+
+    private void B27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B27ActionPerformed
+
+    private void B28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B28ActionPerformed
+
+    private void B29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B29ActionPerformed
+
+    private void B30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B30ActionPerformed
+
+    private void B31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B31ActionPerformed
+
+    private void B32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B32ActionPerformed
+
+    private void C25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C25ActionPerformed
+
+    private void C26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C26ActionPerformed
+
+    private void C27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C27ActionPerformed
+
+    private void C28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C28ActionPerformed
+
+    private void C29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C29ActionPerformed
+
+    private void C30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C30ActionPerformed
+
+    private void C31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C31ActionPerformed
+
+    private void C32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_C32ActionPerformed
+
+    private void D25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D25ActionPerformed
+
+    private void D26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D26ActionPerformed
+
+    private void D27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D27ActionPerformed
+
+    private void D28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D28ActionPerformed
+
+    private void D29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D29ActionPerformed
+
+    private void D30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D30ActionPerformed
+
+    private void D31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D31ActionPerformed
+
+    private void D32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_D32ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2728,37 +4104,133 @@ public class AppInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A1;
+    private javax.swing.JButton A10;
+    private javax.swing.JButton A11;
+    private javax.swing.JButton A12;
+    private javax.swing.JButton A13;
+    private javax.swing.JButton A14;
+    private javax.swing.JButton A15;
+    private javax.swing.JButton A16;
+    private javax.swing.JButton A17;
+    private javax.swing.JButton A18;
+    private javax.swing.JButton A19;
     private javax.swing.JButton A2;
+    private javax.swing.JButton A20;
+    private javax.swing.JButton A21;
+    private javax.swing.JButton A22;
+    private javax.swing.JButton A23;
+    private javax.swing.JButton A24;
+    private javax.swing.JButton A25;
+    private javax.swing.JButton A26;
+    private javax.swing.JButton A27;
+    private javax.swing.JButton A28;
+    private javax.swing.JButton A29;
     private javax.swing.JButton A3;
+    private javax.swing.JButton A30;
+    private javax.swing.JButton A31;
+    private javax.swing.JButton A32;
     private javax.swing.JButton A4;
     private javax.swing.JButton A5;
     private javax.swing.JButton A6;
     private javax.swing.JButton A7;
     private javax.swing.JButton A8;
+    private javax.swing.JButton A9;
     private javax.swing.JButton B1;
+    private javax.swing.JButton B10;
+    private javax.swing.JButton B11;
+    private javax.swing.JButton B12;
+    private javax.swing.JButton B13;
+    private javax.swing.JButton B14;
+    private javax.swing.JButton B15;
+    private javax.swing.JButton B16;
+    private javax.swing.JButton B17;
+    private javax.swing.JButton B18;
+    private javax.swing.JButton B19;
     private javax.swing.JButton B2;
+    private javax.swing.JButton B20;
+    private javax.swing.JButton B21;
+    private javax.swing.JButton B22;
+    private javax.swing.JButton B23;
+    private javax.swing.JButton B24;
+    private javax.swing.JButton B25;
+    private javax.swing.JButton B26;
+    private javax.swing.JButton B27;
+    private javax.swing.JButton B28;
+    private javax.swing.JButton B29;
     private javax.swing.JButton B3;
+    private javax.swing.JButton B30;
+    private javax.swing.JButton B31;
+    private javax.swing.JButton B32;
     private javax.swing.JButton B4;
     private javax.swing.JButton B5;
     private javax.swing.JButton B6;
     private javax.swing.JButton B7;
     private javax.swing.JButton B8;
+    private javax.swing.JButton B9;
     private javax.swing.JButton C1;
+    private javax.swing.JButton C10;
+    private javax.swing.JButton C11;
+    private javax.swing.JButton C12;
+    private javax.swing.JButton C13;
+    private javax.swing.JButton C14;
+    private javax.swing.JButton C15;
+    private javax.swing.JButton C16;
+    private javax.swing.JButton C17;
+    private javax.swing.JButton C18;
+    private javax.swing.JButton C19;
     private javax.swing.JButton C2;
+    private javax.swing.JButton C20;
+    private javax.swing.JButton C21;
+    private javax.swing.JButton C22;
+    private javax.swing.JButton C23;
+    private javax.swing.JButton C24;
+    private javax.swing.JButton C25;
+    private javax.swing.JButton C26;
+    private javax.swing.JButton C27;
+    private javax.swing.JButton C28;
+    private javax.swing.JButton C29;
     private javax.swing.JButton C3;
+    private javax.swing.JButton C30;
+    private javax.swing.JButton C31;
+    private javax.swing.JButton C32;
     private javax.swing.JButton C4;
     private javax.swing.JButton C5;
     private javax.swing.JButton C6;
     private javax.swing.JButton C7;
     private javax.swing.JButton C8;
+    private javax.swing.JButton C9;
     private javax.swing.JButton D1;
+    private javax.swing.JButton D10;
+    private javax.swing.JButton D11;
+    private javax.swing.JButton D12;
+    private javax.swing.JButton D13;
+    private javax.swing.JButton D14;
+    private javax.swing.JButton D15;
+    private javax.swing.JButton D16;
+    private javax.swing.JButton D17;
+    private javax.swing.JButton D18;
+    private javax.swing.JButton D19;
     private javax.swing.JButton D2;
+    private javax.swing.JButton D20;
+    private javax.swing.JButton D21;
+    private javax.swing.JButton D22;
+    private javax.swing.JButton D23;
+    private javax.swing.JButton D24;
+    private javax.swing.JButton D25;
+    private javax.swing.JButton D26;
+    private javax.swing.JButton D27;
+    private javax.swing.JButton D28;
+    private javax.swing.JButton D29;
     private javax.swing.JButton D3;
+    private javax.swing.JButton D30;
+    private javax.swing.JButton D31;
+    private javax.swing.JButton D32;
     private javax.swing.JButton D4;
     private javax.swing.JButton D5;
     private javax.swing.JButton D6;
     private javax.swing.JButton D7;
     private javax.swing.JButton D8;
+    private javax.swing.JButton D9;
     private javax.swing.JLabel JIconConta;
     private javax.swing.JPanel PainelBoasVindas;
     private javax.swing.JPanel PainelCheckIn;
@@ -2797,7 +4269,15 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2806,6 +4286,7 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSepData;
     private javax.swing.JSeparator jSepData1;
     private javax.swing.JSeparator jSepDestino;
@@ -2848,9 +4329,13 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumPoltrona;
     private javax.swing.JLabel lblOrigem;
     private javax.swing.JLabel lblPoltA;
+    private javax.swing.JLabel lblPoltA1;
     private javax.swing.JLabel lblPoltB;
+    private javax.swing.JLabel lblPoltB1;
     private javax.swing.JLabel lblPoltC;
+    private javax.swing.JLabel lblPoltC1;
     private javax.swing.JLabel lblPoltD;
+    private javax.swing.JLabel lblPoltD1;
     private javax.swing.JLabel lblPoltrona;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblThayza;
