@@ -1,5 +1,6 @@
 package passagensaereas;
 
+import Data.Data;
 import static Disco.Disco.agendaPassagem;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -148,12 +149,15 @@ public Passageiro passageiro;
     public void setHorarioChegada(String horarioChegada) {
         this.horarioChegada=horarioChegada;
     }
-      public String getData() {
+
+        @Override
+    public Data getData() {
         return this.data;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    @Override
+    public void setData(int dia, int mes, int ano) {
+        this.data = new Data(dia, mes, ano);
     }
    
     

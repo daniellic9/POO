@@ -1,11 +1,13 @@
 package passagensaereas;
 
+import Data.Data;
+
 public class Voos extends InformacoesViagem{
-    private Poltronas poltronas[][] = new Poltronas[8][4];
+    private Poltronas poltronas[][] = new Poltronas[16][4];
     private int idvoo,numPolt;
 
     public Voos(){
-for(int i=0;i<8;i++){
+for(int i=0;i<16;i++){
     for(int j=0;j<4;j++){
         poltronas[i][j]=new Poltronas();
     }
@@ -14,8 +16,8 @@ for(int i=0;i<8;i++){
     public Voos(String origem,String destino){
         this.destino = destino;
         this.origem = origem; 
-        for(int i=0;i<8;i++){
-            for(int j=0;j<3;j++){
+        for(int i=0;i<16;i++){
+            for(int j=0;j<4;j++){
                 poltronas[i][j]=new Poltronas();
             }
         }
@@ -55,12 +57,15 @@ for(int i=0;i<8;i++){
         this.conexao = conexao;
     }
 
-    public String getData() {
+ 
+    @Override
+    public Data getData() {
         return this.data;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    @Override
+    public void setData(int dia, int mes, int ano) {
+        this.data = new Data(dia, mes, ano);
     }
    
     @Override

@@ -1,5 +1,6 @@
 package passagensaereas;
 
+import Data.Data;
 import Disco.Disco;
 import static Disco.Disco.agendaPassagem;
 import static Disco.Disco.agendaVoos;
@@ -7,11 +8,7 @@ import static Disco.Disco.agendaVoo;
 import static Disco.Disco.agenda;
 import com.itextpdf.text.Chunk;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -24,24 +21,22 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.BarcodeEAN;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ComboBoxModel;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+import org.joda.time.Interval;
 
 
 /**
@@ -124,12 +119,10 @@ public class AppInicio extends javax.swing.JFrame {
     agendaVoo.add(new Voos("Porto Alegre","Fortaleza"));
     agendaVoo.add(new Voos("Porto Alegre","Natal"));
     disc.salvarVoo();
-  
-          */
+  */
+          
         initComponents();
         setIconImage(new ImageIcon("Icons/Whale.png").getImage());
-        Som.music();
-        Thread.sleep(1000);
         Som.music();
         logado = false;
         
@@ -276,10 +269,6 @@ public class AppInicio extends javax.swing.JFrame {
         D14 = new javax.swing.JButton();
         D15 = new javax.swing.JButton();
         D16 = new javax.swing.JButton();
-        lblPoltA1 = new javax.swing.JLabel();
-        lblPoltB1 = new javax.swing.JLabel();
-        lblPoltC1 = new javax.swing.JLabel();
-        lblPoltD1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -288,70 +277,6 @@ public class AppInicio extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        A17 = new javax.swing.JButton();
-        A18 = new javax.swing.JButton();
-        A19 = new javax.swing.JButton();
-        A20 = new javax.swing.JButton();
-        A21 = new javax.swing.JButton();
-        A22 = new javax.swing.JButton();
-        A23 = new javax.swing.JButton();
-        A24 = new javax.swing.JButton();
-        B17 = new javax.swing.JButton();
-        B18 = new javax.swing.JButton();
-        B19 = new javax.swing.JButton();
-        B20 = new javax.swing.JButton();
-        B21 = new javax.swing.JButton();
-        B22 = new javax.swing.JButton();
-        B23 = new javax.swing.JButton();
-        B24 = new javax.swing.JButton();
-        C17 = new javax.swing.JButton();
-        C18 = new javax.swing.JButton();
-        C19 = new javax.swing.JButton();
-        C20 = new javax.swing.JButton();
-        C21 = new javax.swing.JButton();
-        C22 = new javax.swing.JButton();
-        C23 = new javax.swing.JButton();
-        C24 = new javax.swing.JButton();
-        D17 = new javax.swing.JButton();
-        D18 = new javax.swing.JButton();
-        D19 = new javax.swing.JButton();
-        D20 = new javax.swing.JButton();
-        D21 = new javax.swing.JButton();
-        D22 = new javax.swing.JButton();
-        D23 = new javax.swing.JButton();
-        D24 = new javax.swing.JButton();
-        A25 = new javax.swing.JButton();
-        A26 = new javax.swing.JButton();
-        A27 = new javax.swing.JButton();
-        A28 = new javax.swing.JButton();
-        A29 = new javax.swing.JButton();
-        A30 = new javax.swing.JButton();
-        A31 = new javax.swing.JButton();
-        A32 = new javax.swing.JButton();
-        B25 = new javax.swing.JButton();
-        B26 = new javax.swing.JButton();
-        B27 = new javax.swing.JButton();
-        B28 = new javax.swing.JButton();
-        B29 = new javax.swing.JButton();
-        B30 = new javax.swing.JButton();
-        B31 = new javax.swing.JButton();
-        B32 = new javax.swing.JButton();
-        C25 = new javax.swing.JButton();
-        C26 = new javax.swing.JButton();
-        C27 = new javax.swing.JButton();
-        C28 = new javax.swing.JButton();
-        C29 = new javax.swing.JButton();
-        C30 = new javax.swing.JButton();
-        C31 = new javax.swing.JButton();
-        C32 = new javax.swing.JButton();
-        D25 = new javax.swing.JButton();
-        D26 = new javax.swing.JButton();
-        D27 = new javax.swing.JButton();
-        D28 = new javax.swing.JButton();
-        D29 = new javax.swing.JButton();
-        D30 = new javax.swing.JButton();
-        D31 = new javax.swing.JButton();
-        D32 = new javax.swing.JButton();
         pVenderPassagemDir = new javax.swing.JPanel();
         pSelecaoPassagem = new javax.swing.JPanel();
         txtOrigem = new javax.swing.JTextField();
@@ -748,7 +673,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A1ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 50, 52, -1));
+        pVPoltronas.add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 52, -1));
 
         A2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A2.addActionListener(new java.awt.event.ActionListener() {
@@ -756,7 +681,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A2ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 111, 52, -1));
+        pVPoltronas.add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 52, -1));
 
         A3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A3.addActionListener(new java.awt.event.ActionListener() {
@@ -764,7 +689,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A3ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 172, 52, -1));
+        pVPoltronas.add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 52, -1));
 
         A4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A4.addActionListener(new java.awt.event.ActionListener() {
@@ -772,7 +697,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A4ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 233, 52, -1));
+        pVPoltronas.add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 52, -1));
 
         A5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A5.addActionListener(new java.awt.event.ActionListener() {
@@ -780,7 +705,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A5ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A5, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 294, 52, -1));
+        pVPoltronas.add(A5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 52, -1));
 
         A6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A6.addActionListener(new java.awt.event.ActionListener() {
@@ -788,7 +713,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A6ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A6, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 355, 52, -1));
+        pVPoltronas.add(A6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 52, -1));
 
         A7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A7.addActionListener(new java.awt.event.ActionListener() {
@@ -796,7 +721,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A7ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 416, 52, -1));
+        pVPoltronas.add(A7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 52, -1));
 
         A8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A8.addActionListener(new java.awt.event.ActionListener() {
@@ -804,7 +729,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A8ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A8, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 477, 52, -1));
+        pVPoltronas.add(A8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 52, -1));
 
         B1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B1.addActionListener(new java.awt.event.ActionListener() {
@@ -812,7 +737,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B1ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 50, 52, -1));
+        pVPoltronas.add(B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 52, -1));
 
         B2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B2.addActionListener(new java.awt.event.ActionListener() {
@@ -820,7 +745,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B2ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 111, 52, -1));
+        pVPoltronas.add(B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 52, -1));
 
         B3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B3.addActionListener(new java.awt.event.ActionListener() {
@@ -828,7 +753,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B3ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 172, 52, -1));
+        pVPoltronas.add(B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 52, -1));
 
         B4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B4.addActionListener(new java.awt.event.ActionListener() {
@@ -836,7 +761,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B4ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 233, 52, -1));
+        pVPoltronas.add(B4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 52, -1));
 
         B5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B5.addActionListener(new java.awt.event.ActionListener() {
@@ -844,7 +769,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B5ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B5, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 294, 52, -1));
+        pVPoltronas.add(B5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 52, -1));
 
         B6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B6.addActionListener(new java.awt.event.ActionListener() {
@@ -852,7 +777,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B6ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 355, 52, -1));
+        pVPoltronas.add(B6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 52, -1));
 
         B7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B7.addActionListener(new java.awt.event.ActionListener() {
@@ -860,7 +785,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B7ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B7, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 416, 52, -1));
+        pVPoltronas.add(B7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 52, -1));
 
         B8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B8.addActionListener(new java.awt.event.ActionListener() {
@@ -868,7 +793,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B8ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B8, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 477, 52, -1));
+        pVPoltronas.add(B8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 52, -1));
 
         C1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C1.addActionListener(new java.awt.event.ActionListener() {
@@ -876,7 +801,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C1ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 50, 52, -1));
+        pVPoltronas.add(C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 52, -1));
 
         C2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C2.addActionListener(new java.awt.event.ActionListener() {
@@ -884,7 +809,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C2ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C2, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 111, 52, -1));
+        pVPoltronas.add(C2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 52, -1));
 
         C3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C3.addActionListener(new java.awt.event.ActionListener() {
@@ -892,7 +817,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C3ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C3, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 172, 52, -1));
+        pVPoltronas.add(C3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 52, -1));
 
         C4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C4.addActionListener(new java.awt.event.ActionListener() {
@@ -900,7 +825,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C4ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C4, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 233, 52, -1));
+        pVPoltronas.add(C4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 52, -1));
 
         C5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C5.addActionListener(new java.awt.event.ActionListener() {
@@ -908,7 +833,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C5ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C5, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 294, 52, -1));
+        pVPoltronas.add(C5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 52, -1));
 
         C6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C6.addActionListener(new java.awt.event.ActionListener() {
@@ -916,7 +841,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C6ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C6, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 355, 52, -1));
+        pVPoltronas.add(C6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 52, -1));
 
         C7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C7.addActionListener(new java.awt.event.ActionListener() {
@@ -924,7 +849,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C7ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C7, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 416, 52, -1));
+        pVPoltronas.add(C7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 52, -1));
 
         C8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C8.addActionListener(new java.awt.event.ActionListener() {
@@ -932,7 +857,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C8ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C8, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 477, 52, -1));
+        pVPoltronas.add(C8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 52, -1));
 
         D1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D1.addActionListener(new java.awt.event.ActionListener() {
@@ -940,7 +865,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D1ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 50, 52, -1));
+        pVPoltronas.add(D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 52, -1));
 
         D2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D2.addActionListener(new java.awt.event.ActionListener() {
@@ -948,7 +873,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D2ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 111, 52, -1));
+        pVPoltronas.add(D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 52, -1));
 
         D3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D3.addActionListener(new java.awt.event.ActionListener() {
@@ -956,7 +881,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D3ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 172, 52, -1));
+        pVPoltronas.add(D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 52, -1));
 
         D4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D4.addActionListener(new java.awt.event.ActionListener() {
@@ -964,7 +889,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D4ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D4, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 233, 52, -1));
+        pVPoltronas.add(D4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 52, -1));
 
         D5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D5.addActionListener(new java.awt.event.ActionListener() {
@@ -972,7 +897,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D5ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D5, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 294, 52, -1));
+        pVPoltronas.add(D5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 52, -1));
 
         D6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D6.addActionListener(new java.awt.event.ActionListener() {
@@ -980,7 +905,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D6ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D6, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 355, 52, -1));
+        pVPoltronas.add(D6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 52, -1));
 
         D7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D7.addActionListener(new java.awt.event.ActionListener() {
@@ -988,7 +913,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D7ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D7, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 416, 52, -1));
+        pVPoltronas.add(D7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 52, -1));
 
         D8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D8.addActionListener(new java.awt.event.ActionListener() {
@@ -996,7 +921,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D8ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D8, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 477, 52, -1));
+        pVPoltronas.add(D8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 52, -1));
 
         lblPoltA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPoltA.setText("A");
@@ -1052,7 +977,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A9ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A9, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 50, 52, -1));
+        pVPoltronas.add(A9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 52, -1));
 
         A10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A10.addActionListener(new java.awt.event.ActionListener() {
@@ -1060,7 +985,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A10ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A10, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 111, 52, -1));
+        pVPoltronas.add(A10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 52, -1));
 
         A11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A11.addActionListener(new java.awt.event.ActionListener() {
@@ -1068,7 +993,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A11ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A11, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 172, 52, -1));
+        pVPoltronas.add(A11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 650, 52, -1));
 
         A12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A12.addActionListener(new java.awt.event.ActionListener() {
@@ -1076,7 +1001,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A12ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A12, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 233, 52, -1));
+        pVPoltronas.add(A12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 710, 52, -1));
 
         A13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A13.addActionListener(new java.awt.event.ActionListener() {
@@ -1084,7 +1009,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A13ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A13, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 294, 52, -1));
+        pVPoltronas.add(A13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 770, 52, -1));
 
         A14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A14.addActionListener(new java.awt.event.ActionListener() {
@@ -1092,7 +1017,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A14ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A14, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 355, 52, -1));
+        pVPoltronas.add(A14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 830, 52, -1));
 
         A15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A15.addActionListener(new java.awt.event.ActionListener() {
@@ -1100,7 +1025,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A15ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A15, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 416, 52, -1));
+        pVPoltronas.add(A15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 890, 52, -1));
 
         A16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         A16.addActionListener(new java.awt.event.ActionListener() {
@@ -1108,7 +1033,7 @@ public class AppInicio extends javax.swing.JFrame {
                 A16ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(A16, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 477, 52, -1));
+        pVPoltronas.add(A16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 950, 52, -1));
 
         B9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B9.addActionListener(new java.awt.event.ActionListener() {
@@ -1116,7 +1041,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B9ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B9, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 50, 52, -1));
+        pVPoltronas.add(B9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 530, 52, -1));
 
         B10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B10.addActionListener(new java.awt.event.ActionListener() {
@@ -1124,7 +1049,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B10ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B10, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 111, 52, -1));
+        pVPoltronas.add(B10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 590, 52, -1));
 
         B11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B11.addActionListener(new java.awt.event.ActionListener() {
@@ -1132,7 +1057,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B11ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B11, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 172, 52, -1));
+        pVPoltronas.add(B11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 650, 52, -1));
 
         B12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B12.addActionListener(new java.awt.event.ActionListener() {
@@ -1140,7 +1065,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B12ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B12, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 233, 52, -1));
+        pVPoltronas.add(B12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 710, 52, -1));
 
         B13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B13.addActionListener(new java.awt.event.ActionListener() {
@@ -1148,7 +1073,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B13ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B13, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 294, 52, -1));
+        pVPoltronas.add(B13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 770, 52, -1));
 
         B14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B14.addActionListener(new java.awt.event.ActionListener() {
@@ -1156,7 +1081,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B14ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B14, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 355, 52, -1));
+        pVPoltronas.add(B14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 830, 52, -1));
 
         B15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B15.addActionListener(new java.awt.event.ActionListener() {
@@ -1164,7 +1089,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B15ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B15, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 416, 52, -1));
+        pVPoltronas.add(B15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 890, 52, -1));
 
         B16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         B16.addActionListener(new java.awt.event.ActionListener() {
@@ -1172,7 +1097,7 @@ public class AppInicio extends javax.swing.JFrame {
                 B16ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(B16, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 477, 52, -1));
+        pVPoltronas.add(B16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 950, 52, -1));
 
         C9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C9.addActionListener(new java.awt.event.ActionListener() {
@@ -1180,7 +1105,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C9ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C9, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 50, 52, -1));
+        pVPoltronas.add(C9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 52, -1));
 
         C10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C10.addActionListener(new java.awt.event.ActionListener() {
@@ -1188,7 +1113,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C10ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C10, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 111, 52, -1));
+        pVPoltronas.add(C10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 590, 52, -1));
 
         C11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C11.addActionListener(new java.awt.event.ActionListener() {
@@ -1196,7 +1121,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C11ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C11, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 172, 52, -1));
+        pVPoltronas.add(C11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 650, 52, -1));
 
         C12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C12.addActionListener(new java.awt.event.ActionListener() {
@@ -1204,7 +1129,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C12ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C12, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 233, 52, -1));
+        pVPoltronas.add(C12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 710, 52, -1));
 
         C13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C13.addActionListener(new java.awt.event.ActionListener() {
@@ -1212,7 +1137,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C13ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C13, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 294, 52, -1));
+        pVPoltronas.add(C13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 770, 52, -1));
 
         C14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C14.addActionListener(new java.awt.event.ActionListener() {
@@ -1220,7 +1145,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C14ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C14, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 355, 52, -1));
+        pVPoltronas.add(C14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 830, 52, -1));
 
         C15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C15.addActionListener(new java.awt.event.ActionListener() {
@@ -1228,7 +1153,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C15ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C15, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 416, 52, -1));
+        pVPoltronas.add(C15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 890, 52, -1));
 
         C16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         C16.addActionListener(new java.awt.event.ActionListener() {
@@ -1236,7 +1161,7 @@ public class AppInicio extends javax.swing.JFrame {
                 C16ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(C16, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 477, 52, -1));
+        pVPoltronas.add(C16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 950, 52, -1));
 
         D9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D9.addActionListener(new java.awt.event.ActionListener() {
@@ -1244,7 +1169,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D9ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D9, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 50, 52, -1));
+        pVPoltronas.add(D9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, 52, -1));
 
         D10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D10.addActionListener(new java.awt.event.ActionListener() {
@@ -1252,7 +1177,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D10ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D10, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 111, 52, -1));
+        pVPoltronas.add(D10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 52, -1));
 
         D11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D11.addActionListener(new java.awt.event.ActionListener() {
@@ -1260,7 +1185,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D11ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D11, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 172, 52, -1));
+        pVPoltronas.add(D11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 650, 52, -1));
 
         D12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D12.addActionListener(new java.awt.event.ActionListener() {
@@ -1268,7 +1193,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D12ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D12, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 233, 52, -1));
+        pVPoltronas.add(D12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 710, 52, -1));
 
         D13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D13.addActionListener(new java.awt.event.ActionListener() {
@@ -1276,7 +1201,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D13ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D13, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 294, 52, -1));
+        pVPoltronas.add(D13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 770, 52, -1));
 
         D14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D14.addActionListener(new java.awt.event.ActionListener() {
@@ -1284,7 +1209,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D14ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D14, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 355, 52, -1));
+        pVPoltronas.add(D14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 830, 52, -1));
 
         D15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D15.addActionListener(new java.awt.event.ActionListener() {
@@ -1292,7 +1217,7 @@ public class AppInicio extends javax.swing.JFrame {
                 D15ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D15, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 416, 52, -1));
+        pVPoltronas.add(D15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 890, 52, -1));
 
         D16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
         D16.addActionListener(new java.awt.event.ActionListener() {
@@ -1300,567 +1225,39 @@ public class AppInicio extends javax.swing.JFrame {
                 D16ActionPerformed(evt);
             }
         });
-        pVPoltronas.add(D16, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 477, 52, -1));
-
-        lblPoltA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPoltA1.setText("A");
-        pVPoltronas.add(lblPoltA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 12, 52, -1));
-
-        lblPoltB1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPoltB1.setText("B");
-        pVPoltronas.add(lblPoltB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 12, 52, -1));
-
-        lblPoltC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPoltC1.setText("C");
-        pVPoltronas.add(lblPoltC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 12, 52, -1));
-
-        lblPoltD1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPoltD1.setText("D");
-        pVPoltronas.add(lblPoltD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 12, 52, -1));
+        pVPoltronas.add(D16, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 950, 52, -1));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("1");
-        pVPoltronas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 50, 40, 49));
+        jLabel13.setText("9");
+        pVPoltronas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 40, 49));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("2");
-        pVPoltronas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, 40, 49));
+        jLabel14.setText("10");
+        pVPoltronas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 40, 49));
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("4");
-        pVPoltronas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 233, 40, 49));
+        jLabel15.setText("12");
+        pVPoltronas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 710, 40, 49));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("3");
-        pVPoltronas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, 40, 49));
+        jLabel16.setText("11");
+        pVPoltronas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, 40, 49));
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("6");
-        pVPoltronas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 355, 40, 49));
+        jLabel17.setText("13");
+        pVPoltronas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 840, 40, 49));
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("7");
-        pVPoltronas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 416, 40, 49));
+        jLabel18.setText("14");
+        pVPoltronas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 890, 40, 49));
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("5");
-        pVPoltronas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 294, 40, 49));
+        jLabel19.setText("12");
+        pVPoltronas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 780, 40, 49));
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("8");
-        pVPoltronas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 50));
-
-        A17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A17ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 52, -1));
-
-        A18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A18ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 52, -1));
-
-        A19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A19ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 650, 52, -1));
-
-        A20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A20ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 710, 52, -1));
-
-        A21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A21ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 52, -1));
-
-        A22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A22ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 830, 52, -1));
-
-        A23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A23ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 900, 52, -1));
-
-        A24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A24ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 960, 52, -1));
-
-        B17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B17ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 52, -1));
-
-        B18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B18ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 52, -1));
-
-        B19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B19ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 650, 52, -1));
-
-        B20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B20ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 710, 52, -1));
-
-        B21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B21ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 770, 52, -1));
-
-        B22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B22ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 830, 52, -1));
-
-        B23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B23ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 900, 52, -1));
-
-        B24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B24ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 960, 52, -1));
-
-        C17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C17ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 52, -1));
-
-        C18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C18ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 52, -1));
-
-        C19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C19ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, 52, -1));
-
-        C20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C20ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C20, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 52, -1));
-
-        C21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C21ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 770, 52, -1));
-
-        C22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C22ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 830, 52, -1));
-
-        C23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C23ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C23, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 900, 52, -1));
-
-        C24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C24ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C24, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 960, 52, -1));
-
-        D17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D17ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 52, -1));
-
-        D18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D18ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 52, -1));
-
-        D19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D19ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 650, 52, -1));
-
-        D20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D20ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 710, 52, -1));
-
-        D21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D21ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 770, 52, -1));
-
-        D22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D22ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 830, 52, -1));
-
-        D23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D23ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D23, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 900, 52, -1));
-
-        D24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D24ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 960, 52, -1));
-
-        A25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A25ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 52, -1));
-
-        A26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A26ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 52, -1));
-
-        A27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A27ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 650, 52, -1));
-
-        A28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A28ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 710, 52, -1));
-
-        A29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A29ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 52, -1));
-
-        A30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A30ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A30, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 830, 52, -1));
-
-        A31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A31ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 900, 52, -1));
-
-        A32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        A32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A32ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(A32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 960, 52, -1));
-
-        B25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B25ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B25, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 52, -1));
-
-        B26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B26ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B26, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 52, -1));
-
-        B27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B27ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 650, 52, -1));
-
-        B28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B28ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 710, 52, -1));
-
-        B29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B29ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B29, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 770, 52, -1));
-
-        B30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B30ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B30, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 830, 52, -1));
-
-        B31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B31ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 900, 52, -1));
-
-        B32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        B32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B32ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(B32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 960, 52, -1));
-
-        C25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C25ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C25, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 52, -1));
-
-        C26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C26ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 52, -1));
-
-        C27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C27ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C27, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, 52, -1));
-
-        C28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C28ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C28, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 52, -1));
-
-        C29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C29ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C29, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 770, 52, -1));
-
-        C30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C30ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C30, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 830, 52, -1));
-
-        C31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C31ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C31, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 900, 52, -1));
-
-        C32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        C32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C32ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(C32, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 960, 52, -1));
-
-        D25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D25ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 52, -1));
-
-        D26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D26ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D26, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 52, -1));
-
-        D27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D27ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 650, 52, -1));
-
-        D28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D28ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D28, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 710, 52, -1));
-
-        D29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D29ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D29, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 770, 52, -1));
-
-        D30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D30ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D30, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 830, 52, -1));
-
-        D31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D31ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D31, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 900, 52, -1));
-
-        D32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI_ICons/PoltronaVerdeG.png"))); // NOI18N
-        D32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D32ActionPerformed(evt);
-            }
-        });
-        pVPoltronas.add(D32, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 960, 52, -1));
+        jLabel20.setText("15");
+        pVPoltronas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 940, 40, 50));
 
         jScrollPane2.setViewportView(pVPoltronas);
 
@@ -2553,6 +1950,10 @@ public class AppInicio extends javax.swing.JFrame {
             
         }
         logado = true;
+        
+        txtLogin.setText("");
+        txtSenha.setText("");
+
     }//GEN-LAST:event_btnEntrarLoginActionPerformed
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
@@ -2621,6 +2022,9 @@ public class AppInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnverVendasMousePressed
 
+    
+
+    
     private void btnSaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaiMousePressed
         pLogin.setVisible(true);
         lblIconLogin.setIcon(new ImageIcon("Icons/Usuario100.png"));
@@ -2629,468 +2033,489 @@ public class AppInicio extends javax.swing.JFrame {
         txtSenha.setText("");
         logado=false;
     }//GEN-LAST:event_btnSaiMousePressed
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        System.out.println(jFormattedData.getText());
-        int i=0,j=0;
-        Voos p  = new Voos();
-        TabelaHorarios tab= new TabelaHorarios();
-        jTable1.setModel(tab);
-        boolean naoexiste = true;
-        
-        for (int k = 0; k < agendaVoos.size(); k++) {//Confere se tem um Voo para o mesmo destino
-            if((txtOrigem.getText().equals(agendaVoos.get(k).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(k).getDestino()))){
-                tab.addRow(agendaVoos.get(k));
-                naoexiste=false;
-            }
-            
-        }
-        
-        if(naoexiste){//Se nao existir um Voo para o mesmo Destino entao ele Cria
-            if(txtOrigem.getText().isEmpty() || txtDestino.getText().isEmpty()){//Se oigem e destino tiver vazio
-                ;
-            }
-            else{
 
-                for(;i<agendaVoo.size();i++){
-                    if((txtOrigem.getText().equals(agendaVoo.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoo.get(i).getDestino()))){
-                        int a=(int)Math.floor(Math.random()*22);
-                        p.setDestino(agendaVoo.get(i).getDestino());
-                        p.setOrigem(agendaVoo.get(i).getOrigem());
-                        p.setIdvoo(agendaVoos.size());
-                        p.setData(jFormattedData.getText());
-                        p.setData(jFormattedData.getText());
-                        p.setHorarioSaida(a+":00");
-                        p.setHorarioChegada((a+2)+":00");
-                        tab.addRow(p);
-                        agendaVoos.add(p);
-                        j=i;
+        public static boolean validarData(String dateString){
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            sdf.setLenient(false);
+            try {
+                sdf.parse(dateString);
+                return true;
+            } catch (ParseException ex) {
+                return false;
+            }
+        }
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+
+    if( !validarData(jFormattedData.getText()) || new DateTime().isAfter(new Data(jFormattedData.getText()).getData().minusDays(2) )){
+            jFormattedData.setText("");
+            
+    }
+    else{
+                System.out.println(jFormattedData.getText());
+                int i=0,j=0;
+                Voos p  = new Voos();
+                TabelaHorarios tab= new TabelaHorarios();
+                jTable1.setModel(tab);
+                boolean naoexiste = true;
+
+                for (int k = 0; k < agendaVoos.size(); k++) {//Confere se tem um Voo para o mesmo destino
+                    if((txtOrigem.getText().equals(agendaVoos.get(k).getOrigem()))&&(txtDestino.getText().equals(agendaVoos.get(k).getDestino()))){
+                        tab.addRow(agendaVoos.get(k));
+                        naoexiste=false;
+                    }
+
+                }
+                
+                if(naoexiste){//Se nao existir um Voo para o mesmo Destino entao ele Cria
+                     lblData.setForeground(Color.white);
+
+                    if(txtOrigem.getText().isEmpty() || txtDestino.getText().isEmpty()){//Se oigem e destino tiver vazio
+                        ;
                     }
                     else{
-                        //Se não existir passagem, sumir com a tabela
-                        //Botar mensagem na tela que n exite passagem      
+
+
+                        for(;i<agendaVoo.size();i++){
+                            if((txtOrigem.getText().equals(agendaVoo.get(i).getOrigem()))&&(txtDestino.getText().equals(agendaVoo.get(i).getDestino()))){
+                                int a=(int)Math.floor(Math.random()*22);
+                                p.setDestino(agendaVoo.get(i).getDestino());
+                                p.setOrigem(agendaVoo.get(i).getOrigem());
+                                p.setIdvoo(agendaVoos.size());
+                                p.data = new Data(jFormattedData.getText());
+                                p.setHorarioSaida(a+":00");
+                                p.setHorarioChegada((a+2)+":00");
+                                tab.addRow(p);
+                                agendaVoos.add(p);
+                                j=i;
+                            }
+                            else{
+                                //Se não existir passagem, sumir com a tabela
+                                //Botar mensagem na tela que n exite passagem      
+                            }
+                        }
+                    for(int k=0;k<6;k++){  
+                        Voos p1= new Voos();
+                        int a=(int)Math.floor(Math.random()*22);
+                        p1.setDestino(agendaVoo.get(j).getDestino());
+                        p1.setOrigem(agendaVoo.get(j).getOrigem());
+                        p1.data = new Data(jFormattedData.getText());
+                        p1.setIdvoo(agendaVoos.size());
+                        p1.setHorarioSaida(a+":00");
+                        p1.setHorarioChegada((a+2)+":00");
+                        tab.addRow(p1);
+                        agendaVoos.add(p1);
+
+                    }
+                     /*
+                          */
+
+
+                     for(int b=0;b<agendaVoos.size();b++){
+                        if(agendaVoos.get(b).getOrigem().equals("São Paulo")||agendaVoos.get(b).getDestino().equals("São Paulo")){
+                            if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+239);
+                                if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+312);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+365);
+                                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasília")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+408);
+                                if(agendaVoos.get(b).getDestino().equals("Brasília")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1560);
+                                if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+795);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+320);
+                                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+429);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasíia")){
+                            if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+336);
+                                if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+818);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+896);
+                                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+987);
+                                if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1131);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+340);
+                                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+825);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+289);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
+                                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1152);
+                                if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+226);
+                                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037 );
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1230);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1169);
+                                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+884);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1184);
+                                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1214);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
+                            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+289);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
+                                if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1152);
+                                if(agendaVoos.get(b).getDestino().equals("Manaus")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+226);
+                                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
+                            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1035);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+365);
+                                if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1026);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
+                            if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+312);
+                                if(agendaVoos.get(b).getDestino().equals("Vitória")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+795);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+429);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
+                            if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037);
+                                if(agendaVoos.get(b).getDestino().equals("Natal")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
+                            if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+884);
+                                if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }else{
+                                    Random r= new Random();
+                                    //agendaVoos.get(b).setIdvoo(i);
+                                }
+                            } 
+                        }
                     }
                 }
-            for(int k=0;k<6;k++){  
-                Voos p1= new Voos();
-                int a=(int)Math.floor(Math.random()*22);
-                p1.setDestino(agendaVoo.get(j).getDestino());
-                p1.setOrigem(agendaVoo.get(j).getOrigem());
-                p1.setData(jFormattedData.getText());
-                p1.setIdvoo(agendaVoos.size());
-                p1.setHorarioSaida(a+":00");
-                p1.setHorarioChegada((a+2)+":00");
-                tab.addRow(p1);
-                agendaVoos.add(p1);
-
             }
-             /*
-                  */
-
-
-             for(int b=0;b<agendaVoos.size();b++){
-                if(agendaVoos.get(b).getOrigem().equals("São Paulo")||agendaVoos.get(b).getDestino().equals("São Paulo")){
-                    if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+239);
-                        if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+312);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+365);
-                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasília")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+408);
-                        if(agendaVoos.get(b).getDestino().equals("Brasília")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1560);
-                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+795);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+320);
-                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+429);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Brasília")||agendaVoos.get(b).getDestino().equals("Brasíia")){
-                    if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+336);
-                        if(agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+818);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+896);
-                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+987);
-                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1131);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+340);
-                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+825);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+289);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
-                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1152);
-                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+226);
-                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037 );
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1230);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1169);
-                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+884);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1184);
-                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1214);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Rio de Janeiro")||agendaVoos.get(b).getDestino().equals("Rio de Janeiro")){
-                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+289);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
-                        if(agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Manaus")||agendaVoos.get(b).getDestino().equals("Manaus")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1152);
-                        if(agendaVoos.get(b).getDestino().equals("Manaus")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+226);
-                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Porto Alegre")||agendaVoos.get(b).getDestino().equals("Porto Alegre")){
-                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+558);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1035);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+365);
-                        if(agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1026);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Belo Horizonte")||agendaVoos.get(b).getDestino().equals("Belo Horizonte")){
-                    if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+312);
-                        if(agendaVoos.get(b).getDestino().equals("Vitória")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+795);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+429);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Vitória")||agendaVoos.get(b).getDestino().equals("Vitória")){
-                    if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+696);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+1037);
-                        if(agendaVoos.get(b).getDestino().equals("Natal")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }else if(agendaVoos.get(b).getOrigem().equals("Natal")||agendaVoos.get(b).getDestino().equals("Natal")){
-                    if(agendaVoos.get(b).getOrigem().equals("Fortaleza")||agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                        agendaVoos.get(b).setValor( ((int)Math.floor(Math.random()*100))+884);
-                        if(agendaVoos.get(b).getDestino().equals("Fortaleza")){
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }else{
-                            Random r= new Random();
-                            //agendaVoos.get(b).setIdvoo(i);
-                        }
-                    } 
-                }
-            }
-        }
+        disc.salvarVoos();
+        pCompradePassagem.setVisible(true);
+        pSelecaoPassagem.setVisible(false);
     }
-    disc.salvarVoos();
-    pCompradePassagem.setVisible(true);
-    pSelecaoPassagem.setVisible(false);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExit4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit4MouseClicked
@@ -3157,6 +2582,30 @@ public class AppInicio extends javax.swing.JFrame {
         else if(x==0 && y==7){
             A8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
+        else if(x==0 && y==8){
+            A9.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==9){
+            A10.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==10){
+            A11.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==11){
+            A12.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==12){
+            A13.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==13){
+            A14.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==14){
+            A15.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==0 && y==15){
+            A16.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
         else if(x==1 && y==0){
             B1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
@@ -3180,6 +2629,30 @@ public class AppInicio extends javax.swing.JFrame {
         }
         else if(x==1 && y==7){
             B8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==8){
+            B9.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==9){
+            B10.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==10){
+            B11.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==11){
+            B12.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==12){
+            B13.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==13){
+            B14.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==14){
+            B15.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==1 && y==15){
+            B16.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
         else if(x==2 && y==0){
             C1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
@@ -3205,6 +2678,30 @@ public class AppInicio extends javax.swing.JFrame {
         else if(x==2 && y==7){
             C8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
+        else if(x==2 && y==8){
+            C9.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==9){
+            C10.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==10){
+            C11.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==11){
+            C12.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==12){
+            C13.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==13){
+            C14.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==14){
+            C15.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==2 && y==15){
+            C16.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
         else if(x==3 && y==0){
             D1.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
@@ -3229,14 +2726,40 @@ public class AppInicio extends javax.swing.JFrame {
         else if(x==3 && y==7){
             D8.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
         }
+        else if(x==3 && y==8){
+            D9.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==9){
+            D10.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==10){
+            D11.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==11){
+            D12.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==12){
+            D13.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==13){
+            D14.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==14){
+            D15.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
+        else if(x==3 && y==15){
+            D16.setIcon(new ImageIcon(("PoltronaVermelhaG.png")));
+        }
         
         
     }
     
     private void btnComprarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPassagemActionPerformed
+        if(!txtIDVOOPASSAGEM.getText().isEmpty()){
+            
         int i,j;
-        for( i =0; i<8;i++){
-            for( j =0; j<4;j++){
+        for( i = 0; i<16;i++){
+            for( j = 0; j<4;j++){
                 System.out.println("i:"+i+"  j:"+j);
                 if(agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).IsPoltronaOcupada(i, j)){
                 System.out.println(agendaVoos.get(Integer.parseInt(txtIDVOOPASSAGEM.getText())).IsPoltronaOcupada(i, j));
@@ -3255,6 +2778,8 @@ public class AppInicio extends javax.swing.JFrame {
         pVPassagemBaleia.setVisible(false);
         jScrollPane2.setVisible(true);
         pCompradePassagem.setVisible(false);
+        
+        }
     }//GEN-LAST:event_btnComprarPassagemActionPerformed
 
     private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
@@ -3343,7 +2868,7 @@ public class AppInicio extends javax.swing.JFrame {
             Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        txtIDVOOPASSAGEM.setText("");
+        //txtIDVOOPASSAGEM.setText("");
         txtSelecaoPoltronaCPF.setText("");
         txtSelecaoPoltronaNome.setText("");
     }//GEN-LAST:event_btnComprarPoltronaActionPerformed
@@ -3677,388 +3202,331 @@ public class AppInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_D8ActionPerformed
 
     private void A9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A9ActionPerformed
-        // TODO add your handling code here:
+        if(A9.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A9.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A9");
+            poltx = 0;
+            polty = 8;
+        }
     }//GEN-LAST:event_A9ActionPerformed
 
     private void A10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A10ActionPerformed
-        // TODO add your handling code here:
+        if(A10.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A10.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A10");
+            poltx = 0;
+            polty = 9;
+        }
     }//GEN-LAST:event_A10ActionPerformed
 
     private void A11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A11ActionPerformed
-        // TODO add your handling code here:
+        if(A11.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A11.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A11");
+            poltx = 0;
+            polty = 10;
+        }
     }//GEN-LAST:event_A11ActionPerformed
 
     private void A12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A12ActionPerformed
-        // TODO add your handling code here:
+        if(A12.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A12.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A12");
+            poltx = 0;
+            polty = 11;
+        }
     }//GEN-LAST:event_A12ActionPerformed
 
     private void A13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A13ActionPerformed
-        // TODO add your handling code here:
+        if(A13.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A13.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A13");
+            poltx = 0;
+            polty = 12;
+        }
     }//GEN-LAST:event_A13ActionPerformed
 
     private void A14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A14ActionPerformed
-        // TODO add your handling code here:
+        if(A14.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A14.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A14");
+            poltx = 0;
+            polty = 13;
+        }
     }//GEN-LAST:event_A14ActionPerformed
 
     private void A15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A15ActionPerformed
-        // TODO add your handling code here:
+        if(A15.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A15.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A15");
+            poltx = 0;
+            polty = 14;
+        }
     }//GEN-LAST:event_A15ActionPerformed
 
     private void A16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A16ActionPerformed
-        // TODO add your handling code here:
+        if(A16.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            A16.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("A16");
+            poltx = 0;
+            polty = 15;
+        }
+
     }//GEN-LAST:event_A16ActionPerformed
 
     private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
-        // TODO add your handling code here:
+         if(B9.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B9.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B9");
+            poltx = 1;
+            polty = 8;
+        }
     }//GEN-LAST:event_B9ActionPerformed
 
     private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
-        // TODO add your handling code here:
+                 if(B10.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B10.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B10");
+            poltx = 1;
+            polty = 9;
+        }
     }//GEN-LAST:event_B10ActionPerformed
 
     private void B11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B11ActionPerformed
-        // TODO add your handling code here:
+                 if(B11.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B11.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B11");
+            poltx = 1;
+            polty = 10;
+        }
     }//GEN-LAST:event_B11ActionPerformed
 
     private void B12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B12ActionPerformed
-        // TODO add your handling code here:
+                if(B12.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B12.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B12");
+            poltx = 1;
+            polty = 11;
+        }
     }//GEN-LAST:event_B12ActionPerformed
 
     private void B13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B13ActionPerformed
-        // TODO add your handling code here:
+                if(B13.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B13.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B13");
+            poltx = 1;
+            polty = 12;
+        }
     }//GEN-LAST:event_B13ActionPerformed
 
     private void B14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B14ActionPerformed
-        // TODO add your handling code here:
+                 if(B14.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B14.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B14");
+            poltx = 1;
+            polty = 13;
+        }
     }//GEN-LAST:event_B14ActionPerformed
 
     private void B15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B15ActionPerformed
-        // TODO add your handling code here:
+                 if(B15.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B15.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B15");
+            poltx = 1;
+            polty = 14;
+        }
     }//GEN-LAST:event_B15ActionPerformed
 
     private void B16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B16ActionPerformed
-        // TODO add your handling code here:
+                 if(B16.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            B16.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("B6");
+            poltx = 1;
+            polty = 15;
+        }
     }//GEN-LAST:event_B16ActionPerformed
 
     private void C9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C9ActionPerformed
-        // TODO add your handling code here:
+        if(C9.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C9.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C9");
+            poltx = 2;
+            polty = 8;
+        }
     }//GEN-LAST:event_C9ActionPerformed
 
     private void C10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C10ActionPerformed
-        // TODO add your handling code here:
+        if(C10.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C10.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C10");
+            poltx = 2;
+            polty = 9;
+        }
     }//GEN-LAST:event_C10ActionPerformed
 
     private void C11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C11ActionPerformed
-        // TODO add your handling code here:
+        if(C11.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C11.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C11");
+            poltx = 2;
+            polty = 10;
+        }
     }//GEN-LAST:event_C11ActionPerformed
 
     private void C12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C12ActionPerformed
-        // TODO add your handling code here:
+        if(C12.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C12.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C12");
+            poltx = 2;
+            polty = 11;
+        }
     }//GEN-LAST:event_C12ActionPerformed
 
     private void C13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C13ActionPerformed
-        // TODO add your handling code here:
+        if(C13.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C13.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C13");
+            poltx = 2;
+            polty = 12;
+        }
     }//GEN-LAST:event_C13ActionPerformed
 
     private void C14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C14ActionPerformed
-        // TODO add your handling code here:
+        if(C14.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C14.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C14");
+            poltx = 2;
+            polty = 13;
+        }
     }//GEN-LAST:event_C14ActionPerformed
 
     private void C15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C15ActionPerformed
-        // TODO add your handling code here:
+        if(C15.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C15.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C15");
+            poltx = 2;
+            polty = 14;
+        }
     }//GEN-LAST:event_C15ActionPerformed
 
     private void C16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C16ActionPerformed
-        // TODO add your handling code here:
+       if(C16.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            C16.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("C16");
+            poltx = 2;
+            polty = 15;
+        }
     }//GEN-LAST:event_C16ActionPerformed
 
     private void D9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D9ActionPerformed
-        // TODO add your handling code here:
+        if(D9.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D9.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D9");
+            poltx = 3;
+            polty = 8;
+        }
     }//GEN-LAST:event_D9ActionPerformed
 
     private void D10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D10ActionPerformed
         // TODO add your handling code here:
+        if(D10.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D10.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D10");
+            poltx = 3;
+            polty = 9;
+        }
     }//GEN-LAST:event_D10ActionPerformed
 
     private void D11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D11ActionPerformed
         // TODO add your handling code here:
+        if(D11.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D11.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D11");
+            poltx = 3;
+            polty = 10;
+        }
     }//GEN-LAST:event_D11ActionPerformed
 
     private void D12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D12ActionPerformed
         // TODO add your handling code here:
+        if(D12.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D12.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D12");
+            poltx = 3;
+            polty = 11;
+        }
     }//GEN-LAST:event_D12ActionPerformed
 
     private void D13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D13ActionPerformed
         // TODO add your handling code here:
+        if(D13.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D13.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D13");
+            poltx = 3;
+            polty = 12;
+        }
     }//GEN-LAST:event_D13ActionPerformed
 
     private void D14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D14ActionPerformed
         // TODO add your handling code here:
+        if(D14.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D14.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D14");
+            poltx = 3;
+            polty = 13;
+        }
     }//GEN-LAST:event_D14ActionPerformed
 
     private void D15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D15ActionPerformed
-        // TODO add your handling code here:
+        if(D15.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D15.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D15");
+            poltx = 3;
+            polty = 14;
+        }
     }//GEN-LAST:event_D15ActionPerformed
 
     private void D16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D16ActionPerformed
-        // TODO add your handling code here:
+        if(D16.getIcon().toString().contains("VerdeG.png")){
+            resetAllbtn();
+            D16.setIcon(  new ImageIcon(("PoltronaAmarelaG.png")));
+            lblNumPoltrona.setText("D16");
+            poltx = 3;
+            polty = 15;
+        }
+
     }//GEN-LAST:event_D16ActionPerformed
-
-    private void A17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A17ActionPerformed
-
-    private void A18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A18ActionPerformed
-
-    private void A19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A19ActionPerformed
-
-    private void A20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A20ActionPerformed
-
-    private void A21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A21ActionPerformed
-
-    private void A22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A22ActionPerformed
-
-    private void A23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A23ActionPerformed
-
-    private void A24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A24ActionPerformed
-
-    private void B17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B17ActionPerformed
-
-    private void B18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B18ActionPerformed
-
-    private void B19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B19ActionPerformed
-
-    private void B20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B20ActionPerformed
-
-    private void B21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B21ActionPerformed
-
-    private void B22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B22ActionPerformed
-
-    private void B23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B23ActionPerformed
-
-    private void B24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B24ActionPerformed
-
-    private void C17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C17ActionPerformed
-
-    private void C18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C18ActionPerformed
-
-    private void C19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C19ActionPerformed
-
-    private void C20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C20ActionPerformed
-
-    private void C21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C21ActionPerformed
-
-    private void C22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C22ActionPerformed
-
-    private void C23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C23ActionPerformed
-
-    private void C24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C24ActionPerformed
-
-    private void D17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D17ActionPerformed
-
-    private void D18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D18ActionPerformed
-
-    private void D19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D19ActionPerformed
-
-    private void D20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D20ActionPerformed
-
-    private void D21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D21ActionPerformed
-
-    private void D22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D22ActionPerformed
-
-    private void D23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D23ActionPerformed
-
-    private void D24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D24ActionPerformed
-
-    private void A25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A25ActionPerformed
-
-    private void A26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A26ActionPerformed
-
-    private void A27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A27ActionPerformed
-
-    private void A28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A28ActionPerformed
-
-    private void A29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A29ActionPerformed
-
-    private void A30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A30ActionPerformed
-
-    private void A31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A31ActionPerformed
-
-    private void A32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A32ActionPerformed
-
-    private void B25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B25ActionPerformed
-
-    private void B26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B26ActionPerformed
-
-    private void B27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B27ActionPerformed
-
-    private void B28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B28ActionPerformed
-
-    private void B29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B29ActionPerformed
-
-    private void B30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B30ActionPerformed
-
-    private void B31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B31ActionPerformed
-
-    private void B32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B32ActionPerformed
-
-    private void C25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C25ActionPerformed
-
-    private void C26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C26ActionPerformed
-
-    private void C27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C27ActionPerformed
-
-    private void C28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C28ActionPerformed
-
-    private void C29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C29ActionPerformed
-
-    private void C30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C30ActionPerformed
-
-    private void C31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C31ActionPerformed
-
-    private void C32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_C32ActionPerformed
-
-    private void D25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D25ActionPerformed
-
-    private void D26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D26ActionPerformed
-
-    private void D27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D27ActionPerformed
-
-    private void D28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D28ActionPerformed
-
-    private void D29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D29ActionPerformed
-
-    private void D30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D30ActionPerformed
-
-    private void D31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D31ActionPerformed
-
-    private void D32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_D32ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4117,24 +3585,8 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JButton A14;
     private javax.swing.JButton A15;
     private javax.swing.JButton A16;
-    private javax.swing.JButton A17;
-    private javax.swing.JButton A18;
-    private javax.swing.JButton A19;
     private javax.swing.JButton A2;
-    private javax.swing.JButton A20;
-    private javax.swing.JButton A21;
-    private javax.swing.JButton A22;
-    private javax.swing.JButton A23;
-    private javax.swing.JButton A24;
-    private javax.swing.JButton A25;
-    private javax.swing.JButton A26;
-    private javax.swing.JButton A27;
-    private javax.swing.JButton A28;
-    private javax.swing.JButton A29;
     private javax.swing.JButton A3;
-    private javax.swing.JButton A30;
-    private javax.swing.JButton A31;
-    private javax.swing.JButton A32;
     private javax.swing.JButton A4;
     private javax.swing.JButton A5;
     private javax.swing.JButton A6;
@@ -4149,24 +3601,8 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JButton B14;
     private javax.swing.JButton B15;
     private javax.swing.JButton B16;
-    private javax.swing.JButton B17;
-    private javax.swing.JButton B18;
-    private javax.swing.JButton B19;
     private javax.swing.JButton B2;
-    private javax.swing.JButton B20;
-    private javax.swing.JButton B21;
-    private javax.swing.JButton B22;
-    private javax.swing.JButton B23;
-    private javax.swing.JButton B24;
-    private javax.swing.JButton B25;
-    private javax.swing.JButton B26;
-    private javax.swing.JButton B27;
-    private javax.swing.JButton B28;
-    private javax.swing.JButton B29;
     private javax.swing.JButton B3;
-    private javax.swing.JButton B30;
-    private javax.swing.JButton B31;
-    private javax.swing.JButton B32;
     private javax.swing.JButton B4;
     private javax.swing.JButton B5;
     private javax.swing.JButton B6;
@@ -4181,24 +3617,8 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JButton C14;
     private javax.swing.JButton C15;
     private javax.swing.JButton C16;
-    private javax.swing.JButton C17;
-    private javax.swing.JButton C18;
-    private javax.swing.JButton C19;
     private javax.swing.JButton C2;
-    private javax.swing.JButton C20;
-    private javax.swing.JButton C21;
-    private javax.swing.JButton C22;
-    private javax.swing.JButton C23;
-    private javax.swing.JButton C24;
-    private javax.swing.JButton C25;
-    private javax.swing.JButton C26;
-    private javax.swing.JButton C27;
-    private javax.swing.JButton C28;
-    private javax.swing.JButton C29;
     private javax.swing.JButton C3;
-    private javax.swing.JButton C30;
-    private javax.swing.JButton C31;
-    private javax.swing.JButton C32;
     private javax.swing.JButton C4;
     private javax.swing.JButton C5;
     private javax.swing.JButton C6;
@@ -4213,24 +3633,8 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JButton D14;
     private javax.swing.JButton D15;
     private javax.swing.JButton D16;
-    private javax.swing.JButton D17;
-    private javax.swing.JButton D18;
-    private javax.swing.JButton D19;
     private javax.swing.JButton D2;
-    private javax.swing.JButton D20;
-    private javax.swing.JButton D21;
-    private javax.swing.JButton D22;
-    private javax.swing.JButton D23;
-    private javax.swing.JButton D24;
-    private javax.swing.JButton D25;
-    private javax.swing.JButton D26;
-    private javax.swing.JButton D27;
-    private javax.swing.JButton D28;
-    private javax.swing.JButton D29;
     private javax.swing.JButton D3;
-    private javax.swing.JButton D30;
-    private javax.swing.JButton D31;
-    private javax.swing.JButton D32;
     private javax.swing.JButton D4;
     private javax.swing.JButton D5;
     private javax.swing.JButton D6;
@@ -4335,13 +3739,9 @@ public class AppInicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumPoltrona;
     private javax.swing.JLabel lblOrigem;
     private javax.swing.JLabel lblPoltA;
-    private javax.swing.JLabel lblPoltA1;
     private javax.swing.JLabel lblPoltB;
-    private javax.swing.JLabel lblPoltB1;
     private javax.swing.JLabel lblPoltC;
-    private javax.swing.JLabel lblPoltC1;
     private javax.swing.JLabel lblPoltD;
-    private javax.swing.JLabel lblPoltD1;
     private javax.swing.JLabel lblPoltrona;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblThayza;
@@ -4409,6 +3809,22 @@ public class AppInicio extends javax.swing.JFrame {
             A7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(A8.getIcon().toString().contains("PoltronaAmarelaG.png"))
             A8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A9.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A9.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A10.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A10.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A11.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A11.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A12.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A12.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A13.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A13.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A14.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A14.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A15.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A15.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(A16.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            A16.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(B1.getIcon().toString().contains("PoltronaAmarelaG.png"))
             B1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(B2.getIcon().toString().contains("PoltronaAmarelaG.png"))
@@ -4425,6 +3841,22 @@ public class AppInicio extends javax.swing.JFrame {
             B7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(B8.getIcon().toString().contains("PoltronaAmarelaG.png"))
             B8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B9.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B9.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B10.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B10.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B11.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B11.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B12.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B12.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B13.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B13.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B14.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B14.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B15.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B15.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(B16.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            B16.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));        
         if(C1.getIcon().toString().contains("PoltronaAmarelaG.png"))
             C1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(C2.getIcon().toString().contains("PoltronaAmarelaG.png"))
@@ -4441,6 +3873,22 @@ public class AppInicio extends javax.swing.JFrame {
             C7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(C8.getIcon().toString().contains("PoltronaAmarelaG.png"))
             C8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C9.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C9.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C10.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C10.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C11.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C11.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C12.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C12.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C13.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C13.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C14.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C14.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C15.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C15.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(C16.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            C16.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(D1.getIcon().toString().contains("PoltronaAmarelaG.png"))
             D1.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(D2.getIcon().toString().contains("PoltronaAmarelaG.png"))
@@ -4457,6 +3905,22 @@ public class AppInicio extends javax.swing.JFrame {
             D7.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
         if(D8.getIcon().toString().contains("PoltronaAmarelaG.png"))
             D8.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D9.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D9.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D10.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D10.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D11.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D11.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D12.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D12.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D13.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D13.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D14.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D14.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D15.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D15.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
+        if(D16.getIcon().toString().contains("PoltronaAmarelaG.png"))
+            D16.setIcon(  new ImageIcon(("PoltronaVerdeG.png")));
     }
     
 }
