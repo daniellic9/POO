@@ -34,8 +34,10 @@ public class Disco implements InterfaceDisco{
     public Disco(){
         agendaVoo.addAll(carregarVoo());
         agendaVoos.addAll(carregarVoos());
+        //agenda.add(new Administradores("Arthur", "123"));
+        //salvarAdmin();
         agenda.addAll(carregarAdmin());
-        //agendaPassagem.addAll(carregarPassagem());
+        //agendaPassagem.addAll(carregarPassagens());
     }
     
     

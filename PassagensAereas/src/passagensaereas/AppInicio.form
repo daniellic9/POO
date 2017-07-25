@@ -2478,7 +2478,6 @@
                                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                                 </Property>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
-                                <Property name="text" type="java.lang.String" value="584.545.454-54"/>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -1,6 +1,8 @@
 package passagensaereas;
 
-public class Passageiro extends Pessoa {
+import java.io.Serializable;
+
+public class Passageiro extends Pessoa implements Serializable{
         
     public Passageiro(String nomePessoa, String cpf) {
         this.nomePessoa = nomePessoa;

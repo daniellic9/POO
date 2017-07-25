@@ -8,6 +8,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 public class JavaApplication7 {
 	public static void main(String[] args) {
+            while(true){
+                
 		try {
 			ServerSocket server = new ServerSocket(5678);
 			Socket clSocket = server.accept();
@@ -16,8 +18,8 @@ public class JavaApplication7 {
 			BufferedReader reader = new BufferedReader(isr);
 			String fName = reader.readLine();
 			System.out.println(fName);
-			File f1 = new File("C:\\Users\\danie\\Desktop\\POO\\ticketspassagem\\" + fName);
-			FileOutputStream out = new FileOutputStream(f1);
+			File f1 = new File("ticketspassagem/"+fName);
+                        FileOutputStream out = new FileOutputStream(f1);
 			    int tamanho = 4096; // buffer de 4KB  
 			    byte[] buffer = new byte[tamanho];  
 			    int lidos = -1;  
@@ -29,6 +31,7 @@ public class JavaApplication7 {
 			    out.flush();  
 		} catch (IOException e) {
 		}
+            }
 	}
 }
 

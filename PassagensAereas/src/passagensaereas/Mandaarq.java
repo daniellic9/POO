@@ -7,8 +7,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 public class Mandaarq {
-	public void mandapdf()throws Exception {
-		File f = new File("C:\\Users\\danie\\Desktop\\POO\\PassagensAereas\\passagem.pdf");
+	public void mandapdf(String caminhoPDF)throws Exception {
+		File f = new File(caminhoPDF);
 		FileInputStream in = new FileInputStream(f);
             try (Socket socket = new Socket("localhost", 5678)) {
                 OutputStream out = socket.getOutputStream();

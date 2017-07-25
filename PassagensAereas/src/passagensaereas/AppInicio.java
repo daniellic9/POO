@@ -1456,7 +1456,6 @@ public class AppInicio extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtSelecaoPoltronaCPF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtSelecaoPoltronaCPF.setText("584.545.454-54");
         pSelecaoPoltrona.add(txtSelecaoPoltronaCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 30));
 
         lblPoltrona.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
@@ -1939,6 +1938,7 @@ public class AppInicio extends javax.swing.JFrame {
 
     
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
+        
         for (int i = 0; i <agenda.size(); i++) {
             
             if(agenda.get(i).testaSenha(txtLogin.getText(),txtSenha.getText())){
@@ -1966,11 +1966,23 @@ public class AppInicio extends javax.swing.JFrame {
         
         //gera segunda via é o mesmo método pra gerar o check-in
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("2via.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("2via.pdf")); //muda aqui o nome de cada coisa
             document.open();
+            Image logo;
+            try {
+                logo = Image.getInstance("whale-filled300.png");
+                document.add(logo);
+                logo.setAlignment(0);
+            } catch (IOException ex) {
+                Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             TabelaVendas a = new TabelaVendas();
             Font f = new Font(FontFamily.COURIER, 20, Font.ITALIC);
-            document.add(new Paragraph("Segunda via de Check-in", f));
+            Paragraph p = new Paragraph();
+            document.add(new Paragraph("Passagem", f));
+            p.setAlignment(50);
+            
             for (int i = 0; i < 6; i++) {
                 document.add(new Paragraph(" "));
                 document.add(new Phrase(new Chunk( a.getColumnName(i) )));
@@ -1981,9 +1993,10 @@ public class AppInicio extends javax.swing.JFrame {
             BarcodeEAN codeEAN = new BarcodeEAN();
             document.add(new Paragraph(" "));
             codeEAN.setCodeType(codeEAN.EAN13);
-            codeEAN.setCode("9070802124510"); // fazer random para cada pessoa
+            String codigo = Integer.toString((int)Math.floor(Math.random()*1000000000));
+            codeEAN.setCode(codigo); // fazer random para cada pessoa
             Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);
-            document.add(new Phrase(new Chunk(imageEAN, 0, 0)));
+            document.add(new Phrase(new Chunk(imageEAN, 50, 50)));
             
         } catch (FileNotFoundException | DocumentException ex) {
             System.out.println("Erro: " + ex.toString());
@@ -2006,6 +2019,15 @@ public class AppInicio extends javax.swing.JFrame {
         try {
             PdfWriter.getInstance(vendas, new FileOutputStream("Vendas.pdf"));
             vendas.open();
+            Image logo;
+            try {
+                logo = Image.getInstance("whale-filled300.png");
+                vendas.add(logo);
+                logo.setAlignment(0);
+            } catch (IOException ex) {
+                Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             vendas.add(new Paragraph("idVoo"+"   Nome"+"   Horário"+"   Origem"+"   Destino"+"   Valor"));
             for(i=0;i<agendaPassagem.size();i++)
                 vendas.add(new Paragraph(agendaPassagem.get(i).getIdvoo()+"   "+agendaPassagem.get(i).passageiro.getNomePessoa()+"   "+agendaPassagem.get(i).getHorarioSaida()+"-"+agendaPassagem.get(i).getHorarioChegada()+"   "+agendaPassagem.get(i).getOrigem()+"   "+agendaPassagem.get(i).getDestino()+"   "+agendaPassagem.get(i).getValor()));
@@ -2046,12 +2068,20 @@ public class AppInicio extends javax.swing.JFrame {
         }
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-
-    if( !validarData(jFormattedData.getText()) || new DateTime().isAfter(new Data(jFormattedData.getText()).getData().minusDays(2) )){
+        Data data = new Data(jFormattedData.getText());
+    if( !validarData(jFormattedData.getText()) 
+       || (new DateTime().isAfter(data.getData().minusDays(2)))){
             jFormattedData.setText("");
             
+            
     }
-    else{
+    if( new DateTime().isAfter(data.getData().minusYears(1)) ){
+        System.out.println("Entrou aqui");
+            jFormattedData.setText("");
+        
+    }
+    else {
+        System.out.println("Entra aqui");
                 System.out.println(jFormattedData.getText());
                 int i=0,j=0;
                 Voos p  = new Voos();
@@ -2783,9 +2813,10 @@ public class AppInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnComprarPassagemActionPerformed
 
     private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
-       if(Integer.parseInt(txtIDVoo.getText()) <= agendaPassagem.size()){
+       int num = Integer.parseInt(txtIDVoo.getText()) - 1;
+        if( num <= agendaPassagem.size()){
            try {
-               agendaPassagem.get(Integer.parseInt(txtIDVoo.getText())).getPdf();
+               agendaPassagem.get(num).getPdf();
            } catch (DocumentException ex) {
                Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -2814,17 +2845,30 @@ public class AppInicio extends javax.swing.JFrame {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         
         //gera segunda via é o mesmo método pra gerar o check-in
+        
+        
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("passagem.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(agendaPassagem.size() + "passagem.pdf")); //muda aqui o nome de cada coisa
             document.open();
+            Image logo;
+            try {
+                logo = Image.getInstance("whale-filled300.png");
+                document.add(logo);
+                logo.setAlignment(0);
+            } catch (IOException ex) {
+                Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             TabelaVendas a = new TabelaVendas();
             Font f = new Font(FontFamily.COURIER, 20, Font.ITALIC);
+            Paragraph p = new Paragraph();
             document.add(new Paragraph("Passagem", f));
+            p.setAlignment(50);
             
                 document.add(new Paragraph(" "));
                 document.add(new Phrase(new Chunk( a.getColumnName(0).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).getIdvoo() )));
                 document.add(new Paragraph(" "));
-                document.add(new Phrase(new Chunk( "idPassagem: \t " + agendaPassagem.get(agendaPassagem.size()-1).getIdpassagem() )));
+                document.add(new Phrase(new Chunk( "idPassagem: \t " + agendaPassagem.size())));
                 document.add(new Paragraph(" "));
                 document.add(new Phrase(new Chunk( a.getColumnName(1).toString() + ":\t " + agendaPassagem.get(agendaPassagem.size()-1).passageiro.getNomePessoa() )));
                 document.add(new Paragraph(" "));
@@ -2857,18 +2901,19 @@ public class AppInicio extends javax.swing.JFrame {
         
         //abre o pdf gerado
         try {
-            Desktop.getDesktop().open(new File("passagem.pdf"));
+            Desktop.getDesktop().open(new File(agendaPassagem.size() +"passagem.pdf"));
         } catch (IOException ex) {
             System.out.println("Erro: " + ex.toString());
         }
         Mandaarq novo=new Mandaarq();
         try {
-            novo.mandapdf();
+            novo.mandapdf(agendaPassagem.size() + "passagem.pdf");
         } catch (Exception ex) {
             Logger.getLogger(AppInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //txtIDVOOPASSAGEM.setText("");
+        disc.salvarPassagem();
         txtSelecaoPoltronaCPF.setText("");
         txtSelecaoPoltronaNome.setText("");
     }//GEN-LAST:event_btnComprarPoltronaActionPerformed
